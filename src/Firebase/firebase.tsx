@@ -5,7 +5,7 @@ import "firebase/auth";
 import "firebase/database";
 import "firebase/storage";
 
-const firebaseConfig = {
+const firebaseConfig:object = {
     apiKey: "AIzaSyCk89LoipIteGprWE5Ne9vTsuI-UrmZD-c",
     authDomain: "issuestrack-d21ce.firebaseapp.com",
     projectId: "issuestrack-d21ce",
@@ -15,7 +15,7 @@ const firebaseConfig = {
     measurementId: "G-FH08V3WFYF"
 };
 
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+const app: any = initializeApp(firebaseConfig);
+const analytics: any = getAnalytics(app);
 
 export default firebase;
