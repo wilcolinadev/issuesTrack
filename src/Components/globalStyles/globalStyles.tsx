@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const GlobalStyles = styled.div`
-  *{
+  *, body{
     margin: 0;
     padding: 0;
     outline:0;

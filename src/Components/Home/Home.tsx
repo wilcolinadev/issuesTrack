@@ -1,16 +1,11 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import Navigation from "./Navigation/Navigation";
+import {Wrapper} from "./HomeSTyles";
 
-
- const Home =()=>(
-        <>
-            <h1>
-                Hi bitch
-            </h1>
-            <Link to="/login"> Log in </Link>
-            <Link to="/Signup"> Sign Up </Link>
-            <Link to="/Dashboard"> Dashboard </Link>
-        </>
+const Home =()=>(
+        <Wrapper>
+            <Navigation/>
+        </Wrapper>
  );
 
  export default Home;
