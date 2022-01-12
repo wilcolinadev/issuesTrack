@@ -18,7 +18,7 @@
 - Styled Components
 - Redux
 - Firebase
-- 
+
 ### I will build the entire design of the project as well 👨‍💻
 
 - Photoshop and MockFlow WireframePro for the design aspect
