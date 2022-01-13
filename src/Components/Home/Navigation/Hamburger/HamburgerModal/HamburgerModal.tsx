@@ -2,8 +2,10 @@ import React from "react"
 import {Image, ModalDiv, ModalWrapper} from "./HModalStyles";
 import {BurgerController} from "../HamburgerStyles";
 import {Link} from "react-router-dom";
-import {ModalLink} from "./HModalStyles";
+import {ModalLink , LoginIcon, SignUpIcon} from "./HModalStyles";
 import logo from "../../../../../assets/IT-removebg-preview.png";
+
+
 const HamburgerModal:React.FC<BurgerController> = ({open}) => {
 
     return(
@@ -12,6 +14,7 @@ const HamburgerModal:React.FC<BurgerController> = ({open}) => {
             <ModalDiv>
                 <Link to={"/Login"}>
                     <ModalLink >
+                       <LoginIcon/>
                         Log in
                     </ModalLink>
                 </Link>
@@ -20,6 +23,7 @@ const HamburgerModal:React.FC<BurgerController> = ({open}) => {
             <ModalDiv>
                 <Link to={"/Signup"}>
                     <ModalLink >
+                      <SignUpIcon/>
                         Sign Up
                     </ModalLink>
                 </Link>

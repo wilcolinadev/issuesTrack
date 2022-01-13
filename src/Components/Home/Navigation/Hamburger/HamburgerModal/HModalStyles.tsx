@@ -1,6 +1,21 @@
 import styled from "styled-components";
 import {BurgerController} from "../HamburgerStyles";
-import {Link} from "react-router-dom";
+import { IoIosLogIn, IoIosPerson } from "react-icons/io";
+
+
+export const LoginIcon = styled(IoIosLogIn)`
+  font-size: 2.5rem;
+  position: relative;
+  top:5px;
+  right: 8px;
+`;
+
+export const SignUpIcon = styled(IoIosPerson)`
+  font-size: 2.5rem;
+  position: relative;
+  top:5px;
+  right: 8px;
+`;
 
 export const ModalWrapper = styled.section`
   position: fixed;
@@ -22,8 +37,8 @@ export let ModalLink = styled.p`
   color: #fff;
   font-size: 2.5rem;
   text-align: center;
-  font-family: 'Roboto Condensed', sans-serif;;
-`;;
+  font-family: 'Roboto Condensed', sans-serif;
+`;
 
 
 
