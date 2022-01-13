@@ -1,7 +1,10 @@
 import React from "react";
+import {HeaderButton} from "./ButtonStyles";
 
 const Button:React.FC = () =>(
-    <button> Let's Solve some issues </button>
+    <HeaderButton>
+        Let's track some problems
+    </HeaderButton>
 );
 
 export default Button;
