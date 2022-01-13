@@ -1,39 +1,42 @@
 import React, {Fragment} from "react";
 import {Link} from "react-router-dom";
 import {NavigationElement, NavigationTitle, NavigationWrapper} from "./NavigationStyles";
+import Hamburger from "./Hamburger/Hamburger";
 
 
-const Navigation =()=>{
+const Navigation:React.FC =()=>{
 
     return(
         <Fragment>
-            <NavigationWrapper padding={2} justifyFlex={"space-around"}>
+            <NavigationWrapper padding={2} justifyFlex={"space-between"}>
 
+                <NavigationWrapper  justifyFlex={"center"}>
+                    <Link to={"/"}>
+                         <NavigationTitle>
+                            IssuesTrack
+                         </NavigationTitle>
+                    </Link>
+                 </NavigationWrapper>
+                <NavigationWrapper justifyFlex={"center"}>
+                    <Hamburger/>
+                </NavigationWrapper>
 
-        <NavigationWrapper  justifyFlex={"center"}>
-            <Link to={"/"}>
-                <NavigationTitle>
-                    IssuesTrack
-                </NavigationTitle>
-            </Link>
-        </NavigationWrapper>
+            {/*    <NavigationWrapper justifyFlex={"space-between"}>*/}
 
-        <NavigationWrapper justifyFlex={"space-between"}>
+            {/*<Link to={"/Login"} >*/}
+            {/*    <NavigationElement>*/}
+            {/*        Log In*/}
+            {/*    </NavigationElement>*/}
+            {/*</Link>*/}
 
-            <Link to={"/Login"} >
-                <NavigationElement>
-                    Log In
-                </NavigationElement>
-            </Link>
+            {/*<Link to={"/Signup"} >*/}
 
-            <Link to={"/Signup"} >
+            {/*    <NavigationElement>*/}
+            {/*        Sign up*/}
+            {/*    </NavigationElement>*/}
 
-                <NavigationElement>
-                    Sign up
-                </NavigationElement>
-
-            </Link>
-        </NavigationWrapper>
+            {/*</Link>*/}
+            {/*</NavigationWrapper>*/}
 
             </NavigationWrapper>
     </Fragment>)
