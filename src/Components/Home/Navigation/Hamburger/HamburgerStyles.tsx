@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-interface BurgerController {
+export interface BurgerController {
     open: boolean;
 }
 export const Burger = styled.button`
@@ -26,7 +26,7 @@ export const Burger = styled.button`
   div{
     width: 2rem;
     height: 0.2rem;
-    background: ${( props:BurgerController ) => props.open ? '#FFFFFF' : '#EFFFFA'};
+    background: ${( props:BurgerController ) => props.open ? '#ffffff' : '#EFFFFA'};
     
     transition: all 0.3s linear;
     position: relative;

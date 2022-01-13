@@ -17,26 +17,24 @@ const Navigation:React.FC =()=>{
                          </NavigationTitle>
                     </Link>
                  </NavigationWrapper>
+
                 <NavigationWrapper justifyFlex={"center"}>
                     <Hamburger/>
+
+                    <Link to={"/Login"}>
+                        <NavigationElement marginRight={2}>
+                            Log In
+                        </NavigationElement>
+                    </Link>
+
+                    <Link to={"/Signup"}>
+                        <NavigationElement >
+                            Sign Up
+                        </NavigationElement>
+                    </Link>
                 </NavigationWrapper>
 
-            {/*    <NavigationWrapper justifyFlex={"space-between"}>*/}
 
-            {/*<Link to={"/Login"} >*/}
-            {/*    <NavigationElement>*/}
-            {/*        Log In*/}
-            {/*    </NavigationElement>*/}
-            {/*</Link>*/}
-
-            {/*<Link to={"/Signup"} >*/}
-
-            {/*    <NavigationElement>*/}
-            {/*        Sign up*/}
-            {/*    </NavigationElement>*/}
-
-            {/*</Link>*/}
-            {/*</NavigationWrapper>*/}
 
             </NavigationWrapper>
     </Fragment>)
