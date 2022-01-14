@@ -3,7 +3,7 @@ import {Image, ModalDiv, ModalWrapper} from "./HModalStyles";
 import {BurgerController} from "../HamburgerStyles";
 import {Link} from "react-router-dom";
 import {ModalLink , LoginIcon, SignUpIcon} from "./HModalStyles";
-import logo from "../../../../../assets/IT-removebg-preview.png";
+import logo from "../../../../../assets/ITlogo.png";
 
 
 const HamburgerModal:React.FC<BurgerController> = ({open}) => {

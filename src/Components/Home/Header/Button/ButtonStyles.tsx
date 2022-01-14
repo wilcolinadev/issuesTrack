@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const HeaderButton = styled.button`
   border: none;
-  font-size: 1.5rem;
+  font-size: 1rem;
   background-color: #F3F3BD;
   color: #000;
   padding: .7rem;

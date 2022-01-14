@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,400;0,700;1,300&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&family=Roboto+Condensed:ital,wght@0,400;0,700;1,300&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,900&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -13,6 +13,12 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-decoration: none;
+    background-color: #141e30;
+    background: -webkit-linear-gradient(to bottom, #141e30, #243b55);
+    background: linear-gradient(to bottom, #141e30, #243b55);
+    background-position: center;
+    height: auto;
+    background-size: cover;
 }
 
 
