@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const HeaderButton = styled.button`
+  font-family: 'Quicksand', sans-serif;
   border: none;
   font-size: 1rem;
   background-color: #F3F3BD;
@@ -8,7 +9,7 @@ export const HeaderButton = styled.button`
   padding: .7rem;
   margin-left: 2rem;
   border-radius: 20px;
-  font-weight: bold;
+  font-weight: bolder;
   filter: drop-shadow(1px 1px 1px #ffffff);
   margin-top: 1rem;
   margin-bottom: 2rem;
@@ -24,5 +25,14 @@ export const HeaderButton = styled.button`
     font-size: 1.2rem;
     margin-top: 1.2rem;
     margin-bottom: 2.5rem;
+  }
+
+  @media only screen and (min-width: 700px){
+   font-size: 2rem;
+   padding: 1rem;
+   margin-left: 3rem;
+    
+    
+
   }
 `;

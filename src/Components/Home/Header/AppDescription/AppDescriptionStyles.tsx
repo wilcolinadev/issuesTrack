@@ -13,4 +13,16 @@ export const Text = styled.p`
     font-size: 1.2rem;
     line-height: 2rem;
   }
+  @media only screen and (min-width: 700px){
+    width: 80%;
+    margin-left: 1rem;
+    padding-left: 2rem;
+    font-size: 2rem;
+    line-height: 3.5rem;
+    padding-top: 0;
+  }
+
+  @media only screen and (min-width: 1025px){
+    width: 90%;
+  }
   `;

@@ -6,9 +6,14 @@ import Footer from "./Footer/Footer";
 
 const Home =()=>(
         <Wrapper>
-            <Navigation/>
-            <Header/>
-            <Footer/>
+
+                <Navigation/>
+                <Header/>
+
+
+
+                <Footer />
+
         </Wrapper>
  );
 

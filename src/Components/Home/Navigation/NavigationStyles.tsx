@@ -14,9 +14,9 @@ export const NavigationWrapper = styled.div`
     box-sizing: border-box;
   
   @media only screen and (min-width:700px) {
-    margin-right: 1.5rem;
-    margin-left: 1.5rem;
-
+    margin-right: 1rem;
+    margin-left: .5rem;
+   
   }
   
 `;
@@ -29,19 +29,22 @@ export const NavigationElement = styled.p`
   box-sizing: border-box;
 
   &:hover {
-    color: #f3f3bd;
+   color: #ffca20;
     transition: .3s ease-in-out;
+    border-bottom: 2px solid  #ffca20;
   }
 
 
   @media only screen and (min-width: 700px) {
     display: block;
-
+    font-size: 1.8rem;
+    margin-right: ${(props: Props) => props.marginRight + "rem"};
+    margin-top: .5rem;
   }
 
   @media only screen and (min-width: 1025px) {
     display: block;
-    margin-right: ${(props: Props) => props.marginRight + "rem"};
+   
   }
 
 
@@ -54,8 +57,14 @@ export const NavigationTitle = styled.p`
   letter-spacing: 4px;
   font-weight: bold;
   &:hover {
-    color: #f3f3bd;
+    color:  #ffca20;
     transition: .3s ease-in-out;
+  }
+
+
+  @media only screen and (min-width: 700px) {
+    
+    font-size: 2.5rem;
   }
 `;
 
