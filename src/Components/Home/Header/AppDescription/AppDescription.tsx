@@ -1,5 +1,5 @@
 import React from "react";
-import {Text} from "./DescriptionStyles";
+import {Text} from "./AppDescriptionStyles";
 
 
 const AppDescription:React.FC =()=>(

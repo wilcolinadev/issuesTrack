@@ -19,4 +19,10 @@ export const HeaderButton = styled.button`
     transition: 0.4s ease-in-out;
     
   }
+  
+  @media only screen and (min-width: 390px){
+    font-size: 1.2rem;
+    margin-top: 1.2rem;
+    margin-bottom: 2.5rem;
+  }
 `;

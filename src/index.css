@@ -19,6 +19,8 @@ body {
     background-position: center;
     height: auto;
     background-size: cover;
+    min-height: 100vh;
+    position: relative;
 }
 
 

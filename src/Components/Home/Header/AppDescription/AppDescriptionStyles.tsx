@@ -8,4 +8,9 @@ export const Text = styled.p`
   line-height: 1.5rem;
   padding: 1rem;
   margin-left: 1rem;
-`;
+  
+  @media only screen and (min-width: 390px){
+    font-size: 1.2rem;
+    line-height: 2rem;
+  }
+  `;
