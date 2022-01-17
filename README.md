@@ -22,6 +22,7 @@
 ### I will build the entire design of the project as well 👨‍💻
 
 - Photoshop and MockFlow WireframePro for the design aspect
+- Background pattern used by SVGBackgrounds.com
 
 
 
