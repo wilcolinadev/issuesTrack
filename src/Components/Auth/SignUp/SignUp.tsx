@@ -4,16 +4,16 @@ import {
     FNameInput, EmailInput, LNameInput, PasswordInput, Form, MessageWrapper, GridCentered, NameWrapper
 } from "../AuthStyles";
 
+const SignUp =()=>{
+
 const [firstName, setFirstName] = useState("");
-const [lastName, LastName] = useState("");
+const [lastName, setLastName] = useState("");
 const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
 const [passwordValidation, setPasswordValidation] = useState("")
 const [isFormValidated, setIsFormValidated] = useState(false);
 
-
-
-const SignUp =()=>(
+return(
     <AuthWrapper>
         <MessageWrapper>
             <GridCentered>
@@ -34,27 +34,37 @@ const SignUp =()=>(
 
                     <FNameInput placeholder={"First Name"}
                                 value={firstName}
-                                onChange={event => setFirstName(event.target.value)}/>
+                                onChange={(event) => setFirstName(event.target.value)}/>
 
                     <LNameInput placeholder="Last Name"
-                                value={lastName}/>
+                                value={lastName}
+                                onChange={(event) => setLastName(event.target.value)}
+                                />
                 </NameWrapper>
 
                 <EmailInput placeholder="Email"
-                            value={email} />
+                            value={email}
+                            onChange={(event) => setEmail(event.target.value)}
+
+                />
+
 
                 <PasswordInput placeholder="Password"
                                background={true}
-                               value={password}/>
+                               value={password}
+                               onChange={(event)=> setPassword(event.target.value)}
+                />
 
                 <PasswordInput placeholder="Repeat Password"
-                               value={passwordValidation} />
+                               value={passwordValidation}
+                               onChange={(event)=> setPasswordValidation(event.target.value)}
+                />
 
             </Form>
         </AuthCard>
 
     </AuthWrapper>
 
-);
+)};
 
 export default SignUp;

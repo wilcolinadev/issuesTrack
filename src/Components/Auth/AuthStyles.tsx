@@ -23,7 +23,6 @@ export const AuthWrapper = styled.section`
 
 export const MessageWrapper = styled.section`
   background-image: url(${pattern});
-  position: center;
   background-size: cover;
   display: grid;
   grid-template-columns: 1fr;
@@ -34,7 +33,7 @@ export const MessageWrapper = styled.section`
 `;
 
 export const GridCentered = styled.div` 
-  grid-area: 2 / 1 / 3 / 2; 
+  grid-area: 2 / 1 / 3 / 2;
   
 `;
 
@@ -69,22 +68,26 @@ export const Form = styled.form`
   flex-flow: column nowrap;
   margin-top: .5rem;
   box-sizing: border-box;
+  height: 100%;
   input{
     margin: 1rem;
-    padding: .5rem;
+    
     border: none;
     background-color: #F3F3BD;
     font-family: 'Quicksand', sans-serif;
     background-repeat: no-repeat;
     background-position: left;
     background-size: 18px;
+    padding: .5rem .5rem .5rem 1.4rem;
     
+   
   }
   input::placeholder{
     color: #000;
     font-size: 1rem;
-    padding-left: 1rem;
+    padding-left: .2rem;
   }
+  
   
 `;
 
