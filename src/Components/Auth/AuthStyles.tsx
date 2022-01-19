@@ -19,6 +19,7 @@ export const AuthWrapper = styled.section`
   grid-template-rows: repeat(2,1fr);
   grid-column-gap: 0;
   grid-row-gap: 0;
+  position: fixed;
 `;
 
 export const MessageWrapper = styled.section`
@@ -64,28 +65,36 @@ export const AuthDescription = styled.p`
 `;
 
 export const Form = styled.form`
+  
   display: flex;
   flex-flow: column nowrap;
-  margin-top: .5rem;
-  box-sizing: border-box;
+  padding: .6rem;
+ 
   height: 100%;
+  margin: 0 auto;
   input{
-    margin: 1rem;
-    
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     border: none;
     background-color: #F3F3BD;
     font-family: 'Quicksand', sans-serif;
     background-repeat: no-repeat;
     background-position: left;
     background-size: 18px;
-    padding: .5rem .5rem .5rem 1.4rem;
+    padding: .5rem .5rem .5rem 1.3rem;
+    
     
    
   }
   input::placeholder{
     color: #000;
     font-size: 1rem;
-    padding-left: .2rem;
+    
+  }
+
+  input[type="text"]{
+    font-size: 2rem;
+    margin-left: .9rem;
   }
   
   
@@ -94,19 +103,22 @@ export const Form = styled.form`
 export const NameWrapper = styled.div`
   display: flex;
   flex-flow: row nowrap;
-  justify-content: center;
+  justify-content: space-between;
+ 
 `;
 
 export const FNameInput = styled.input`
  
   background-image: url(${FNameIcon});
-  
 
+  margin-right: .3rem;
 
 `;
 
 export const LNameInput = styled.input`
   background-image: url(${LNameIcon});
+  
+  
 `;
 
 export const EmailInput = styled.input`
