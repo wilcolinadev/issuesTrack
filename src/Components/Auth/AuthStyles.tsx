@@ -19,7 +19,9 @@ export const AuthWrapper = styled.section`
   grid-template-rows: repeat(2,1fr);
   grid-column-gap: 0;
   grid-row-gap: 0;
-  position: fixed;
+  max-height: 100vh;
+  
+  
 `;
 
 export const MessageWrapper = styled.section`
@@ -35,6 +37,7 @@ export const MessageWrapper = styled.section`
 
 export const GridCentered = styled.div` 
   grid-area: 2 / 1 / 3 / 2;
+  
   
 `;
 
@@ -53,6 +56,10 @@ export const WelcomeMessage = styled.h3`
   font-weight: lighter;
   text-align: center;
   
+  @media only screen and (min-width: 700px){
+  font-size: 5.5rem ;
+}
+  
 `;
 
 export const AuthDescription = styled.p`
@@ -62,6 +69,11 @@ export const AuthDescription = styled.p`
     text-align: center;
     margin-top: .5rem;
     padding: 0 1rem;
+
+  @media only screen and (min-width: 700px){
+    font-size: 2rem ;
+    padding: 0 7rem;
+  }
 `;
 
 export const Form = styled.form`
@@ -69,9 +81,9 @@ export const Form = styled.form`
   display: flex;
   flex-flow: column nowrap;
   padding: .6rem;
- 
   height: 100%;
   margin: 0 auto;
+  box-sizing: border-box;
   input{
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -82,47 +94,79 @@ export const Form = styled.form`
     background-position: left;
     background-size: 18px;
     padding: .5rem .5rem .5rem 1.3rem;
-    
-    
+    font-size: .8rem;
    
   }
   input::placeholder{
     color: #000;
-    font-size: 1rem;
+    font-size: 1.2rem;
+    
     
   }
 
-  input[type="text"]{
+  
+  
+
+  @media only screen and (min-width: 700px){
+   
+    font-size: 2.5rem ;
+    padding-top: 1.5rem;
+   input{
+     height: 2.5rem;
+     background-size: 22px;
+     padding-left: 2rem;
+ 
+   }
+
+    input::placeholder{
+
+      font-size: 1.8rem;
+      margin-top: .8rem;
+    }
+  }
+  @media only screen and (min-width: 1025px){
+    input{
+      font-size: 1.5rem;
+      padding-top: 1rem;
+    }
+    
+    padding-left: 20rem;
+    padding-right: 20rem;
     font-size: 2rem;
-    margin-left: .9rem;
   }
   
-  
+
 `;
 
 export const NameWrapper = styled.div`
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
+
+  @media only screen and (min-width: 700px){
+    justify-content: center;
+    
+  }
  
 `;
 
 export const FNameInput = styled.input`
  
   background-image: url(${FNameIcon});
-
-  margin-right: .3rem;
-
+  flex: 1 1 auto;
+  margin-right: 1rem;
+ 
 `;
 
 export const LNameInput = styled.input`
   background-image: url(${LNameIcon});
-  
-  
+  flex: 1 1 auto;
+ 
 `;
 
 export const EmailInput = styled.input`
   background-image: url(${Email});
+  
 `;
 
 
@@ -133,3 +177,81 @@ export const PasswordInput = styled.input`
 export const ImageAuth =  styled.img`
   width: 200px;
 `;
+
+export const FooterLink = styled.p`
+
+  font-size: 1rem;
+  text-align: center;
+  font-weight: bold;
+  color: #000;
+
+ 
+
+  &:hover {
+    text-decoration: underline;
+    transition: 0.2s ease-in-out;
+
+  }
+
+  @media only screen and (min-width: 700px){
+    font-size: 1.5rem;
+
+  }
+`;
+
+export const LinkDescription = styled.p`
+  font-size: 1rem;
+  text-align: center;
+  
+  padding-right: .33rem;
+  @media only screen and (min-width: 700px){
+    font-size: 1.5rem;
+
+  }
+  
+`;
+
+export const LinkWrapper = styled.div`
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  padding-bottom: .5rem;
+  @media only screen and (min-width: 700px){
+    padding-bottom: 1rem;
+
+  }
+`;
+
+export const AuthButton = styled.button`
+  
+  font-family: 'Quicksand', sans-serif;
+  border: none;
+  font-size: 1rem;
+  background-color: #ccc;
+  color: #000;
+  padding: .5rem;
+ 
+  
+  font-weight: bolder;
+  filter: drop-shadow(1px 1px 1px #ffffff);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  
+  &:hover{
+    background-color: #ffca20;
+    transition: 0.4s ease-in-out;
+    
+  }
+  
+  
+
+  @media only screen and (min-width: 700px){
+    margin-bottom: 2rem;
+   font-size: 2rem;
+   padding: 1rem;
+    
+  }
+
+`;
+

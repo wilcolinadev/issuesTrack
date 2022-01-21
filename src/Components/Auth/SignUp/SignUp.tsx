@@ -1,8 +1,23 @@
 import React, {useState} from "react";
 import {
-    AuthCard, AuthDescription, AuthWrapper, WelcomeMessage,
-    FNameInput, EmailInput, LNameInput, PasswordInput, Form, MessageWrapper, GridCentered, NameWrapper
+    AuthCard,
+    AuthDescription,
+    AuthWrapper,
+    WelcomeMessage,
+    FNameInput,
+    EmailInput,
+    LNameInput,
+    PasswordInput,
+    Form,
+    MessageWrapper,
+    GridCentered,
+    NameWrapper,
+    FooterLink,
+    AuthButton,
+    LinkDescription, LinkWrapper
 } from "../AuthStyles";
+import {Link} from "react-router-dom";
+
 
 const SignUp =()=>{
 
@@ -21,9 +36,11 @@ return(
                     Create Account
                 </WelcomeMessage>
 
-                <AuthDescription>
-                    Complete the form below and have access to our platform.
-                </AuthDescription>
+                    <AuthDescription>
+                        Complete the form below and have access to our platform.
+                    </AuthDescription>
+
+
             </GridCentered>
 
         </MessageWrapper>
@@ -60,7 +77,26 @@ return(
                                onChange={(event)=> setPasswordValidation(event.target.value)}
                 />
 
+                <AuthButton>
+                    Submit
+                </AuthButton>
+
+                <LinkWrapper>
+                    <LinkDescription >
+                        Already signed up?
+
+                    </LinkDescription >
+
+                    <Link to={"/Login"}>
+                        <FooterLink>
+                            Log in here!
+                        </FooterLink>
+                    </Link>
+                </LinkWrapper>
+
             </Form>
+
+
         </AuthCard>
 
     </AuthWrapper>
