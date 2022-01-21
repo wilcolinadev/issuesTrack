@@ -9,9 +9,6 @@ const Home =()=>(
 
                 <Navigation/>
                 <Header/>
-
-
-
                 <Footer />
 
         </Wrapper>

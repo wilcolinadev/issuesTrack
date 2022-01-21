@@ -62,11 +62,12 @@ export const GridWrapper = styled.div`
     grid-template-rows: 1fr;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
+    margin-top: 7rem;
 
   }
 
-  @media only screen and (min-height: 950px ) and (min-width: 1025px){
-    margin-top: 5rem;
+  @media only screen and (min-height: 1000px ) and (min-width: 1025px){
+    margin-top: 10rem;
     
   }
   

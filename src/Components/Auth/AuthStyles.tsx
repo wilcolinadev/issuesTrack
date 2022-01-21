@@ -111,6 +111,9 @@ export const Form = styled.form`
    
     font-size: 2.5rem ;
     padding-top: 1.5rem;
+    padding-left: 8rem;
+    padding-right: 8rem;
+    
    input{
      height: 2.5rem;
      background-size: 22px;
@@ -130,8 +133,8 @@ export const Form = styled.form`
       padding-top: 1rem;
     }
     
-    padding-left: 20rem;
-    padding-right: 20rem;
+    padding-left: 25rem;
+    padding-right: 25rem;
     font-size: 2rem;
   }
   
