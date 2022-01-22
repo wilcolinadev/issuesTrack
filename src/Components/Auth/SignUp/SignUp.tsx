@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {
     AuthCard,
     AuthDescription,
@@ -17,7 +17,7 @@ import {
     LinkDescription, LinkWrapper
 } from "../AuthStyles";
 import {Link} from "react-router-dom";
-
+import firebase from "../../../Firebase/firebase";
 
 const SignUp =()=>{
 
@@ -27,6 +27,31 @@ const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
 const [passwordValidation, setPasswordValidation] = useState("")
 const [isFormValidated, setIsFormValidated] = useState(false);
+
+const inputValidation = (): boolean | void => {
+       if (firstName.length > 2 && lastName.length >> 2 && email.length > 2 ){
+        return true;
+    }
+
+};
+
+const passwordVerification = (): boolean | void =>{
+    if ( password.length > 6 && password === passwordValidation){
+        return true
+    }
+}
+
+useEffect(()=>{
+
+    if (inputValidation() && passwordVerification()){
+        setIsFormValidated(true);
+    }else{
+        setIsFormValidated(false);
+    }
+
+},[firstName, lastName, email, password, passwordValidation,isFormValidated])
+
+
 
 return(
     <AuthWrapper>
@@ -61,6 +86,7 @@ return(
 
                 <EmailInput placeholder="Email"
                             value={email}
+                            type={"email"}
                             onChange={(event) => setEmail(event.target.value)}
 
                 />
@@ -69,15 +95,17 @@ return(
                 <PasswordInput placeholder="Password"
                                background={true}
                                value={password}
+                               type={"password"}
                                onChange={(event)=> setPassword(event.target.value)}
                 />
 
                 <PasswordInput placeholder="Repeat Password"
                                value={passwordValidation}
+                               type={"password"}
                                onChange={(event)=> setPasswordValidation(event.target.value)}
                 />
 
-                <AuthButton>
+                <AuthButton disabled={!isFormValidated}>
                     Submit
                 </AuthButton>
 

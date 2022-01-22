@@ -10,6 +10,8 @@ interface PropsAuth {
     background?: boolean;
 }
 
+
+
 export const AuthWrapper = styled.section`
   background-color: #e5e2e2;
   width: 100%;
@@ -117,8 +119,9 @@ export const Form = styled.form`
    input{
      height: 2.5rem;
      background-size: 22px;
-     padding-left: 2rem;
- 
+     padding-left: 1.8rem;
+     font-size: 1.3rem ;
+      box-sizing: border-box;
    }
 
     input::placeholder{
@@ -233,16 +236,14 @@ export const AuthButton = styled.button`
   background-color: #ccc;
   color: #000;
   padding: .5rem;
- 
-  
   font-weight: bolder;
   filter: drop-shadow(1px 1px 1px #ffffff);
   margin-top: 1rem;
   margin-bottom: 1rem;
-  cursor: pointer;
+  cursor: ${(props)=>(!props.disabled ? "pointer" : "not-allowed")};
   
   &:hover{
-    background-color: #ffca20;
+    background-color: ${(props)=>(!props.disabled) ? "#ffca20" : "ccc"} ;
     transition: 0.4s ease-in-out;
     
   }
