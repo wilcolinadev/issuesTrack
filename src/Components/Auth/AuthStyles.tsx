@@ -132,8 +132,10 @@ export const Form = styled.form`
   }
   @media only screen and (min-width: 1025px){
     input{
+      height: 2.8rem;
       font-size: 1.5rem;
       padding-top: 1rem;
+      
     }
     
     padding-left: 25rem;

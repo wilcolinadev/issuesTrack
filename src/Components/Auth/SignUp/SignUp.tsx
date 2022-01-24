@@ -18,6 +18,8 @@ import {
 } from "../AuthStyles";
 import {Link} from "react-router-dom";
 import firebase from "../../../Firebase/firebase";
+import Spinner from "../../Spinner/Spinner";
+
 
 const SignUp =()=>{
 
@@ -25,8 +27,11 @@ const [firstName, setFirstName] = useState("");
 const [lastName, setLastName] = useState("");
 const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
-const [passwordValidation, setPasswordValidation] = useState("")
+const [passwordValidation, setPasswordValidation] = useState("");
 const [isFormValidated, setIsFormValidated] = useState(false);
+const [isLoading, setIsLoading] = useState(false);
+
+
 
 const inputValidation = (): boolean | void => {
        if (firstName.length > 2 && lastName.length >> 2 && email.length > 2 ){
@@ -40,6 +45,12 @@ const passwordVerification = (): boolean | void =>{
         return true
     }
 }
+
+const registerUser = (event) =>{
+    event.preventDefault();
+    setIsLoading(!isLoading);
+
+};
 
 useEffect(()=>{
 
@@ -55,6 +66,7 @@ useEffect(()=>{
 
 return(
     <AuthWrapper>
+        <Spinner loading={isLoading}/>
         <MessageWrapper>
             <GridCentered>
                 <WelcomeMessage>
