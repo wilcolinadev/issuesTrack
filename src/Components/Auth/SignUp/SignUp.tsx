@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from "react";
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/auth';
-
+import {createUserWithEmailAndPassword, updateProfile} from "firebase/auth";
+import {auth} from "../../../Firebase/firebase";
 
 import {
     AuthCard,
@@ -25,6 +24,7 @@ import {Link} from "react-router-dom";
 
 
 import Spinner from "../../Spinner/Spinner";
+import {addDoc, collection} from "firebase/firestore";
 
 
 const SignUp =()=>{
@@ -55,11 +55,22 @@ const passwordVerification = (): boolean | void =>{
 const registerUser = (event) =>{
     event.preventDefault();
     setIsLoading(!isLoading);
-    firebase.auth()
-        .createUserWithEmailAndPassword(email, password)
-        .then(user=>{
-            console.log(user);
-            setIsLoading(!isLoading);
+        createUserWithEmailAndPassword(auth,email, password)
+        .then(createdUser=>{
+
+            console.log(createdUser);
+            updateProfile(createdUser.user,{
+                displayName:firstName+" "+lastName
+            }).then(()=>{
+                console.log("user name Updated")
+
+            }).catch((err)=>{
+                console.log(err)
+            })
+
+            setIsLoading(false);
+        }).catch((err)=>{
+            console.log(err);
         })
 };
 
