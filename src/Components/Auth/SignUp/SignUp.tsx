@@ -20,11 +20,8 @@ import {
     LinkDescription, LinkWrapper
 } from "../AuthStyles";
 import {Link} from "react-router-dom";
-
-
-
 import Spinner from "../../Spinner/Spinner";
-import {addDoc, collection} from "firebase/firestore";
+
 
 
 const SignUp =()=>{

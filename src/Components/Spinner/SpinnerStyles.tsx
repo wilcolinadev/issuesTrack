@@ -8,9 +8,9 @@ export const SpinnerBox = styled.div`
   display: ${(props:SpinnerProps)=> props.state ? "block" : "none"};
   position: fixed;
   z-index: 500;
-  background-color: rgba(0,0,0,0.2);
+  background-color: #fff;
   width: 200px;
-  box-shadow: 1px 1px 1px black;
+  box-shadow:1px 1px 1px 1px #ccc;
   left: 50%;
   margin-left: -100px; /* Half of the width */
   box-sizing: border-box;
@@ -21,6 +21,12 @@ export const SpinnerBox = styled.div`
 `;
 
 export const InnerBox = styled.div`
+  padding: 60px 30px;
+`;
+
+export const SpinnerDescription = styled.div`
   text-align: center;
-  line-height: 200px;
+  padding-top: 90px;
+  font-weight: bold;
+  font-size: 20px;
 `;
