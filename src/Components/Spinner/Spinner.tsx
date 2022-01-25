@@ -6,7 +6,7 @@ interface SpinnerProps {
     loading: boolean
 }
 const Spinner: React.FC <SpinnerProps> = ({loading})=>(
-    <SpinnerBox>
+    <SpinnerBox state={loading}>
         <InnerBox>
             <RotateLoader loading={loading}  size={30}/>
         </InnerBox>

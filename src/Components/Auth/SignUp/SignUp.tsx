@@ -1,4 +1,8 @@
 import React, {useState, useEffect} from "react";
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+
+
 import {
     AuthCard,
     AuthDescription,
@@ -17,7 +21,9 @@ import {
     LinkDescription, LinkWrapper
 } from "../AuthStyles";
 import {Link} from "react-router-dom";
-import firebase from "../../../Firebase/firebase";
+
+
+
 import Spinner from "../../Spinner/Spinner";
 
 
@@ -49,7 +55,12 @@ const passwordVerification = (): boolean | void =>{
 const registerUser = (event) =>{
     event.preventDefault();
     setIsLoading(!isLoading);
-
+    firebase.auth()
+        .createUserWithEmailAndPassword(email, password)
+        .then(user=>{
+            console.log(user);
+            setIsLoading(!isLoading);
+        })
 };
 
 useEffect(()=>{
@@ -66,6 +77,7 @@ useEffect(()=>{
 
 return(
     <AuthWrapper>
+
         <Spinner loading={isLoading}/>
         <MessageWrapper>
             <GridCentered>
@@ -117,7 +129,7 @@ return(
                                onChange={(event)=> setPasswordValidation(event.target.value)}
                 />
 
-                <AuthButton disabled={!isFormValidated}>
+                <AuthButton disabled={!isFormValidated} onClick={registerUser}>
                     Submit
                 </AuthButton>
 

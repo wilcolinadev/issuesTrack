@@ -1,6 +1,11 @@
 import styled from "styled-components";
 
+interface SpinnerProps {
+    state: boolean
+}
+
 export const SpinnerBox = styled.div`
+  display: ${(props:SpinnerProps)=> props.state ? "block" : "none"};
   position: fixed;
   z-index: 500;
   background-color: rgba(0,0,0,0.2);
