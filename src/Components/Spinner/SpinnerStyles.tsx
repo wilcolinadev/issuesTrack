@@ -12,11 +12,12 @@ export const SpinnerBox = styled.div`
   width: 200px;
   box-shadow:1px 1px 1px 1px #ccc;
   left: 50%;
-  margin-left: -100px; /* Half of the width */
+  
   box-sizing: border-box;
   transition: all 0.3s ease-out;
   height: 200px;
   top: 50%;
+  transform: translate(-50%, -50%);
 
 `;
 

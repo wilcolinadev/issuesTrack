@@ -2,6 +2,8 @@ import React, {useState, useEffect} from "react";
 import {createUserWithEmailAndPassword, updateProfile} from "firebase/auth";
 import {auth, db} from "../../../Firebase/firebase";
 import {getDatabase, set, ref} from "firebase/database";
+import Modal from "../../Modal/Modal";
+import {Backdrop} from "../../Backdrop/Backdrop";
 
 import {
     AuthCard,
@@ -20,6 +22,7 @@ import {
     AuthButton,
     LinkDescription, LinkWrapper
 } from "../AuthStyles";
+
 import {Link} from "react-router-dom";
 import Spinner from "../../Spinner/Spinner";
 
@@ -37,6 +40,7 @@ const [isLoading, setIsLoading] = useState(false);
 
 
 
+
 const inputValidation = (): boolean | void => {
        if (firstName.length > 2 && lastName.length >> 2 && email.length > 2 ){
         return true;
@@ -49,6 +53,8 @@ const passwordVerification = (): boolean | void =>{
         return true
     }
 }
+
+
 
 const registerUser = (event) =>{
     event.preventDefault();
@@ -103,7 +109,8 @@ useEffect(()=>{
 
 return(
     <AuthWrapper>
-
+        <Modal/>
+        <Backdrop active={true}/>
         <Spinner loading={isLoading}/>
         <MessageWrapper>
             <GridCentered>

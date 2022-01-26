@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from "react-router-dom";
-import firebase from "firebase/compat/app";
+
 
 ReactDOM.render(
   <React.StrictMode>
