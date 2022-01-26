@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+export interface ModalProps{
+    active:boolean
+}
+
 export const ModalBox = styled.div`
   
   position: fixed;
@@ -8,10 +12,11 @@ export const ModalBox = styled.div`
   width:500px;
   box-shadow: 1px 1px 1px black;
   padding: 1.5em;
-  top: 50%;
+  margin-left: -250px;
   box-sizing: border-box;
-  transition: all 0.3s ease-out;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  transition: all .5s ease-in-out;
+  left:50%;
+  margin-top: ${(props:ModalProps)=>(!props.active ?  '0' : '50vh')} ;
+  transform:${(props:ModalProps)=>(!props.active ?  'translateY(-100%)' : 'translate(0)')} ;
 `;
 

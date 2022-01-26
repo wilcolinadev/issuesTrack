@@ -37,7 +37,7 @@ const [password, setPassword] = useState("");
 const [passwordValidation, setPasswordValidation] = useState("");
 const [isFormValidated, setIsFormValidated] = useState(false);
 const [isLoading, setIsLoading] = useState(false);
-
+const [isModalOpen, setIsModalOpen] = useState(false);
 
 
 
@@ -70,20 +70,24 @@ const registerUser = (event) =>{
                     then(()=>{
                     console.log("user name Updated and stored in database");
                     setIsLoading(false);
+                    setIsModalOpen(true);
                 }).catch(err=>{
                     console.log(err);
+                    setIsModalOpen(true);
                 })
 
 
             }).catch((err)=>{
                 console.log(err)
                 setIsLoading(false);
+                setIsModalOpen(true);
             })
 
 
         }).catch((err)=>{
             console.log(err);
             setIsLoading(false);
+            setIsModalOpen(true);
         })
 };
 
@@ -109,12 +113,12 @@ useEffect(()=>{
 
 return(
     <AuthWrapper>
-        <Modal/>
-        <Backdrop active={true}/>
-        <Spinner loading={isLoading}/>
+        <Modal active={isModalOpen} />
+        {(isModalOpen || isLoading ) && <Backdrop  onClick={()=>setIsModalOpen(!isModalOpen)}/>}
+        <Spinner loading={isLoading} />
         <MessageWrapper>
             <GridCentered>
-                <WelcomeMessage>
+                <WelcomeMessage onClick={()=>setIsLoading(!isLoading)}>
                     Create Account
                 </WelcomeMessage>
 
