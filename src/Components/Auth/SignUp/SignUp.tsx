@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {createUserWithEmailAndPassword, updateProfile} from "firebase/auth";
-import {auth} from "../../../Firebase/firebase";
+import {auth, db} from "../../../Firebase/firebase";
+import {getDatabase, set, ref} from "firebase/database";
 
 import {
     AuthCard,
@@ -59,17 +60,34 @@ const registerUser = (event) =>{
             updateProfile(createdUser.user,{
                 displayName:firstName+" "+lastName
             }).then(()=>{
-                console.log("user name Updated")
+                storeUser(createdUser.user.uid, createdUser.user.displayName, createdUser.user.email).
+                    then(()=>{
+                    console.log("user name Updated and stored in database");
+                    setIsLoading(false);
+                }).catch(err=>{
+                    console.log(err);
+                })
+
 
             }).catch((err)=>{
                 console.log(err)
+                setIsLoading(false);
             })
 
-            setIsLoading(false);
+
         }).catch((err)=>{
             console.log(err);
+            setIsLoading(false);
         })
 };
+
+const storeUser =(userId, name, email)=>{
+    const db = getDatabase();
+    return set(ref(db,'users/'+ userId),{
+        username: name,
+        email: email,
+    })
+}
 
 useEffect(()=>{
 
