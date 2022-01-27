@@ -89,7 +89,6 @@ export const Form = styled.form`
   input{
     margin-top: 1rem;
     margin-bottom: 1rem;
-    border: none;
     background-color: #F3F3BD;
     font-family: 'Quicksand', sans-serif;
     background-repeat: no-repeat;
@@ -97,7 +96,7 @@ export const Form = styled.form`
     background-size: 18px;
     padding: .5rem .5rem .5rem 1.3rem;
     font-size: .8rem;
-   
+    border: none;
   }
   input::placeholder{
     color: #000;
@@ -121,7 +120,8 @@ export const Form = styled.form`
      background-size: 22px;
      padding-left: 1.8rem;
      font-size: 1.3rem ;
-      box-sizing: border-box;
+     box-sizing: border-box;
+      
    }
 
     input::placeholder{
@@ -151,11 +151,13 @@ export const NameWrapper = styled.div`
   flex-flow: row nowrap;
   justify-content: space-between;
 
-  @media only screen and (min-width: 700px){
+  
+
+  @media only screen and (min-width: 700px) {
     justify-content: center;
-    
+   
   }
- 
+
 `;
 
 export const FNameInput = styled.input`
@@ -163,13 +165,14 @@ export const FNameInput = styled.input`
   background-image: url(${FNameIcon});
   flex: 1 1 auto;
   margin-right: 1rem;
- 
+  
+
 `;
 
 export const LNameInput = styled.input`
   background-image: url(${LNameIcon});
   flex: 1 1 auto;
- 
+  
 `;
 
 export const EmailInput = styled.input`
@@ -179,8 +182,9 @@ export const EmailInput = styled.input`
 
 
 export const PasswordInput = styled.input`
-  background-image: ${(props:PropsAuth) => (props.background ) ? `url(${PIcon})` : `url(${PIconRepeat})`
-}`;
+  background-image: ${(props:PropsAuth) => (props.background ) ? `url(${PIcon})` : `url(${PIconRepeat})`};
+  
+`;
 
 export const ImageAuth =  styled.img`
   width: 200px;

@@ -1,12 +1,13 @@
 import React from "react";
-import {ModalBox} from "./ModalStyles";
+import {ModalBox, ModalProps, ModalText} from "./ModalStyles";
 
-import {ModalProps} from "./ModalStyles";
 
-const Modal:React.FC <ModalProps> = ({active})=>(
+
+const Modal:React.FC <ModalProps> = ({active,message})=>(
 
     <ModalBox active={active}>
-        <h2> Error / Task Completed</h2>
+        <ModalText> {message}</ModalText>
+
     </ModalBox>
 );
 

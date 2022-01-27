@@ -28,7 +28,7 @@ import Spinner from "../../Spinner/Spinner";
 
 
 
-const SignUp =()=>{
+const SignUp:React.FC =()=>{
 
 const [firstName, setFirstName] = useState("");
 const [lastName, setLastName] = useState("");
@@ -38,8 +38,7 @@ const [passwordValidation, setPasswordValidation] = useState("");
 const [isFormValidated, setIsFormValidated] = useState(false);
 const [isLoading, setIsLoading] = useState(false);
 const [isModalOpen, setIsModalOpen] = useState(false);
-
-
+const [modalMessage, setModalMessage] = useState("");
 
 const inputValidation = (): boolean | void => {
        if (firstName.length > 2 && lastName.length >> 2 && email.length > 2 ){
@@ -53,6 +52,10 @@ const passwordVerification = (): boolean | void =>{
         return true
     }
 }
+
+
+
+
 
 
 
@@ -70,23 +73,29 @@ const registerUser = (event) =>{
                     then(()=>{
                     console.log("user name Updated and stored in database");
                     setIsLoading(false);
+                    setModalMessage("Sign up sucessfully!");
                     setIsModalOpen(true);
                 }).catch(err=>{
                     console.log(err);
+                    setModalMessage(err.message);
                     setIsModalOpen(true);
                 })
 
 
             }).catch((err)=>{
+
                 console.log(err)
                 setIsLoading(false);
+                setModalMessage(err.message);
                 setIsModalOpen(true);
             })
 
 
         }).catch((err)=>{
+
             console.log(err);
             setIsLoading(false);
+            setModalMessage(err.message);
             setIsModalOpen(true);
         })
 };
@@ -113,20 +122,17 @@ useEffect(()=>{
 
 return(
     <AuthWrapper>
-        <Modal active={isModalOpen} />
-        {(isModalOpen || isLoading ) && <Backdrop  onClick={()=>setIsModalOpen(!isModalOpen)}/>}
+        <Modal active={isModalOpen} message={modalMessage}/>
+        {(isModalOpen) && <Backdrop  onClick={()=>setIsModalOpen(!isModalOpen)}/>}
         <Spinner loading={isLoading} />
         <MessageWrapper>
             <GridCentered>
-                <WelcomeMessage onClick={()=>setIsLoading(!isLoading)}>
+                <WelcomeMessage >
                     Create Account
                 </WelcomeMessage>
-
                     <AuthDescription>
                         Complete the form below and have access to our platform.
                     </AuthDescription>
-
-
             </GridCentered>
 
         </MessageWrapper>
@@ -137,6 +143,7 @@ return(
 
                     <FNameInput placeholder={"First Name"}
                                 value={firstName}
+
                                 onChange={(event) => setFirstName(event.target.value)}/>
 
                     <LNameInput placeholder="Last Name"
@@ -166,7 +173,7 @@ return(
                                onChange={(event)=> setPasswordValidation(event.target.value)}
                 />
 
-                <AuthButton disabled={!isFormValidated} onClick={registerUser}>
+                <AuthButton disabled={!isFormValidated} onClick={registerUser} >
                     Submit
                 </AuthButton>
 

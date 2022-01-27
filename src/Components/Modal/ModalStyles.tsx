@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export interface ModalProps{
     active:boolean
+    message?:string
 }
 
 export const ModalBox = styled.div`
@@ -20,3 +21,6 @@ export const ModalBox = styled.div`
   transform:${(props:ModalProps)=>(!props.active ?  'translateY(-100%)' : 'translate(0)')} ;
 `;
 
+export const ModalText = styled.h3`
+  text-align: center;
+`;
