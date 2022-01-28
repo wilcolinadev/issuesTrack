@@ -5,10 +5,11 @@ import {Link} from "react-router-dom";
 
 const Modal:React.FC <ModalProps> = ({active,message})=>(
 
+
     <ModalBox active={active}>
         <ModalText> {message}</ModalText>
         <Link to={"/login"}>
-            <ModalLink>Log in</ModalLink>
+            {!message?.includes("Err") && <ModalLink>Log in</ModalLink>}
         </Link>
     </ModalBox>
 );

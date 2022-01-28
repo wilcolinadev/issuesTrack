@@ -41,7 +41,7 @@ const [isModalOpen, setIsModalOpen] = useState(false);
 const [modalMessage, setModalMessage] = useState("");
 
 const inputValidation = (): boolean | void => {
-       if (firstName.length > 2 && lastName.length >> 2 && email.length > 2 ){
+       if (firstName.length > 2 && lastName.length >> 2 &&( email.length > 2 && email.includes("@")) ){
         return true;
     }
 
