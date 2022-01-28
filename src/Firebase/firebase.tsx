@@ -3,7 +3,7 @@ import { initializeApp } from "firebase/app";
 import {
     GoogleAuthProvider,
     getAuth,
-    signInWithPopup,
+    signInWithPopup
 
 } from "firebase/auth";
 import {
@@ -34,7 +34,8 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-export const db = getFirestore(app)
+export const db = getFirestore(app);
+
 
 
 
