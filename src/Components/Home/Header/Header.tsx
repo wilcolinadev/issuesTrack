@@ -4,7 +4,7 @@ import headerImage from "../../../assets/headerImage.svg";
 import {HeaderImage, HeaderTitle, GridWrapper} from "./HeaderStyles";
 import AppDescription from "./AppDescription/AppDescription";
 
-const Header:React.FC = () =>(
+const Header: React.FC = () => (
     <GridWrapper>
         <div>
             <HeaderTitle>
@@ -14,7 +14,7 @@ const Header:React.FC = () =>(
             <Button/>
         </div>
 
-        <div style={{textAlign:"center"}}>
+        <div style={{textAlign: "center"}}>
             <HeaderImage src={headerImage} alt="Team Work at Issues Track"/>
         </div>
     </GridWrapper>

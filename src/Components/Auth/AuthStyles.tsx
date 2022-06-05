@@ -11,7 +11,6 @@ interface PropsAuth {
 }
 
 
-
 export const AuthWrapper = styled.section`
   background-color: #e5e2e2;
   width: 100%;
@@ -182,11 +181,11 @@ export const EmailInput = styled.input`
 
 
 export const PasswordInput = styled.input`
-  background-image: ${(props:PropsAuth) => (props.background ) ? `url(${PIcon})` : `url(${PIconRepeat})`};
+  background-image: ${(props: PropsAuth) => (props.background) ? `url(${PIcon})` : `url(${PIconRepeat})`};
   
 `;
 
-export const ImageAuth =  styled.img`
+export const ImageAuth = styled.img`
   width: 200px;
 `;
 
@@ -246,10 +245,10 @@ export const AuthButton = styled.button`
   filter: drop-shadow(1px 1px 1px #ffffff);
   margin-top: 1rem;
   margin-bottom: 1rem;
-  cursor: ${(props)=>(!props.disabled ? "pointer" : "not-allowed")};
+  cursor: ${(props) => (!props.disabled ? "pointer" : "not-allowed")};
   
   &:hover{
-    background-color: ${(props)=>(!props.disabled) ? "#ffca20" : "ccc"} ;
+    background-color: ${(props) => (!props.disabled) ? "#ffca20" : "ccc"} ;
     transition: 0.4s ease-in-out;
     
   }
