@@ -20,16 +20,27 @@ import {
 import {Link} from "react-router-dom";
 import Modal from "../../Modal/Modal";
 import {Backdrop} from "../../Backdrop/Backdrop";
-
+import {useDispatch, useSelector} from "react-redux";
+import {bindActionCreators} from 'redux';
+import * as actionCreators from '../../../state/actions/actionCreators';
+import {RootStateOrAny} from "react-redux";
+import {useLocation} from "react-router";
 
 const Login: React.FC = () => {
-
+    //Bringing the redux state
+    const state = useSelector((state: RootStateOrAny) => state.isUserAuth);
+    //Bringing the Actions
+    const dispatch = useDispatch();
+    const {logUserIn, logUserOut} = bindActionCreators(actionCreators, dispatch)
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [isFormValidated, setIsFormValidated] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [modalMessage, setModalMessage] = useState("");
+
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const emailValidation = (): boolean | void => {
         if (email.length > 2 && email.includes("@")) {
@@ -44,6 +55,10 @@ const Login: React.FC = () => {
         }
     }
 
+    const redirectUser = () => {
+            navigate('/');
+    }
+
 
     useEffect(() => {
 
@@ -55,15 +70,24 @@ const Login: React.FC = () => {
 
     }, [email, password])
 
+    useEffect(() => {
+        if(state){
+            redirectUser();
+        }
+    }, [state]);
+
+
     const logInUser = (event) => {
         event.preventDefault();
         setIsLoading(true);
         signInWithEmailAndPassword(auth, email, password)
             .then(signedUser => {
+                logUserIn();
                 console.log(signedUser)
                 setIsLoading(false);
                 setModalMessage("Sign In sucessfully!");
                 setIsModalOpen(true);
+                console.log(state);
             }).catch((err) => {
             console.log(err);
             setIsLoading(false);
