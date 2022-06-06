@@ -7,14 +7,13 @@ export const HeaderButton = styled.button`
   background-color: #f3f3bd;
   color: #000;
   padding: 0.7rem;
-  margin-left: 2rem;
   border-radius: 20px;
   font-weight: bolder;
   filter: drop-shadow(1px 1px 1px #ffffff);
   margin-top: 1rem;
   margin-bottom: 2rem;
   cursor: pointer;
-
+  margin-left:2rem ;
   &:hover {
     background-color: #ffca20;
     transition: 0.4s ease-in-out;
@@ -27,8 +26,8 @@ export const HeaderButton = styled.button`
   }
 
   @media only screen and (min-width: 700px) {
-    font-size: 2rem;
+    font-size: 1.5rem;
     padding: 1rem;
-    margin-left: 3rem;
+    margin-left:2rem ;
   }
 `;

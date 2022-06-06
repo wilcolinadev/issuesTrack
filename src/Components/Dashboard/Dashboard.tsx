@@ -5,6 +5,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { bindActionCreators } from "redux";
 import * as actionCreators from "../../state/actions/actionCreators";
 import { isEmpty } from "../objectValidation";
+import { DashboardWrapper, Nav, NavigationElement, InnerNavBox } from "./DashboardStyles";
 
 const Dashboard = () => {
   const userState = useSelector((state: RootStateOrAny) => state.isUserAuth);
@@ -25,10 +26,20 @@ const Dashboard = () => {
       return null;
     } else {
       return (
-        <>
-          <h1> Dashboard: Welcome in {userState.user.displayName}</h1>
-          <button onClick={logUserOut}>Log out</button>
-        </>
+        <DashboardWrapper>
+          <Nav>
+            <div>
+              <NavigationElement>IssuesTrack</NavigationElement>
+            </div>
+            <InnerNavBox>
+              <NavigationElement>{userState.user.displayName}</NavigationElement>
+              <div>
+                <button onClick={logUserOut}>Log out</button>
+              </div>
+            </InnerNavBox>
+          </Nav>
+          <h1> Welcome in {userState.user.displayName}</h1>
+        </DashboardWrapper>
       );
     }
   };
