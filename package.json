@@ -10,6 +10,7 @@
     "@types/node": "^16.11.19",
     "@types/react": "^17.0.38",
     "@types/react-dom": "^17.0.11",
+    "@types/react-redux": "^7.1.24",
     "firebase": "^9.6.4",
     "firebase-admin": "^10.0.2",
     "react": "^17.0.2",
@@ -52,6 +53,7 @@
   },
   "devDependencies": {
     "@types/styled-components": "^5.1.20",
+    "prettier": "2.6.2",
     "redux-devtools-extension": "^2.13.9"
   }
 }

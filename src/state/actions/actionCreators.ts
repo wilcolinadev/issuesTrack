@@ -1,20 +1,20 @@
-import {Dispatch} from "redux";
-import * as ActionTypes from './actionTypes';
+import { Dispatch } from "redux";
+import * as ActionTypes from "./actionTypes";
 
-export const logUserIn = () => {
-    return (dispatch: Dispatch) => {
-        dispatch({
-            type: ActionTypes.LOG_USER_IN,
-            payload: true
-        })
-    }
-}
+export const logUserIn = (user:object) => {
+  return (dispatch: Dispatch) => {
+    dispatch({
+      type: ActionTypes.LOG_USER_IN,
+      payload: user,
+    });
+  };
+};
 
 export const logUserOut = () => {
-    return (dispatch: Dispatch) => {
-        dispatch({
-            type: ActionTypes.LOG_USER_OUT,
-            payload: false
-        })
-    }
-}
+  return (dispatch: Dispatch) => {
+    dispatch({
+      type: ActionTypes.LOG_USER_OUT,
+      payload: {},
+    });
+  };
+};

@@ -1,21 +1,21 @@
-import * as ActionTypes from '../actions/actionTypes'
+import * as ActionTypes from "../actions/actionTypes";
 
-const initialState = false;
+const initialState = {};
 
 interface Action {
-    type: string
-    payload: boolean
+  type: string;
+  payload: object
 }
 
 const reducer = (state = initialState, action: Action) => {
-    switch (action.type) {
-        case ActionTypes.LOG_USER_IN:
-            return action.payload;
-        case ActionTypes.LOG_USER_OUT:
-            return action.payload;
-        default:
-            return state;
-    }
+  switch (action.type) {
+    case ActionTypes.LOG_USER_IN:
+      return action.payload;
+    case ActionTypes.LOG_USER_OUT:
+      return action.payload;
+    default:
+      return state;
+  }
 };
 
-export default reducer
+export default reducer;
