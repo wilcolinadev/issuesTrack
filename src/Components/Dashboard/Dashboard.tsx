@@ -5,9 +5,12 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { bindActionCreators } from "redux";
 import * as actionCreators from "../../state/actions/actionCreators";
 import { isEmpty } from "../objectValidation";
-import { DashboardWrapper, Nav, NavigationElement, InnerNavBox } from "./DashboardStyles";
+import { DashboardWrapper, DashboardDivider } from "./DashboardStyles";
+import DashboardNav from "./DashboardNav/DashboardNav";
+import Sidebar from "./Sidebar/Sidebar";
+import Main from "./Main/Main";
 
-const Dashboard = () => {
+const Dashboard: React.FC = () => {
   const userState = useSelector((state: RootStateOrAny) => state.isUserAuth);
   const navigate = useNavigate();
   const location = useLocation();
@@ -27,18 +30,11 @@ const Dashboard = () => {
     } else {
       return (
         <DashboardWrapper>
-          <Nav>
-            <div>
-              <NavigationElement>IssuesTrack</NavigationElement>
-            </div>
-            <InnerNavBox>
-              <NavigationElement>{userState.user.displayName}</NavigationElement>
-              <div>
-                <button onClick={logUserOut}>Log out</button>
-              </div>
-            </InnerNavBox>
-          </Nav>
-          <h1> Welcome in {userState.user.displayName}</h1>
+          <DashboardNav username={userState.user.displayName} />
+          <DashboardDivider>
+            <Main username={userState.user.displayName} />
+            <Sidebar logUserOut={logUserOut} />
+          </DashboardDivider>
         </DashboardWrapper>
       );
     }
