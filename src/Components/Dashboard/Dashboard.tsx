@@ -24,6 +24,11 @@ const Dashboard: React.FC = () => {
   const dispatch = useDispatch();
   const { logUserOut } = bindActionCreators(actionCreators, dispatch);
 
+  const logOut = ()=>{
+    localStorage.removeItem('user');
+    logUserOut();
+  }
+
   const showUserData = () => {
     if (isEmpty(userState)) {
       return null;
@@ -33,7 +38,7 @@ const Dashboard: React.FC = () => {
           <DashboardNav username={userState.user.displayName} />
           <DashboardDivider>
             <Main username={userState.user.displayName} />
-            <Sidebar logUserOut={logUserOut} />
+            <Sidebar logUserOut={logOut} />
           </DashboardDivider>
         </DashboardWrapper>
       );

@@ -58,6 +58,18 @@ const Login: React.FC = () => {
     navigate("/dashboard");
   };
 
+  const getStorageData = () => {
+    const userData = localStorage.getItem("user") || "";
+    if (!isEmpty(userData)) {
+      logUserIn(JSON.parse(userData));
+    }
+  };
+
+  const sendStorageData = (data) => {
+    const userData = JSON.stringify(data);
+    localStorage.setItem("user", userData);
+  };
+
   useEffect(() => {
     if (validateEmail(email) && passwordVerification()) {
       setIsFormValidated(true);
@@ -67,6 +79,7 @@ const Login: React.FC = () => {
   }, [email, password]);
 
   useEffect(() => {
+    getStorageData();
     if (!isEmpty(userState)) {
       redirectUser();
     }
@@ -77,6 +90,7 @@ const Login: React.FC = () => {
     setIsLoading(true);
     signInWithEmailAndPassword(auth, email, password)
       .then((signedUser) => {
+        sendStorageData(signedUser);
         logUserIn(signedUser);
         console.log(signedUser);
       })
