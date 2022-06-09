@@ -7,7 +7,7 @@ import {useNavigate} from "react-router-dom";
 
 const useLocalStorage = () => {
   //Bringing the state from Redux
-  const userState = useSelector((state: RootStateOrAny) => state.isUserAuth);
+  const userState:Object = useSelector((state: RootStateOrAny) => state.isUserAuth);
   //Bringing the actions from redux
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -21,12 +21,12 @@ const useLocalStorage = () => {
   );
   //Get store data if we have any and replace the userData with the local storage
   const getStorageData = () => {
-    const userData = localStorage.getItem("user") || "";
+    const userData:string = localStorage.getItem("user") || "";
     if (!isEmpty(userData)) {
       logUserIn(JSON.parse(userData));
     }
   };
-  // Redirect to the dashboard if our user data have been populated
+  // Redirect to the dashboard if our user data has been populated
   useEffect(() => {
     getStorageData();
     if (!isEmpty(userState)) {

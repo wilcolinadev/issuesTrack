@@ -18,7 +18,6 @@ const Dashboard: React.FC = () => {
   useEffect(() => {
     if (isEmpty(userState)) {
       navigate("/login");
-      console.log(userState);
     }
   }, [userState, location]);
   const dispatch = useDispatch();
