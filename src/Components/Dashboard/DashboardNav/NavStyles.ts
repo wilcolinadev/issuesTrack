@@ -5,9 +5,9 @@ export const Nav = styled.nav`
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
-  background-color: #19263C;
+  background: linear-gradient(.25turn, #19263c, 95%, #19191b);
   box-sizing: border-box;
-  position:absolute;
+  position: absolute;
   height: 50px;
 `;
 
