@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Box = styled.div`
+  
   h3 {
     color: #e9ac30;
     margin-bottom: 0.5rem;
@@ -43,11 +44,17 @@ export const FooterBox = styled.div`
 `;
 
 export const MainBox = styled.div`
-  display: flex;
-  justify-content: space-between;
-  flex-flow: column nowrap;
-  background: linear-gradient(0deg,  #19191b, 10%, #19263c);
-  width: 100%;
-  padding-top: 50px;
+  display: none;
+  @media only screen and (min-width: 700px) {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: column nowrap;
+    background: linear-gradient(0deg,  #19191b, 10%, #19263c);
+    width: 100%;
+    padding-top: 50px;
+
+  }
+ 
+
   
 `;

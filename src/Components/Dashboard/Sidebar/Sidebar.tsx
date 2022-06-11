@@ -5,8 +5,6 @@ import {
   IoPeopleOutline,
   IoPersonOutline,
 } from "react-icons/io5";
-import issuesTrackLogo from "../../../assets/ITlogo.png";
-
 interface SidebarProps {
   logUserOut: any;
 }

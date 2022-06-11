@@ -5,18 +5,32 @@ export const Nav = styled.nav`
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
-  background: linear-gradient(.25turn, #19263c, 95%, #19191b);
+  background: linear-gradient(0.25turn, #19263c, 95%, #19191b);
   box-sizing: border-box;
   position: absolute;
   height: 50px;
+
+  p {
+    color: #fff;
+    box-sizing: border-box;
+    line-height: 50px;
+    margin-left: 1rem;
+    margin-right: 0.5rem;
+  }
+
+  @media only screen and (min-width: 700px) {
+  }
 `;
 
 export const NavigationElement = styled.p`
-  color: #fff;
   font-size: 1.6rem;
-  box-sizing: border-box;
-  line-height: 50px;
-  margin-left: 1rem;
-  margin-right: .5rem;
+`;
+export const UserName = styled.p`
+  display: none;
 
+  @media only screen and (min-width: 700px) {
+    display: block;
+    color: #fff;
+    font-size: 1.1rem;
+  }
 `;
