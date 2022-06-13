@@ -18,3 +18,12 @@ export const logUserOut = () => {
     });
   };
 };
+
+export const toggleSidebar =(state)=>{
+  return (dispatch:Dispatch)=>{
+    dispatch({
+      type:ActionTypes.TOGGLE_SIDEBAR,
+      payload:state
+    })
+  }
+}
