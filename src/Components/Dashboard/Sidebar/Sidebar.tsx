@@ -5,13 +5,18 @@ import {
   IoPeopleOutline,
   IoPersonOutline,
 } from "react-icons/io5";
+import {useDispatch, useSelector} from "react-redux";
+import {RootStateOrAny} from "react-redux";
+
 interface SidebarProps {
   logUserOut: any;
 }
 
 const Sidebar: React.FC<SidebarProps> = (props) => {
+  const isSidebarOpen = useSelector((state: RootStateOrAny) => state.isSidebarOpen );
+
   return (
-    <MainBox>
+    <MainBox isSidebarOpen={isSidebarOpen}>
       <Box>
         <div>
           <button>

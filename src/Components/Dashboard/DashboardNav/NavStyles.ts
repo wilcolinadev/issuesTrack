@@ -9,7 +9,7 @@ export const Nav = styled.nav`
   box-sizing: border-box;
   position: absolute;
   height: 50px;
-
+  z-index:99;
   p {
     color: #fff;
     box-sizing: border-box;
