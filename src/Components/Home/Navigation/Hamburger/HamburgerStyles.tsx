@@ -20,7 +20,7 @@ export const Burger = styled.button`
   z-index: 1000;
   transition: transform 0.3s ease-in-out;
   align-items: center;
-  
+  color: #f3f3bd;
   
   &:focus {
     outline: none;

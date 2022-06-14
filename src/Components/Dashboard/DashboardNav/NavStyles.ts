@@ -9,13 +9,14 @@ export const Nav = styled.nav`
   box-sizing: border-box;
   position: absolute;
   height: 50px;
-  z-index:100;
+  z-index: 100;
+
   p {
-    color: #fff;
     box-sizing: border-box;
     line-height: 50px;
     margin-left: 1rem;
     margin-right: 0.5rem;
+    color: #f3f3bd;
   }
 
   @media only screen and (min-width: 700px) {
@@ -24,13 +25,13 @@ export const Nav = styled.nav`
 
 export const NavigationElement = styled.p`
   font-size: 1.6rem;
+  font-weight: bold;
 `;
 export const UserName = styled.p`
   display: none;
-
+  font-size: 1.3rem;
   @media only screen and (min-width: 700px) {
+   
     display: block;
-    color: #fff;
-    font-size: 1.1rem;
   }
 `;

@@ -16,6 +16,21 @@ export const Box = styled.div`
     font-size: 1.2rem;
     text-align: left;
   }
+    span{
+      width: 100%;
+      color: #f3f3bd;
+      font-size: 1.5rem;
+      font-weight: bold;
+      padding: 1rem;
+    }
+  
+    @media only screen and (min-width: 700px) {
+      span {
+        display: none;
+    
+      }
+    }
+  
 
   button:hover {
     background-color: #cfcdcd;
@@ -36,7 +51,7 @@ export const FooterBox = styled.div`
   text-align: center;
  
   p {
-    color: #fff;
+    color: #f3f3bd;
     padding-bottom: 1rem;
     font-size: .7rem;
   }
@@ -63,6 +78,7 @@ export const MainBox = styled.div`
   width: 50%;
   display: flex;
   z-index: 100;
+  padding-top: .5rem;
   transform: ${(props: MainBoxProps) =>
       props.isSidebarOpen ? "translateX(0)" : "translateX(-120%)"};
   height: 100%;

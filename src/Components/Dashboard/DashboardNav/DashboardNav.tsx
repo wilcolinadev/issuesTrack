@@ -23,7 +23,7 @@ const DashboardNav: React.FC<DashboardProps> = (props) => {
         <div />
         <div />
       </Burger>
-      <UserName>{props.username}</UserName>
+      <UserName>Hi, {props.username}!</UserName>
     </Nav>
   );
 };

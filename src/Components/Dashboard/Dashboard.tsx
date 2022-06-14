@@ -39,7 +39,7 @@ const Dashboard: React.FC = () => {
           <DashboardNav username={userState.user.displayName} />
           <DashboardDivider>
             <Main username={userState.user.displayName} />
-            <Sidebar logUserOut={logOut} />
+            <Sidebar logUserOut={logOut} username={userState.user.displayName} />
           </DashboardDivider>
         </DashboardWrapper>
       );
