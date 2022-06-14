@@ -21,13 +21,12 @@ export const Burger = styled.button`
   transition: transform 0.3s ease-in-out;
   align-items: center;
   color: #f3f3bd;
-  
+
   &:focus {
     outline: none;
   }
 
   div {
-  
     width: 2rem;
     height: 0.2rem;
     background: ${(props: BurgerController) =>
@@ -42,14 +41,16 @@ export const Burger = styled.button`
     transform: ${(props: BurgerController) =>
       props.open ? "rotate(45deg)" : "rotate(0)"};
   }
+
   div:nth-child(2) {
-    margin-top: .4rem;
+    margin-top: 0.4rem;
     opacity: ${(props: BurgerController) => (props.open ? "0" : "1")};
     transform: ${(props: BurgerController) =>
       props.open ? "translateX(20px)" : "translateX(0)"};
   }
+
   div:nth-child(3) {
-    margin-top: .4rem;
+    margin-top: 0.4rem;
     transform: ${(props: BurgerController) =>
       props.open ? "rotate(-45deg)" : "rotate(0)"};
   }

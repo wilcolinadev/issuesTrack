@@ -51,7 +51,7 @@ export const FooterBox = styled.div`
   text-align: center;
  
   p {
-    color: #f3f3bd;
+    color: #fff;
     padding-bottom: 1rem;
     font-size: .7rem;
   }

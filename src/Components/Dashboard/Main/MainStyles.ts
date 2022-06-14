@@ -7,3 +7,14 @@ export const Box = styled.div`
   padding-top: 50px;
   
 `;
+
+export const InnerBox = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  @media only screen and (min-width: 700px) {
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    padding: 1rem;
+    align-items: flex-end;
+  }
+`
