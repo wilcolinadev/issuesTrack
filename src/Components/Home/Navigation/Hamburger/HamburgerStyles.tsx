@@ -21,12 +21,13 @@ export const Burger = styled.button`
   transition: transform 0.3s ease-in-out;
   align-items: center;
   
+  
   &:focus {
     outline: none;
   }
 
   div {
-    
+  
     width: 2rem;
     height: 0.2rem;
     background: ${(props: BurgerController) =>

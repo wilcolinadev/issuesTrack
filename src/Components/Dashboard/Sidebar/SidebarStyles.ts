@@ -34,12 +34,18 @@ export const Box = styled.div`
 export const FooterBox = styled.div`
   width: 100%;
   text-align: center;
-
+ 
   p {
     color: #fff;
     padding-bottom: 1rem;
-    font-size: 1rem;
+    font-size: .7rem;
   }
+  @media only screen and (min-width: 700px) {
+    p{
+      font-size: 1rem;
+    }
+  }
+ 
 `;
 
 interface MainBoxProps {
@@ -48,7 +54,7 @@ interface MainBoxProps {
 
 export const MainBox = styled.div`
   background: linear-gradient(0deg, #19191b, 10%, #19263c);
-  
+  box-shadow: 1px 2px 2px;
   transition: all 0.5s ease-in-out;
   position: fixed;
   top: 0;
@@ -58,7 +64,7 @@ export const MainBox = styled.div`
   display: flex;
   z-index: 100;
   transform: ${(props: MainBoxProps) =>
-      props.isSidebarOpen ? "translateX(0)" : "translateX(-100%)"};
+      props.isSidebarOpen ? "translateX(0)" : "translateX(-120%)"};
   height: 100%;
   @media only screen and (min-width: 700px) {
     display: flex;

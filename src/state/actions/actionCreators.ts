@@ -27,3 +27,21 @@ export const toggleSidebar =(state)=>{
     })
   }
 }
+
+export const showGlobalIssues = ()=>{
+  return (dispatch:Dispatch) =>{
+    dispatch({
+      type:ActionTypes.SHOW_GLOBAL_ISSUES,
+      payload:'global'
+    })
+  }
+}
+
+export const showUserIssues = ()=>{
+  return (dispatch:Dispatch) =>{
+    dispatch({
+      type:ActionTypes.SHOW_USER_ISSUES,
+      payload:'user'
+    })
+  }
+}

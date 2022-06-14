@@ -9,9 +9,10 @@ import { DashboardWrapper, DashboardDivider } from "./DashboardStyles";
 import DashboardNav from "./DashboardNav/DashboardNav";
 import Sidebar from "./Sidebar/Sidebar";
 import Main from "./Main/Main";
-
+import {Backdrop} from "../Backdrop/Backdrop";
 const Dashboard: React.FC = () => {
   const userState = useSelector((state: RootStateOrAny) => state.isUserAuth);
+  const isSidebarOpen = useSelector((state:RootStateOrAny)=> state.isSidebarOpen);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -34,6 +35,7 @@ const Dashboard: React.FC = () => {
     } else {
       return (
         <DashboardWrapper>
+          {isSidebarOpen && <Backdrop/> }
           <DashboardNav username={userState.user.displayName} />
           <DashboardDivider>
             <Main username={userState.user.displayName} />
