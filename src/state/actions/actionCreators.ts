@@ -54,3 +54,13 @@ export const toggleModalForm = (state:boolean) =>{
     })
   }
 }
+//Getting the state, and updating the state with a new value
+export const addIssue = (prevState:Array<object>, newIssue:object) =>{
+  const newState = [...prevState, newIssue];
+  return(dispatch:Dispatch)=>{
+    dispatch({
+      type:ActionTypes.ADD_ISSUE,
+      payload:newState
+    })
+  }
+}
