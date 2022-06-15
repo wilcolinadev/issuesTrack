@@ -3,10 +3,11 @@ import styled from "styled-components";
 export const FormBox = styled.div`
   padding-top: 1rem;
   margin-bottom: 2rem;
+
   .tb {
     display: table;
     width: 100%;
-    
+
   }
 
   .td {
@@ -27,7 +28,7 @@ export const FormBox = styled.div`
     height: auto;
     width: 100%;
     padding: 0.7rem;
-    background-color: #f3f3bd;
+    background-color: #e2e2df;
     border-radius: 10px;
     box-shadow: 0 2px 10px #b9b6b6, 0 0 0 2px #ffffffeb;
     margin: 0 auto;
@@ -60,7 +61,8 @@ export const FormBox = styled.div`
       font-size: 2rem;
       left: 20px;
     }
-    form{
+
+    form {
       margin: 0;
       width: 90%;
     }
