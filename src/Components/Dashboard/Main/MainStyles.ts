@@ -4,17 +4,16 @@ export const Box = styled.div`
   width: 100%;
   background-color: #fff;
   grid-area: 1 / 2 / 2 / 6;
-  padding-top: 50px;
+  padding-top: 40px;
   
 `;
 
 export const InnerBox = styled.div`
-  display: flex;
-  flex-flow: column nowrap;
-  @media only screen and (min-width: 700px) {
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    padding: 1rem;
-    align-items: flex-end;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: 1fr;
+  padding: .8rem;
+  @media only screen and (min-width: 850px) {
+    grid-template-columns: repeat(2, 1fr);
   }
 `

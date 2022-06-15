@@ -11,8 +11,14 @@ const Main: React.FC<MainProps> = (props) => {
   return (
     <Box>
       <InnerBox>
-        <WelcomeMessage username={props.username} />
-        <InputSearch />
+          <div>
+              <InputSearch />
+              <WelcomeMessage username={props.username} />
+          </div>
+            <div>
+                <h1>Graph</h1>
+                <button>Add Issue</button>
+            </div>
       </InnerBox>
     </Box>
   );
