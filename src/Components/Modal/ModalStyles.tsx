@@ -16,7 +16,7 @@ export const ModalBox = styled.div`
   box-sizing: border-box;
   transition: all 0.5s ease-in-out;
   left: 50%;
-  margin-top: ${(props: ModalProps) => (!props.active ? "0" : "50vh")};
+  margin-top: ${(props: ModalProps) => (!props.active ? "0" : "40vh")};
   transform: ${(props: ModalProps) =>
     !props.active ? "translateY(-100%)" : "translate(0)"};
 
@@ -32,7 +32,7 @@ export const ModalText = styled.h3`
   font-size: 1.6rem;
 `;
 
-export const ModalLink = styled.h3`
+export const ModalLink = styled.button`
   text-align: center;
   color: #000;
   padding: 0.5rem;
@@ -42,8 +42,9 @@ export const ModalLink = styled.h3`
   background-color: #ccc;
   font-weight: bolder;
   filter: drop-shadow(1px 1px 1px #ffffff);
-
+  width: 100%;
   text-decoration: none;
+  cursor: pointer;
   &:hover {
     background-color: #ffca20;
     transition: 0.4s ease-in-out;

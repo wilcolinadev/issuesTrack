@@ -19,7 +19,7 @@ export const logUserOut = () => {
   };
 };
 
-export const toggleSidebar =(state)=>{
+export const toggleSidebar =(state:boolean)=>{
   return (dispatch:Dispatch)=>{
     dispatch({
       type:ActionTypes.TOGGLE_SIDEBAR,
@@ -42,6 +42,15 @@ export const showUserIssues = ()=>{
     dispatch({
       type:ActionTypes.SHOW_USER_ISSUES,
       payload:'user'
+    })
+  }
+}
+
+export const toggleModalForm = (state:boolean) =>{
+  return (dispatch:Dispatch) =>{
+    dispatch({
+      type:ActionTypes.TOGGLE_MODAL_FORM,
+      payload:!state
     })
   }
 }

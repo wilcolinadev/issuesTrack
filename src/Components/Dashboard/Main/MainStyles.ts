@@ -28,9 +28,8 @@ export const InnerBoxText = styled.div`
 
 export const AddButton = styled.button`
   font-size: 1.2rem;
-  background-color: #f3f3bd;
-  border: none;
-  color: #000;
+  border: 2px solid #19263c;
+
   padding: 0.5rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -38,11 +37,14 @@ export const AddButton = styled.button`
   border-radius: 5px;
   font-weight: 400;
   box-shadow: 0 2px 10px #b9b6b6, 0 0 0 2px #ffffffeb;
+  color: #fff;
+  background-color: #19263c;
 
   &:hover {
-    color: #fff;
-    background-color: #19263c;
-    transition: 0.4s ease-in-out;
+    color: #000;
+    transition: 1s ease-in-out;
+    background-color: #b9b6b6;
+    border: 1px solid #19263c;
   }
 
   @media only screen and (min-width: 700px) {
