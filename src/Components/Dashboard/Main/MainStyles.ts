@@ -4,11 +4,16 @@ export const Box = styled.div`
   width: 100%;
   background-color: #fff;
   grid-area: 1 / 2 / 2 / 6;
-  padding-top: 20px;
+ padding-top: 35px;
 
   box-sizing: border-box;
   @media only screen and (min-width: 850px) {
     padding-left: 20px;
+  }
+  h3{
+    font-weight: bold;
+    color:#000;
+    font-size:2rem;
   }
 `;
 
@@ -16,7 +21,7 @@ export const InnerBox = styled.div`
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   grid-template-rows: 1fr;
-  padding: 0.8rem;
+  padding: 0.4rem;
   @media only screen and (min-width: 850px) {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -42,14 +47,17 @@ export const AddButton = styled.button`
 
   &:hover {
     color: #000;
-    transition: 1s ease-in-out;
+    transition: .3s ease-in-out;
     background-color: #b9b6b6;
-    border: 1px solid #19263c;
   }
 
   @media only screen and (min-width: 700px) {
     margin-bottom: 2rem;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     padding: 0.6rem;
   }
+`;
+
+export const RecordsBox = styled.div`
+  padding: 1rem;
 `;
