@@ -15,6 +15,7 @@ import { bindActionCreators } from "redux";
 import * as ActionCreators from "../../../state/actions/actionCreators";
 import { toggleModalForm } from "../../../state/actions/actionCreators";
 import Labels from "./Labels/Labels";
+import Records from "./Records/Records";
 
 interface MainProps {
   username: string;
@@ -46,6 +47,7 @@ const Main: React.FC<MainProps> = (props) => {
       <RecordsBox>
         <h3>Issues</h3>
         <Labels />
+        <Records/>
       </RecordsBox>
     </Box>
   );
