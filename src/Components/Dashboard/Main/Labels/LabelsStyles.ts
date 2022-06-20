@@ -1,14 +1,14 @@
 import styled from "styled-components";
 
 export const Box = styled.div`
-  ul {
+  ul{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
     list-style: none;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
     box-sizing: border-box;
-    margin-right: .5rem;
-    padding-top: 1rem;
+    padding: 1rem 0;
   }
 
   li {
@@ -18,5 +18,16 @@ export const Box = styled.div`
     color: #000;
     text-transform: uppercase;
   }
+  
 
+`;
+
+export const LiName = styled.li`
+  color: #000;
+  font-weight: bold;
+  font-size: 1.2rem;
+`;
+
+export const LiId = styled.li`
+  width:10%;
 `;

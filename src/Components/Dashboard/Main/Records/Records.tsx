@@ -1,7 +1,6 @@
 import React from "react";
 import { RootStateOrAny, useSelector } from "react-redux";
 import Record from "./Record";
-
 const Records: React.FC = () => {
   const activeIssues = useSelector(
     (state: RootStateOrAny) => state.activeIssues

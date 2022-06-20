@@ -60,4 +60,8 @@ export const AddButton = styled.button`
 
 export const RecordsBox = styled.div`
   padding: 1rem;
+  h3{
+    margin-bottom: 1rem;
+  }
 `;
+
