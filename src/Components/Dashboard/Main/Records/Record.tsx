@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, LiName, LiId } from "./RecordsStyles";
+import { Box, LiName, LiStatus } from "./RecordsStyles";
 
 interface issuesProps {
   id: string;
@@ -14,7 +14,21 @@ const Record: React.FC<issuesProps> = (props) => {
   const shortName = ()=>{
    const splittedName = name.split(' ');
    return `${splittedName[0]} ${splittedName[1].slice(0,1)}`
+  };
 
+  const formatPhone = ()=>{
+    const phoneCode = phone.slice(0,3);
+    const phoneOne = phone.slice(3,6);
+    const phoneTwo = phone.slice(6,10);
+    return `${phoneCode}-${phoneOne}-${phoneTwo}`
+  };
+
+  const handleDescription = ()=>{
+    if(description.length>20){
+      return 'Click to see...'
+    }else {
+      return description
+    }
   };
   return (
     <Box>
@@ -22,9 +36,9 @@ const Record: React.FC<issuesProps> = (props) => {
         <LiName> {name}</LiName>
         <li>#{id} </li>
         <li>{email} </li>
-        <li>{phone}</li>
-        <li>{description}</li>
-        <li>status</li>
+        <li>{formatPhone()}</li>
+        <li>{handleDescription()}</li>
+        <LiStatus active={true}>Open</LiStatus>
        </ul>
     </Box>
   );

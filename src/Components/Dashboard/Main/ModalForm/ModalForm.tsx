@@ -3,6 +3,7 @@ import { ModalText, ModalLink } from "../../../Modal/ModalStyles";
 import { IssueForm, ModalBox } from "./ModalFormStyles";
 import { useSelector, useDispatch } from "react-redux";
 import { RootStateOrAny } from "react-redux";
+import { getDatabase, set, ref,get } from "firebase/database";
 import {
   validateName,
   validateEmail,
@@ -10,6 +11,8 @@ import {
 } from "../../../Auth/validation";
 import * as ActionCreators from "../../../../state/actions/actionCreators";
 import { bindActionCreators } from "redux";
+import {v4 as uuidv4} from 'uuid';
+
 
 const ModalForm = () => {
   const isModalOpen = useSelector(
@@ -18,11 +21,29 @@ const ModalForm = () => {
   const activeIssues = useSelector(
     (state: RootStateOrAny) => state.activeIssues
   );
+
+  const user =  useSelector(
+      ((state:RootStateOrAny) => state.isUserAuth)
+  )
   const dispatch = useDispatch();
   const [isFormValid, setIsFormValid] = useState(false);
   const { addIssue } = bindActionCreators(ActionCreators, dispatch);
 
-  const handleForm = (event) => {
+  const storeIssue = (userRecord) => {
+    let myuuid = uuidv4();
+    // console.log(user);
+    const db = getDatabase();
+    return set(ref(db, `issues/${user.user.uid}/${myuuid}`), {
+     id:userRecord.id,
+     name: userRecord.name,
+     email:userRecord.email,
+     phone:userRecord.phone,
+     description:userRecord.description
+    });
+  };
+
+
+  const handleForm = async (event) => {
     event.preventDefault();
     const form = event.currentTarget;
     const formElements = form.elements;
@@ -36,6 +57,7 @@ const ModalForm = () => {
     if (validateEmail(email) && validateName(name) && validatePhone(phone)) {
       setIsFormValid(true);
       addIssue(activeIssues, userRecord);
+      await storeIssue(userRecord);
       event.target.reset();
       setIsFormValid(false);
     }

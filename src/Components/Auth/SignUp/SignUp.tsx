@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../../../Firebase/firebase";
 import useLocalStorage from "../../../hooks/useLocalStorage";
-// import { getDatabase, set, ref } from "firebase/database";
+
+
 import Modal from "../../Modal/Modal";
 import { Backdrop } from "../../Backdrop/Backdrop";
 import {inputValidation, passwordVerification} from "../validation";

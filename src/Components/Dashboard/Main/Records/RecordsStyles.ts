@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Box = styled.div`
- 
+
   ul {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -14,12 +14,18 @@ export const Box = styled.div`
     border-radius: 10px;
     padding: 0.7rem 0.4rem;
     margin-top: 0.5rem;
-    color: #a3a1a1;
+    color: #7e7d7d;
+    cursor: pointer;
   }
 
   li {
     font-family: "Quicksand", sans-serif;
     font-size: 1rem;
+  }
+
+  ul:hover {
+    background-color: #e6e2e2;
+    transition: .5ms ease-in-out;
   }
 `;
 
@@ -28,8 +34,17 @@ export const LiName = styled.li`
   color: #000;
   font-size:1rem ;
 `;
-
-export const LiId = styled.li`
-    
+interface PropsStatus{
+    active:boolean
+}
+export const LiStatus = styled.li`
+  width: 30%;
+  background-color: ${(props:PropsStatus) => props.active ?'#caf1b2': '#f59292' };
+  color:${(props:PropsStatus) => props.active ?'#2fac09': '#920101' };
+  font-weight: bold;
+  border-radius: 20px;
+  padding: .2rem;
+  text-align: center;
 `;
+
 
