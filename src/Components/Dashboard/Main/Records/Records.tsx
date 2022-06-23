@@ -1,15 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { RootStateOrAny, useSelector } from "react-redux";
 import Record from "./Record";
 import { getDatabase, ref, get } from "firebase/database";
+import inputSearch from "../InputSearch/InputSearch";
 
 const Records: React.FC = () => {
-  const [remoteIssues, setRemoteIssues] = useState<object[] | never[]>([]);
   const activeIssues = useSelector(
     (state: RootStateOrAny) => state.activeIssues
   );
-  const activeUser = useSelector((state: RootStateOrAny) => state.isUserAuth);
+  const [remoteIssues, setRemoteIssues] = useState<object[] | never[]>([]);
 
+  const activeUser = useSelector((state: RootStateOrAny) => state.isUserAuth);
+  const issuesInput = useSelector((state: RootStateOrAny) => state.inputSearch);
   const destructureObject = (object: object) => {
     let newArray: Array<object> = [];
     Object.values(object).forEach((issue: object) => {
@@ -34,16 +36,23 @@ const Records: React.FC = () => {
     getRecords();
   }, []);
 
+  const combineArray = [...remoteIssues, ...activeIssues];
+  //Sorting Array by name
+  combineArray.sort((a, b) => a.name.localeCompare(b.name));
+
+  const filteredIssues = useMemo(
+    () =>
+      combineArray.filter((issue) => {
+        //Checking if the name includes the value inputted by the user and returning an array with those values
+        return issue.name.toLowerCase().includes(issuesInput.toLowerCase());
+      }),
+    [issuesInput, combineArray]
+  );
+
   const returnValues = () => {
-    //Reorder Array
-
-    //Combining local state of new Issues with remote Issues to show issues inmediately
-    const combineArray = [...remoteIssues, ...activeIssues];
-    combineArray.sort((a, b) => a.name.localeCompare(b.name));
-
     return (
       <>
-        {combineArray.map((issue) => {
+        {filteredIssues.map((issue) => {
           return (
             <Record
               id={issue.id}

@@ -64,3 +64,14 @@ export const addIssue = (prevState:Array<object>, newIssue:object) =>{
     })
   }
 }
+
+export const handleInputSearch = (input)=>{
+  return(dispatch:Dispatch)=>{
+    dispatch(
+        {
+          type:ActionTypes.HANDLE_INPUT_SEARCH,
+          payload:input
+        }
+    )
+  }
+};
