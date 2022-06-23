@@ -10,7 +10,11 @@ export const validateName = (name) => {
   return regex.test(name);
 };
 
-export const inputValidation = (firstName:string, lastName:string, email:string): boolean | void => {
+export const inputValidation = (
+  firstName: string,
+  lastName: string,
+  email: string
+): boolean | void => {
   if (
     validateName(firstName) &&
     validateName(lastName) &&
@@ -21,15 +25,17 @@ export const inputValidation = (firstName:string, lastName:string, email:string)
 };
 
 export const passwordVerification = (
-  password:string,
-  passwordValidation:string
+  password: string,
+  passwordValidation: string
 ): boolean | void => {
   if (password.length > 6 && password === passwordValidation) {
     return true;
   }
 };
 
-export const validatePhone =(phone)=>{
-  const regex = new  RegExp(/^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/);
+export const validatePhone = (phone) => {
+  const regex = new RegExp(
+    /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/
+  );
   return regex.test(phone);
-}
+};

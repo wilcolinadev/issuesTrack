@@ -3,7 +3,7 @@ import { ModalText, ModalLink } from "../../../Modal/ModalStyles";
 import { IssueForm, ModalBox } from "./ModalFormStyles";
 import { useSelector, useDispatch } from "react-redux";
 import { RootStateOrAny } from "react-redux";
-import { getDatabase, set, ref,get } from "firebase/database";
+import { getDatabase, set, ref } from "firebase/database";
 import {
   validateName,
   validateEmail,
@@ -11,8 +11,7 @@ import {
 } from "../../../Auth/validation";
 import * as ActionCreators from "../../../../state/actions/actionCreators";
 import { bindActionCreators } from "redux";
-import {v4 as uuidv4} from 'uuid';
-
+import { v4 as uuidv4 } from "uuid";
 
 const ModalForm = () => {
   const isModalOpen = useSelector(
@@ -22,9 +21,7 @@ const ModalForm = () => {
     (state: RootStateOrAny) => state.activeIssues
   );
 
-  const user =  useSelector(
-      ((state:RootStateOrAny) => state.isUserAuth)
-  )
+  const user = useSelector((state: RootStateOrAny) => state.isUserAuth);
   const dispatch = useDispatch();
   const [isFormValid, setIsFormValid] = useState(false);
   const { addIssue } = bindActionCreators(ActionCreators, dispatch);
@@ -34,14 +31,14 @@ const ModalForm = () => {
     // console.log(user);
     const db = getDatabase();
     return set(ref(db, `issues/${user.user.uid}/${myuuid}`), {
-     id:userRecord.id,
-     name: userRecord.name,
-     email:userRecord.email,
-     phone:userRecord.phone,
-     description:userRecord.description
+      id: userRecord.id,
+      name: userRecord.name,
+      email: userRecord.email,
+      phone: userRecord.phone,
+      description: userRecord.description,
+      date:userRecord.d
     });
   };
-
 
   const handleForm = async (event) => {
     event.preventDefault();
@@ -52,7 +49,8 @@ const ModalForm = () => {
     const email = formElements.email.value;
     const phone = formElements.phone.value;
     const description = formElements.description.value;
-    const userRecord = { id, name, email, phone, description };
+    const d = new Date().toDateString();
+    const userRecord = { id, name, email, phone, description, d};
 
     if (validateEmail(email) && validateName(name) && validatePhone(phone)) {
       setIsFormValid(true);

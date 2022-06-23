@@ -6,8 +6,6 @@ export const DashboardWrapper = styled.div`
 `;
 
 export const DashboardDivider = styled.div`
-  
-  
   @media only screen and (min-width: 700px) {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -15,7 +13,6 @@ export const DashboardDivider = styled.div`
     grid-column-gap: 0px;
     grid-row-gap: 0px;
   }
-  
+
   height: 100vh;
 `;
-

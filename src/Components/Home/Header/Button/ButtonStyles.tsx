@@ -13,7 +13,7 @@ export const HeaderButton = styled.button`
   margin-top: 1rem;
   margin-bottom: 2rem;
   cursor: pointer;
-  margin-left:2rem ;
+  margin-left: 2rem;
   &:hover {
     background-color: #ffca20;
     transition: 0.4s ease-in-out;
@@ -28,6 +28,6 @@ export const HeaderButton = styled.button`
   @media only screen and (min-width: 700px) {
     font-size: 1.5rem;
     padding: 1rem;
-    margin-left:2rem ;
+    margin-left: 2rem;
   }
 `;

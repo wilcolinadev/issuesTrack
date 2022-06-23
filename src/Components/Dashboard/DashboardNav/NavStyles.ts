@@ -16,7 +16,6 @@ export const Nav = styled.nav`
     line-height: 50px;
     margin-left: 1rem;
     margin-right: 0.5rem;
-   
   }
 
   @media only screen and (min-width: 700px) {
@@ -33,7 +32,6 @@ export const UserName = styled.p`
   font-size: 1.3rem;
   color: #fff;
   @media only screen and (min-width: 700px) {
-   
     display: block;
   }
 `;

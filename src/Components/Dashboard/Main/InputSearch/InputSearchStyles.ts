@@ -7,7 +7,6 @@ export const FormBox = styled.div`
   .tb {
     display: table;
     width: 100%;
-
   }
 
   .td {

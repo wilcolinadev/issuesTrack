@@ -16,21 +16,19 @@ export const Box = styled.div`
     font-size: 1.2rem;
     text-align: left;
   }
-    span{
-      width: 100%;
-      color: #f3f3bd;
-      font-size: 1.5rem;
-      font-weight: bold;
-      padding: 1rem;
+  span {
+    width: 100%;
+    color: #f3f3bd;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 1rem;
+  }
+
+  @media only screen and (min-width: 700px) {
+    span {
+      display: none;
     }
-  
-    @media only screen and (min-width: 700px) {
-      span {
-        display: none;
-    
-      }
-    }
-  
+  }
 
   button:hover {
     background-color: #cfcdcd;
@@ -49,18 +47,17 @@ export const Box = styled.div`
 export const FooterBox = styled.div`
   width: 100%;
   text-align: center;
- 
+
   p {
     color: #fff;
     padding-bottom: 1rem;
-    font-size: .7rem;
+    font-size: 0.7rem;
   }
   @media only screen and (min-width: 700px) {
-    p{
+    p {
       font-size: 1rem;
     }
   }
- 
 `;
 
 interface MainBoxProps {
@@ -78,9 +75,9 @@ export const MainBox = styled.div`
   width: 50%;
   display: flex;
   z-index: 100;
-  padding-top: .5rem;
+  padding-top: 0.5rem;
   transform: ${(props: MainBoxProps) =>
-      props.isSidebarOpen ? "translateX(0)" : "translateX(-120%)"};
+    props.isSidebarOpen ? "translateX(0)" : "translateX(-120%)"};
   height: 100%;
   @media only screen and (min-width: 700px) {
     display: flex;

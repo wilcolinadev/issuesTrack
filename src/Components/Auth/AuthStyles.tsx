@@ -155,7 +155,6 @@ export const PasswordInput = styled.input`
     props.background ? `url(${PIcon})` : `url(${PIconRepeat})`};
 `;
 
-
 export const FooterLink = styled.p`
   font-size: 1rem;
   text-align: center;

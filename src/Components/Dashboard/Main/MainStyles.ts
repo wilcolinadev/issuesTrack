@@ -4,16 +4,16 @@ export const Box = styled.div`
   width: 100%;
   background-color: #fff;
   grid-area: 1 / 2 / 2 / 6;
- padding-top: 35px;
+  padding-top: 35px;
 
   box-sizing: border-box;
   @media only screen and (min-width: 850px) {
     padding-left: 20px;
   }
-  h3{
+  h3 {
     font-weight: bold;
-    color:#000;
-    font-size:2rem;
+    color: #000;
+    font-size: 2rem;
   }
 `;
 
@@ -47,7 +47,7 @@ export const AddButton = styled.button`
 
   &:hover {
     color: #000;
-    transition: .3s ease-in-out;
+    transition: 0.3s ease-in-out;
     background-color: #b9b6b6;
   }
 
@@ -60,8 +60,7 @@ export const AddButton = styled.button`
 
 export const RecordsBox = styled.div`
   padding: 1rem;
-  h3{
+  h3 {
     margin-bottom: 1rem;
   }
 `;
-

@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Box = styled.div`
-
   ul {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -25,26 +24,27 @@ export const Box = styled.div`
 
   ul:hover {
     background-color: #e6e2e2;
-    transition: .5ms ease-in-out;
+    transition: 0.5ms ease-in-out;
   }
 `;
 
 export const LiName = styled.li`
   font-weight: bold;
   color: #000;
-  font-size:1rem ;
+  font-size: 1rem;
 `;
-interface PropsStatus{
-    active:boolean
+
+interface PropsStatus {
+  active: boolean;
 }
+
 export const LiStatus = styled.li`
   width: 30%;
-  background-color: ${(props:PropsStatus) => props.active ?'#caf1b2': '#f59292' };
-  color:${(props:PropsStatus) => props.active ?'#2fac09': '#920101' };
+  background-color: ${(props: PropsStatus) =>
+    props.active ? "#caf1b2" : "#f59292"};
+  color: ${(props: PropsStatus) => (props.active ? "#2fac09" : "#920101")};
   font-weight: bold;
   border-radius: 20px;
-  padding: .2rem;
+  padding: 0.2rem;
   text-align: center;
 `;
-
-

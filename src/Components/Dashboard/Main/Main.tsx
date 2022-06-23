@@ -4,7 +4,7 @@ import {
   InnerBox,
   InnerBoxText,
   AddButton,
-  RecordsBox
+  RecordsBox,
 } from "./MainStyles";
 import WelcomeMessage from "./WelcomeMessage/WelcomeMessage";
 import InputSearch from "./InputSearch/InputSearch";
@@ -46,8 +46,8 @@ const Main: React.FC<MainProps> = (props) => {
 
       <RecordsBox>
         <h3>Issues</h3>
-          <Labels />
-          <Records/>
+        <Labels />
+        <Records />
       </RecordsBox>
     </Box>
   );

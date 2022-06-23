@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Box = styled.div`
-  ul{
+  ul {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-column-gap: 0px;
@@ -18,8 +18,6 @@ export const Box = styled.div`
     color: #000;
     text-transform: uppercase;
   }
-  
-
 `;
 
 export const LiName = styled.li`
@@ -29,5 +27,5 @@ export const LiName = styled.li`
 `;
 
 export const LiId = styled.li`
-  width:10%;
+  width: 10%;
 `;

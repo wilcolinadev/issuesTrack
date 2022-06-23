@@ -10,14 +10,12 @@ export const HeaderTitle = styled.h1`
   line-height: 2.5rem;
   margin-top: 0.5rem;
 
-
   @media only screen and (min-width: 700px) {
     width: 80%;
-    
+
     padding: 1rem;
     font-size: 4rem;
     line-height: 5rem;
-    
   }
 
   @media only screen and (min-width: 1025px) {

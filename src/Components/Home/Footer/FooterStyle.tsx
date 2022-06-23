@@ -11,7 +11,7 @@ export const FooterContent = styled.p`
   bottom: 0;
   width: 100%;
   height: 2.5rem;
-  
+
   @media only screen and (min-width: 700px) {
     font-size: 1.4rem;
     line-height: 3.5rem;

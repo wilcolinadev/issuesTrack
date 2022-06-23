@@ -8,15 +8,12 @@ export const Box = styled.div`
     font-size: 3rem;
     font-weight: 400;
     letter-spacing: -2px;
-    
   }
 
   p {
-
     color: #8c8b8b;
     font-size: 1.3rem;
     font-weight: lighter;
-    margin-bottom: .5rem;
-
+    margin-bottom: 0.5rem;
   }
 `;

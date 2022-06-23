@@ -12,9 +12,10 @@ const Records: React.FC = () => {
 
   const destructureObject = (object: object) => {
     let newArray: Array<object> = [];
-    Object.values(object).forEach((issue) => {
+    Object.values(object).forEach((issue: object) => {
       newArray.push(issue);
     });
+
     setRemoteIssues(newArray);
   };
 
@@ -34,8 +35,12 @@ const Records: React.FC = () => {
   }, []);
 
   const returnValues = () => {
+    //Reorder Array
+
     //Combining local state of new Issues with remote Issues to show issues inmediately
-    const combineArray = [...remoteIssues, ...activeIssues]
+    const combineArray = [...remoteIssues, ...activeIssues];
+    combineArray.sort((a, b) => a.name.localeCompare(b.name));
+
     return (
       <>
         {combineArray.map((issue) => {

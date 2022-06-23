@@ -1,6 +1,6 @@
 import React from "react";
 import { Chart } from "react-google-charts";
-import {ChartBox} from "./ChartStyles";
+import { ChartBox } from "./ChartStyles";
 
 const DashboardChart: React.FC = () => {
   const data = [
@@ -19,8 +19,8 @@ const DashboardChart: React.FC = () => {
         chartType="PieChart"
         data={data}
         options={options}
-        width={'auto'}
-        height={'200px'}
+        width={"auto"}
+        height={"200px"}
       />
     </ChartBox>
   );

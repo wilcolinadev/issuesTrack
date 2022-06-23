@@ -29,10 +29,7 @@ import { validateEmail } from "../validation";
 const Login: React.FC = () => {
   //Bringing the Actions
   const dispatch = useDispatch();
-  const { logUserIn } = bindActionCreators(
-    actionCreators,
-    dispatch
-  );
+  const { logUserIn } = bindActionCreators(actionCreators, dispatch);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isFormValidated, setIsFormValidated] = useState(false);

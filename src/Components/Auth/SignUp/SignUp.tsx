@@ -3,10 +3,9 @@ import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../../../Firebase/firebase";
 import useLocalStorage from "../../../hooks/useLocalStorage";
 
-
 import Modal from "../../Modal/Modal";
 import { Backdrop } from "../../Backdrop/Backdrop";
-import {inputValidation, passwordVerification} from "../validation";
+import { inputValidation, passwordVerification } from "../validation";
 import {
   AuthCard,
   AuthDescription,
@@ -41,8 +40,6 @@ const SignUp: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
 
-
-
   const registerUser = (event) => {
     event.preventDefault();
     setIsLoading(!isLoading);
@@ -74,7 +71,10 @@ const SignUp: React.FC = () => {
   // };
 
   useEffect(() => {
-    if (inputValidation(firstName, lastName,email) && passwordVerification(password, passwordValidation)) {
+    if (
+      inputValidation(firstName, lastName, email) &&
+      passwordVerification(password, passwordValidation)
+    ) {
       setIsFormValidated(true);
     } else {
       setIsFormValidated(false);
