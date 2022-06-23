@@ -11,7 +11,7 @@ import Sidebar from "./Sidebar/Sidebar";
 import Main from "./Main/Main";
 import { Backdrop } from "../Backdrop/Backdrop";
 import * as ActionCreators from "../../state/actions/actionCreators";
-
+import Card from "./Card/Card";
 const Dashboard: React.FC = () => {
   const userState = useSelector((state: RootStateOrAny) => state.isUserAuth);
   const isModalFormOpen = useSelector(
@@ -20,6 +20,7 @@ const Dashboard: React.FC = () => {
   const isSidebarOpen = useSelector(
     (state: RootStateOrAny) => state.isSidebarOpen
   );
+  const isCardActive = useSelector((state:RootStateOrAny)=>state.isCardActive)
   const navigate = useNavigate();
   const location = useLocation();
   const dispatch = useDispatch();
@@ -40,6 +41,8 @@ const Dashboard: React.FC = () => {
       return <Backdrop onClick={() => toggleModalForm(isModalFormOpen)} />;
     } else if (isSidebarOpen) {
       return <Backdrop />;
+    }else if (isCardActive){
+      return <Backdrop/>
     }
   };
 
@@ -49,6 +52,7 @@ const Dashboard: React.FC = () => {
     } else {
       return (
         <DashboardWrapper>
+          <Card/>
           {handleBackdrop()}
           <DashboardNav username={userState.user.displayName} />
           <DashboardDivider>

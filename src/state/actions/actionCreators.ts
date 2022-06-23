@@ -84,3 +84,11 @@ export const setActiveIssue = (issue)=>{
     })
   }
 }
+
+export const toggleActiveCard = () =>{
+  return (dispatch:Dispatch) =>{
+    dispatch({
+      type:ActionTypes.TOGGLE_ACTIVE_CARD
+    })
+  }
+}

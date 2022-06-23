@@ -1,7 +1,8 @@
 import React from "react";
 import { Box, LiName, LiStatus } from "./RecordsStyles";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {bindActionCreators} from "redux";
+import {RootStateOrAny} from "react-redux"
 import * as ActionCreators from "../../../../state/actions/actionCreators"
 interface issuesProps {
   id: string;
@@ -9,14 +10,17 @@ interface issuesProps {
   email: string;
   phone: string;
   description: string;
+  date:string
+  active?:boolean
 }
 
 const Record: React.FC<issuesProps> = (props) => {
-  const { id, name, email, phone, description } = props;
+  const { id, name, email, phone, description, date, active } = props;
 
   const dispatch = useDispatch();
-
-  const {setActiveIssue} = bindActionCreators(ActionCreators, dispatch)
+  const isCardActive = useSelector((state:RootStateOrAny)=>state.isCardActive)
+  const {setActiveIssue} = bindActionCreators(ActionCreators, dispatch);
+  const {toggleActiveCard} = bindActionCreators(ActionCreators,dispatch);
   const shortName = () => {
     const splittedName = name.split(" ");
     return `${splittedName[0]} ${splittedName[1].slice(0, 1)}`;
@@ -36,8 +40,19 @@ const Record: React.FC<issuesProps> = (props) => {
       return description;
     }
   };
+  const handleCard =()=>{
+    setActiveIssue(props);
+    if(!isCardActive){
+      toggleActiveCard();
+    }
+
+  }
+  
   return (
-    <Box onClick={()=>setActiveIssue(props)}>
+    <Box
+      onClick={()=>handleCard()}
+    >
+
       <ul>
         <LiName> {name}</LiName>
         <li>#{id} </li>

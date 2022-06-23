@@ -59,6 +59,8 @@ const Records: React.FC = () => {
               email={issue.email}
               phone={issue.phone}
               description={issue.description}
+              date={issue.date}
+              active={issue.active}
             />
           );
         })}
