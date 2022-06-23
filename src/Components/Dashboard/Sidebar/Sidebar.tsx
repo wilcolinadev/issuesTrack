@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, FooterBox, MainBox } from "./SidebarStyles";
+import { Box, FooterBox, MainBox, Button } from "./SidebarStyles";
 import {
   IoLogOutOutline,
   IoPeopleOutline,
@@ -19,6 +19,7 @@ const Sidebar: React.FC<SidebarProps> = (props: SidebarProps) => {
   const isSidebarOpen = useSelector(
     (state: RootStateOrAny) => state.isSidebarOpen
   );
+  const activeGroup = useSelector((state:RootStateOrAny)=>state.issues)
   const dispatch = useDispatch();
   const { showGlobalIssues, showUserIssues } = bindActionCreators(
     ActionCreators,
@@ -29,36 +30,42 @@ const Sidebar: React.FC<SidebarProps> = (props: SidebarProps) => {
     const slicedName = name.split(" ");
     return slicedName[0];
   };
+
+
+
+
   return (
-    <MainBox isSidebarOpen={isSidebarOpen}>
-      <Box>
+    <MainBox isSidebarOpen={isSidebarOpen} >
+      <Box >
         <span>Hi, {sliceName(props.username)}!</span>
+
         <div>
-          <button onClick={showGlobalIssues}>
-            <i>
-              {" "}
-              <IoPeopleOutline />{" "}
-            </i>
-            Global issues
-          </button>
-        </div>
-        <div>
-          <button onClick={showUserIssues}>
+          <Button onClick={showUserIssues}  active={activeGroup === 'user' && true}>
+
             <i>
               {" "}
               <IoPersonOutline />{" "}
             </i>{" "}
             My issues
-          </button>
+          </Button>
         </div>
         <div>
-          <button onClick={props.logUserOut}>
+          <div>
+            <Button onClick={showGlobalIssues} active={activeGroup === 'global' && true}>
+              <i>
+                {" "}
+                <IoPeopleOutline />{" "}
+              </i>
+              Global issues
+            </Button>
+          </div>
+          <Button onClick={props.logUserOut}>
             <i>
               {" "}
               <IoLogOutOutline />{" "}
             </i>
             Log out
-          </button>
+          </Button>
         </div>
       </Box>
       <FooterBox>

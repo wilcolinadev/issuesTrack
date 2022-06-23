@@ -22,9 +22,11 @@ const ModalForm = () => {
   );
 
   const user = useSelector((state: RootStateOrAny) => state.isUserAuth);
+  const isModalFormOpen = useSelector((state :RootStateOrAny)=>state.isModalFormOpen);
   const dispatch = useDispatch();
   const [isFormValid, setIsFormValid] = useState(false);
-  const { addIssue } = bindActionCreators(ActionCreators, dispatch);
+  const { addIssue,toggleModalForm } = bindActionCreators(ActionCreators, dispatch);
+
 
   const storeIssue = (userRecord) => {
     let myuuid = uuidv4();
@@ -58,6 +60,7 @@ const ModalForm = () => {
       await storeIssue(userRecord);
       event.target.reset();
       setIsFormValid(false);
+      toggleModalForm(isModalFormOpen);
     }
   };
   return (

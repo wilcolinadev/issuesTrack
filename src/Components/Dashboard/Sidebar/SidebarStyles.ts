@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+interface PropsButton {
+  active?: boolean;
+}
+
 export const Box = styled.div`
   h3 {
     color: #e9ac30;
@@ -7,15 +11,6 @@ export const Box = styled.div`
     padding: 1rem;
   }
 
-  button {
-    width: 100%;
-    padding: 1rem;
-    background-color: transparent;
-    border: none;
-    color: #fff;
-    font-size: 1.2rem;
-    text-align: left;
-  }
   span {
     width: 100%;
     color: #f3f3bd;
@@ -30,18 +25,34 @@ export const Box = styled.div`
     }
   }
 
-  button:hover {
-    background-color: #cfcdcd;
-    transition: 0.5ms ease-in-out;
-    cursor: pointer;
-    color: #000;
-  }
-
   i {
     position: relative;
     top: 4px;
     margin-right: 5px;
   }
+`;
+
+export const Button = styled.button`
+  border: none;
+  width: 100%;
+  padding: 1rem;
+  background-color: transparent;
+  color: #fff;
+  font-size: 1.2rem;
+  text-align: left;
+  border-left: ${(props: PropsButton) =>
+      props.active ? "4px solid #f3f3bd" : "none"};
+
+  &:hover {
+    background-color: #cfcdcd;
+    transition: 0.5ms ease-in-out;
+    cursor: pointer;
+    color: #000;
+
+  }
+
+
+
 `;
 
 export const FooterBox = styled.div`
@@ -53,6 +64,7 @@ export const FooterBox = styled.div`
     padding-bottom: 1rem;
     font-size: 0.7rem;
   }
+
   @media only screen and (min-width: 700px) {
     p {
       font-size: 1rem;

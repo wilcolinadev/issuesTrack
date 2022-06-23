@@ -1,6 +1,6 @@
 import * as ActionTypes from "../actions/actionTypes";
 
-const initialState = "";
+const initialState = "user";
 
 interface Action {
   type: string;
