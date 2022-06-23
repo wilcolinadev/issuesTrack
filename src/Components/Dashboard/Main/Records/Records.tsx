@@ -2,7 +2,6 @@ import React, { useEffect, useState, useMemo } from "react";
 import { RootStateOrAny, useSelector } from "react-redux";
 import Record from "./Record";
 import { getDatabase, ref, get } from "firebase/database";
-import inputSearch from "../InputSearch/InputSearch";
 
 const Records: React.FC = () => {
   const activeIssues = useSelector(

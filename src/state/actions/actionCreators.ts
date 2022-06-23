@@ -75,3 +75,12 @@ export const handleInputSearch = (input)=>{
     )
   }
 };
+
+export const setActiveIssue = (issue)=>{
+  return(dispatch:Dispatch)=>{
+    dispatch({
+      type:ActionTypes.SET_ACTIVE_ISSUE,
+      payload:issue
+    })
+  }
+}

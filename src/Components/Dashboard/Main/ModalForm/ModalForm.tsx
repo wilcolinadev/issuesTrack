@@ -38,7 +38,8 @@ const ModalForm = () => {
       email: userRecord.email,
       phone: userRecord.phone,
       description: userRecord.description,
-      date:userRecord.d
+      date:userRecord.d,
+      active:userRecord.active
     });
   };
 
@@ -52,7 +53,8 @@ const ModalForm = () => {
     const phone = formElements.phone.value;
     const description = formElements.description.value;
     const d = new Date().toDateString();
-    const userRecord = { id, name, email, phone, description, d};
+    const active = false
+    const userRecord = { id, name, email, phone, description, d, active};
 
     if (validateEmail(email) && validateName(name) && validatePhone(phone)) {
       setIsFormValid(true);

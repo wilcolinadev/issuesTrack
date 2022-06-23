@@ -5,6 +5,7 @@ import issuesFormReducer from "../issuesFormReducer";
 import modalFormReducer from "../modalFormReducer";
 import issuesReducer from "../issuesReducer";
 import searchReducer from "../searchReducer";
+import activeIssueReducer from "./activeIssueReducer";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 
@@ -14,7 +15,8 @@ const reducers = combineReducers({
   issues:issuesFormReducer,
   isModalFormOpen: modalFormReducer,
   activeIssues : issuesReducer,
-  inputSearch: searchReducer
+  inputSearch: searchReducer,
+  activeIssue: activeIssueReducer
 });
 const composeEnhancer = composeWithDevTools || compose;
 

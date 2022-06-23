@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Nav, NavigationElement, UserName } from "./NavStyles";
 import { Burger } from "../../Home/Navigation/Hamburger/HamburgerStyles";
 import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
