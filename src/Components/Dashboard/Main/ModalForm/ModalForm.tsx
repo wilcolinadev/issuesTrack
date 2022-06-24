@@ -27,9 +27,8 @@ const ModalForm = () => {
   const [isFormValid, setIsFormValid] = useState(false);
   const { addIssue,toggleModalForm } = bindActionCreators(ActionCreators, dispatch);
 
-
+  let myuuid = uuidv4();
   const storeIssue = (userRecord) => {
-    let myuuid = uuidv4();
     // console.log(user);
     const db = getDatabase();
     return set(ref(db, `issues/${user.user.uid}/${myuuid}`), {
@@ -56,7 +55,7 @@ const ModalForm = () => {
     const description = formElements.description.value;
     const d = new Date().toDateString();
     const active = true;
-    const userRecord = { id, name, email, phone, description, d, active};
+    const userRecord = { id, name, email, phone, description, date:d, active, uid:myuuid};
 
     if (validateEmail(email) && validateName(name) && validatePhone(phone)) {
       setIsFormValid(true);

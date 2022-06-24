@@ -17,13 +17,13 @@ const Card: React.FC = () => {
   const dispatch = useDispatch();
   const { toggleActiveCard } = bindActionCreators(ActionCreators, dispatch);
   const [newSelection, setNewSelection] = useState<undefined | string>(
-    "Active"
+    "Closed"
   );
 
   const updateIssue = (e) => {
     e.preventDefault();
     if (activeIssue.uid) {
-      const isIssueActive = newSelection === "Active" && true;
+      const isIssueActive = newSelection === "Closed" && true;
       const db = getDatabase();
       return update(ref(db, `issues/${user.user.uid}/${activeIssue.uid}`), {
         active: isIssueActive,
