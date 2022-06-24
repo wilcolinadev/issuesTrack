@@ -39,8 +39,10 @@ const ModalForm = () => {
       phone: userRecord.phone,
       description: userRecord.description,
       date:userRecord.d,
-      active:userRecord.active
+      active:userRecord.active,
+      uid:myuuid
     });
+
   };
 
   const handleForm = async (event) => {
@@ -53,7 +55,7 @@ const ModalForm = () => {
     const phone = formElements.phone.value;
     const description = formElements.description.value;
     const d = new Date().toDateString();
-    const active = false
+    const active = false;
     const userRecord = { id, name, email, phone, description, d, active};
 
     if (validateEmail(email) && validateName(name) && validatePhone(phone)) {

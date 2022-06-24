@@ -35,7 +35,7 @@ export const LiName = styled.li`
 `;
 
 interface PropsStatus {
-  active: boolean;
+  active: boolean | undefined;
 }
 
 export const LiStatus = styled.li`

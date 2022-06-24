@@ -2,6 +2,7 @@ import React, { useEffect, useState, useMemo } from "react";
 import { RootStateOrAny, useSelector } from "react-redux";
 import Record from "./Record";
 import { getDatabase, ref, get } from "firebase/database";
+import Spinner from "../../../Spinner/Spinner";
 
 const Records: React.FC = () => {
   const activeIssues = useSelector(
@@ -26,6 +27,7 @@ const Records: React.FC = () => {
       const db = getDatabase();
       const issuesRef = await ref(db, "issues/" + activeUser.user.uid);
       let userIssues = await get(issuesRef);
+      console.log(userIssues)
       try {
         destructureObject(userIssues.val());
       } catch (e) {
@@ -49,23 +51,31 @@ const Records: React.FC = () => {
   );
 
   const returnValues = () => {
-    return (
-      <>
-        {filteredIssues.map((issue) => {
-          return (
-            <Record
-              id={issue.id}
-              name={issue.name}
-              email={issue.email}
-              phone={issue.phone}
-              description={issue.description}
-              date={issue.date}
-              active={issue.active}
-            />
-          );
-        })}
-      </>
-    );
+    if(filteredIssues){
+      return (
+          <>
+            {filteredIssues.map((issue) => {
+              return (
+                  <Record
+                      id={issue.id}
+                      name={issue.name}
+                      email={issue.email}
+                      phone={issue.phone}
+                      description={issue.description}
+                      date={issue.date}
+                      active={issue.active}
+                      uid={issue.uid}
+                  />
+              );
+            })}
+          </>
+      );
+    }else{
+      return (
+          <Spinner loading={true}/>
+      )
+    }
+
   };
 
   return <>{returnValues()}</>;

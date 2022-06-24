@@ -12,10 +12,11 @@ interface issuesProps {
   description: string;
   date:string
   active?:boolean
+  uid:string
 }
 
 const Record: React.FC<issuesProps> = (props) => {
-  const { id, name, email, phone, description, date, active } = props;
+  const { id, name, email, phone, description, date, active, uid } = props;
 
   const dispatch = useDispatch();
   const isCardActive = useSelector((state:RootStateOrAny)=>state.isCardActive)
@@ -41,7 +42,7 @@ const Record: React.FC<issuesProps> = (props) => {
     }
   };
   const handleCard =()=>{
-    setActiveIssue(props);
+    setActiveIssue({ id, name, email, phone:formatPhone(), description, date, active, uid });
     if(!isCardActive){
       toggleActiveCard();
     }
@@ -59,7 +60,7 @@ const Record: React.FC<issuesProps> = (props) => {
         <li>{email} </li>
         <li>{formatPhone()}</li>
         <li>{handleDescription()}</li>
-        <LiStatus active={true}>Open</LiStatus>
+        <LiStatus active={active}>{active ?'Open':'Closed'}</LiStatus>
       </ul>
     </Box>
   );
