@@ -6,32 +6,44 @@ import { bindActionCreators } from "redux";
 import * as ActionCreators from "../../../state/actions/actionCreators";
 import { ModalLink } from "../../Modal/ModalStyles";
 import { IoCloseSharp } from "react-icons/io5";
-import {getDatabase, ref, set,update} from "firebase/database";
+import { getDatabase, ref, set, update, remove } from "firebase/database";
 
 const Card: React.FC = () => {
   const activeIssue = useSelector((state: RootStateOrAny) => state.activeIssue);
   const isCardActive = useSelector(
     (state: RootStateOrAny) => state.isCardActive
   );
-  const user = useSelector((state:RootStateOrAny)=> state.isUserAuth);
+  const user = useSelector((state: RootStateOrAny) => state.isUserAuth);
   const dispatch = useDispatch();
   const { toggleActiveCard } = bindActionCreators(ActionCreators, dispatch);
+  const [newSelection, setNewSelection] = useState<undefined | string>(
+    "Active"
+  );
 
-  const handleForm = (e) => {
-      e.preventDefault();
-      const form = e.currentTarget;
-      const formElements = form.elements;
-      const selection = formElements.selection.value;
-      const newSelection = selection ==="Active" && true;
-      updateIssue(newSelection);
+  const updateIssue = (e) => {
+    e.preventDefault();
+    if (activeIssue.uid) {
+      const isIssueActive = newSelection === "Active" && true;
+      const db = getDatabase();
+      return update(ref(db, `issues/${user.user.uid}/${activeIssue.uid}`), {
+        active: isIssueActive,
+      }).then(() => {
+        toggleActiveCard();
+      });
+    }
   };
-    const updateIssue = (newSelection) => {
-        console.log(user);
-        const db = getDatabase();
-        return update(ref(db, `issues/${user.user.uid}/${activeIssue.uid}`), {
-            active:newSelection
-        });
-    };
+
+  const removeIssue = (e) => {
+    e.preventDefault();
+    if (activeIssue.uid) {
+      const db = getDatabase();
+      return remove(ref(db, `issues/${user.user.uid}/${activeIssue.uid}`)).then(
+        () => {
+          toggleActiveCard();
+        }
+      );
+    }
+  };
 
   return (
     <ModalBox active={isCardActive}>
@@ -54,17 +66,21 @@ const Card: React.FC = () => {
       <p>{activeIssue.phone}</p>
       <Label>Date</Label>
       <p>{activeIssue.date}</p>
-      <form onSubmit={handleForm}>
-        <select id="selection" name="selection">
-          <option value="Active" selected>
-            Active
+      <form>
+        <select
+          id="selection"
+          name="selection"
+          onChange={(e) => setNewSelection(e.currentTarget.value)}
+        >
+          <option value="Active">Active</option>
+          <option value="Closed" selected>
+            Closed
           </option>
-          <option value="Closed">Closed</option>
         </select>
 
         <div>
           <ModalLink
-            onClick={() => toggleActiveCard()}
+            onClick={(e) => updateIssue(e)}
             colorB={"#ccc"}
             fontColor={"#000"}
             type="submit"
@@ -72,11 +88,10 @@ const Card: React.FC = () => {
             Update
           </ModalLink>
           <ModalLink
-            onClick={() => toggleActiveCard()}
+            onClick={(e) => removeIssue(e)}
             colorB={"#d40c0c"}
             fontColor={"#fff"}
             hover={"#000"}
-            type="submit"
           >
             Remove Issue
           </ModalLink>

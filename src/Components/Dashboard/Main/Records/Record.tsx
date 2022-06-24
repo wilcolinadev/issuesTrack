@@ -60,7 +60,7 @@ const Record: React.FC<issuesProps> = (props) => {
         <li>{email} </li>
         <li>{formatPhone()}</li>
         <li>{handleDescription()}</li>
-        <LiStatus active={active}>{active ?'Open':'Closed'}</LiStatus>
+        <LiStatus active={active}>{active ?'Active':'Closed'}</LiStatus>
       </ul>
     </Box>
   );
