@@ -12,6 +12,7 @@ const Records: React.FC = () => {
 
   const activeUser = useSelector((state: RootStateOrAny) => state.isUserAuth);
   const issuesInput = useSelector((state: RootStateOrAny) => state.inputSearch);
+  const isFetching = useSelector((state:RootStateOrAny) => state.isFetching);
   const destructureObject = (object: object) => {
     let newArray: Array<object> = [];
     Object.values(object).forEach((issue: object) => {
@@ -35,7 +36,7 @@ const Records: React.FC = () => {
       }
     };
     getRecords();
-  }, []);
+  }, [isFetching]);
 
   const combineArray = [...remoteIssues, ...activeIssues];
   //Sorting Array by name

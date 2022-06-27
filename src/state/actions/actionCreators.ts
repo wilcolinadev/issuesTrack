@@ -92,3 +92,10 @@ export const toggleActiveCard = () =>{
     })
   }
 }
+export const fetchIssues = ()=>{
+  return (dispatch:Dispatch) =>{
+    dispatch({
+      type:ActionTypes.FETCH_ISSUES
+    })
+  }
+}

@@ -7,6 +7,7 @@ import issuesReducer from "../issuesReducer";
 import searchReducer from "../searchReducer";
 import activeIssueReducer from "../activeIssueReducer";
 import activeCardReducer from "../activeCardReducer";
+import fetchReducer from "../fetchReducer";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 
@@ -18,7 +19,8 @@ const reducers = combineReducers({
   activeIssues : issuesReducer,
   inputSearch: searchReducer,
   activeIssue: activeIssueReducer,
-  isCardActive: activeCardReducer
+  isCardActive: activeCardReducer,
+  isFetching:fetchReducer
 });
 const composeEnhancer = composeWithDevTools || compose;
 

@@ -29,15 +29,15 @@ const ModalForm = () => {
 
   let myuuid = uuidv4();
   const storeIssue = (userRecord) => {
-    // console.log(user);
     const db = getDatabase();
+    console.log(db)
     return set(ref(db, `issues/${user.user.uid}/${myuuid}`), {
       id: userRecord.id,
       name: userRecord.name,
       email: userRecord.email,
       phone: userRecord.phone,
       description: userRecord.description,
-      date:userRecord.d,
+      date:userRecord.date,
       active:userRecord.active,
       uid:myuuid
     });
@@ -60,6 +60,7 @@ const ModalForm = () => {
     if (validateEmail(email) && validateName(name) && validatePhone(phone)) {
       setIsFormValid(true);
       addIssue(activeIssues, userRecord);
+      console.log(userRecord)
       await storeIssue(userRecord);
       event.target.reset();
       setIsFormValid(false);

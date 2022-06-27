@@ -15,7 +15,10 @@ const Card: React.FC = () => {
   );
   const user = useSelector((state: RootStateOrAny) => state.isUserAuth);
   const dispatch = useDispatch();
-  const { toggleActiveCard } = bindActionCreators(ActionCreators, dispatch);
+  const { toggleActiveCard, fetchIssues } = bindActionCreators(
+    ActionCreators,
+    dispatch
+  );
   const [newSelection, setNewSelection] = useState<undefined | string>(
     "Closed"
   );
@@ -28,7 +31,9 @@ const Card: React.FC = () => {
       return update(ref(db, `issues/${user.user.uid}/${activeIssue.uid}`), {
         active: isIssueActive,
       }).then(() => {
+
         toggleActiveCard();
+          fetchIssues();
       });
     }
   };
@@ -39,7 +44,9 @@ const Card: React.FC = () => {
       const db = getDatabase();
       return remove(ref(db, `issues/${user.user.uid}/${activeIssue.uid}`)).then(
         () => {
+
           toggleActiveCard();
+            fetchIssues();
         }
       );
     }
