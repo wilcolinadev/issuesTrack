@@ -41,10 +41,11 @@ interface PropsStatus {
 export const LiStatus = styled.li`
   width: 30%;
   background-color: ${(props: PropsStatus) =>
-    props.active ? "#caf1b2" : "#f59292"};
-  color: ${(props: PropsStatus) => (props.active ? "#2fac09" : "#920101")};
+    props.active ? "#caf1b2" : "#ccc"};
+  color: ${(props: PropsStatus) => (props.active ? "#000000" : "#000000")};
   font-weight: bold;
   border-radius: 20px;
-  padding: 0.2rem;
+  padding: 0.3rem;
   text-align: center;
+  
 `;

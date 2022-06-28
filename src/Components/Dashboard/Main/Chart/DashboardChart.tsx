@@ -13,7 +13,7 @@ const DashboardChart: React.FC = () => {
 
   const options = {
     title: "",
-    colors:['#caf1b2','#f59292']
+    colors:['#caf1b2','#ccc']
   };
   return (
     <ChartBox>
