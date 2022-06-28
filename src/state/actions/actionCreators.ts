@@ -99,3 +99,15 @@ export const fetchIssues = ()=>{
     })
   }
 }
+
+export const updateGraphValues = (newValues) =>{
+  return( dispatch:Dispatch)=>{
+    dispatch({
+      type: ActionTypes.UPDATE_GRAPH_VALUES,
+      payload:{
+        active:newValues.activeIssues,
+        closed:newValues.closedIssues
+      }
+    })
+  }
+};

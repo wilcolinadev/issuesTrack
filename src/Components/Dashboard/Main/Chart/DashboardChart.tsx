@@ -1,17 +1,19 @@
 import React from "react";
 import { Chart } from "react-google-charts";
 import { ChartBox } from "./ChartStyles";
+import {RootStateOrAny, useSelector} from "react-redux";
 
 const DashboardChart: React.FC = () => {
+  const graphValues = useSelector((state:RootStateOrAny)=>state.graphValues);
   const data = [
     ["Problems", "stats"],
-    ["Pending", 11],
-    ["Solved", 2],
-    ["Unsolved", 2],
+    ["Active", graphValues.active],
+    ["Closed", graphValues.closed]
   ];
 
   const options = {
     title: "",
+    colors:['#caf1b2','#f59292']
   };
   return (
     <ChartBox>

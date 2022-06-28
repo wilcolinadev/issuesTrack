@@ -42,7 +42,6 @@ export const GlobalStyles = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
     text-decoration: none;
     background-image: url(${background});
-
     background-position: center;
     height: auto;
     background-size: cover;
