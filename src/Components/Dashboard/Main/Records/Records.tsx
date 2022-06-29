@@ -2,14 +2,16 @@ import React, { useEffect, useState, useMemo } from "react";
 import { RootStateOrAny, useSelector, useDispatch } from "react-redux";
 import Record from "./Record";
 import { getDatabase, ref, get } from "firebase/database";
-import Spinner from "../../../Spinner/Spinner";
-import {bindActionCreators} from "redux";
-import * as ActionCreators from "../../../../state/actions/actionCreators"
+import { bindActionCreators } from "redux";
+import * as ActionCreators from "../../../../state/actions/actionCreators";
 
 const Records: React.FC = () => {
   const dispatch = useDispatch();
 
-  const {updateGraphValues} = bindActionCreators(ActionCreators, dispatch)
+  const { updateGraphValues, cleanIssues } = bindActionCreators(
+    ActionCreators,
+    dispatch
+  );
   const activeIssues = useSelector(
     (state: RootStateOrAny) => state.activeIssues
   );
@@ -36,8 +38,21 @@ const Records: React.FC = () => {
         closedIssues++;
       }
     });
-    updateGraphValues({activeIssues, closedIssues});
+
+    updateGraphValues({ activeIssues, closedIssues });
   };
+  const combineArray = [...remoteIssues, ...activeIssues];
+  //Sorting Array by name
+  combineArray.sort((a, b) => a.name.localeCompare(b.name));
+
+  let filteredIssues = useMemo(
+    () =>
+      combineArray.filter((issue) => {
+        //Checking if the name includes the value inputted by the user and returning an array with those values
+        return issue.name.toLowerCase().includes(issuesInput.toLowerCase());
+      }),
+    [issuesInput, combineArray]
+  );
 
   useEffect(() => {
     //Getting Database Issues
@@ -49,37 +64,21 @@ const Records: React.FC = () => {
       try {
         destructureObject(userIssues.val());
       } catch (e) {
-        console.log("error");
+        console.log("Empty remote Issues");
       }
     };
 
     getRecords();
+    cleanIssues();
+    setRemoteIssues([]);
   }, [isFetching]);
 
-  const combineArray = [...remoteIssues, ...activeIssues];
-  //Sorting Array by name
-  combineArray.sort((a, b) => a.name.localeCompare(b.name));
-
-  const filteredIssues = useMemo(
-    () =>
-      combineArray.filter((issue) => {
-        //Checking if the name includes the value inputted by the user and returning an array with those values
-        return issue.name.toLowerCase().includes(issuesInput.toLowerCase());
-      }),
-    [issuesInput, combineArray]
-  );
-
-  useEffect(()=>{
+  useEffect(() => {
     countRecords(remoteIssues);
-    console.log(remoteIssues)
-  },[remoteIssues])
-
-
-
+  }, [remoteIssues]);
 
   const returnValues = () => {
-
-    if (filteredIssues) {
+    if (filteredIssues.length > 0) {
       return (
         <>
           {filteredIssues.map((issue) => {
@@ -99,7 +98,7 @@ const Records: React.FC = () => {
         </>
       );
     } else {
-      return <Spinner loading={true} />;
+      return <p> Add yours first records above...</p>;
     }
   };
 

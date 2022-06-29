@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {ModalProps} from "../../Modal/ModalStyles";
+import { ModalProps } from "../../Modal/ModalStyles";
 
 export const ModalBox = styled.div`
   position: fixed;
@@ -14,7 +14,7 @@ export const ModalBox = styled.div`
   margin-top: 15vh;
   border-radius: 20px;
   transform: ${(props: ModalProps) =>
-          !props.active ? "translateY(-1000%)" : "translate(0)"};
+    !props.active ? "translateY(-1000%)" : "translate(0)"};
 
   @media only screen and (min-width: 700px) {
     width: 600px;
@@ -22,7 +22,7 @@ export const ModalBox = styled.div`
   }
 
   p {
-    margin: .3rem 0;
+    margin: 0.3rem 0;
     font-size: 1rem;
   }
 
@@ -31,24 +31,23 @@ export const ModalBox = styled.div`
     border: none;
     height: 2rem;
     background-color: #ebeaea;
-    margin: .6rem 0;
+    margin: 0.6rem 0;
     color: #000000;
     font-size: 1.3rem;
   }
-  div{
+  div {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
-    
   }
-  i{
+  i {
     font-size: 2.5rem;
     cursor: pointer;
   }
 `;
 
 export const Label = styled.p`
-font-weight: bold;
-  padding-top: .3rem;
+  font-weight: bold;
+  padding-top: 0.3rem;
   font-size: 1.1rem;
-`
+`;

@@ -41,18 +41,14 @@ export const Button = styled.button`
   font-size: 1.2rem;
   text-align: left;
   border-left: ${(props: PropsButton) =>
-      props.active ? "4px solid #f3f3bd" : "none"};
+    props.active ? "4px solid #f3f3bd" : "none"};
 
   &:hover {
     background-color: #cfcdcd;
     transition: 0.5ms ease-in-out;
     cursor: pointer;
     color: #000;
-
   }
-
-
-
 `;
 
 export const FooterBox = styled.div`

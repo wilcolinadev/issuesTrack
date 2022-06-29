@@ -1,15 +1,15 @@
 import React from "react";
-import { Box, LiName, LiId } from "./LabelsStyles";
+import { Box, LiName, LiId, LiEmail, LiDescription, LiPhone } from "./LabelsStyles";
 
 const Labels: React.FC = () => {
   return (
     <Box>
       <ul>
-        <li>Name</li>
-        <li> Customer ID</li>
-        <li>Email</li>
-        <li>Phone Number</li>
-        <li>Description</li>
+        <LiName>Name</LiName>
+        <li> ID</li>
+        <LiEmail>Email</LiEmail>
+        <LiPhone>Phone Number</LiPhone>
+        <LiDescription>Description</LiDescription>
         <li>status</li>
       </ul>
     </Box>

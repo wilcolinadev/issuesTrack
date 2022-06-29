@@ -31,9 +31,8 @@ const Card: React.FC = () => {
       return update(ref(db, `issues/${user.user.uid}/${activeIssue.uid}`), {
         active: isIssueActive,
       }).then(() => {
-
         toggleActiveCard();
-          fetchIssues();
+        fetchIssues();
       });
     }
   };
@@ -44,9 +43,8 @@ const Card: React.FC = () => {
       const db = getDatabase();
       return remove(ref(db, `issues/${user.user.uid}/${activeIssue.uid}`)).then(
         () => {
-
           toggleActiveCard();
-            fetchIssues();
+          fetchIssues();
         }
       );
     }

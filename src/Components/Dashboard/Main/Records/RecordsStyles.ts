@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Box = styled.div`
   ul {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     list-style: none;
@@ -15,6 +15,7 @@ export const Box = styled.div`
     margin-top: 0.5rem;
     color: #7e7d7d;
     cursor: pointer;
+    align-items: center;
   }
 
   li {
@@ -25,6 +26,13 @@ export const Box = styled.div`
   ul:hover {
     background-color: #e6e2e2;
     transition: 0.5ms ease-in-out;
+  }
+
+  @media only screen and (min-width: 700px) {
+    
+    ul{
+      grid-template-columns: repeat(6, 1fr);
+    }
   }
 `;
 
@@ -39,13 +47,41 @@ interface PropsStatus {
 }
 
 export const LiStatus = styled.li`
-  width: 30%;
+  width: 70%;
   background-color: ${(props: PropsStatus) =>
     props.active ? "#caf1b2" : "#ccc"};
   color: ${(props: PropsStatus) => (props.active ? "#000000" : "#000000")};
   font-weight: bold;
   border-radius: 20px;
-  padding: 0.3rem;
   text-align: center;
-  
+  padding: 0.2rem;
+  @media only screen and (min-width: 700px) {
+
+    width: 30%;
+    padding: 0.3rem;
+    border-radius: 20px;
+  }
+`;
+
+export const LiDescription = styled.li`
+  display: none;
+  @media only screen and (min-width: 700px) {
+    display: block;
+  }
+`;
+
+export const LiPhone = styled.li`
+  display: none;
+  @media only screen and (min-width: 700px) {
+    display: block;
+  }
+`;
+
+
+
+export const LiEmail = styled.li`
+  display: none;
+  @media only screen and (min-width: 700px) {
+    display: block;
+  }
 `;

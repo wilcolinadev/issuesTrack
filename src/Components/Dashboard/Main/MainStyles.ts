@@ -32,7 +32,7 @@ export const InnerBoxText = styled.div`
 `;
 
 export const AddButton = styled.button`
-  font-size: 1.2rem;
+  font-size: 1rem;
   border: 2px solid #19263c;
 
   padding: 0.5rem;

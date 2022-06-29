@@ -15,14 +15,14 @@ import { composeWithDevTools } from "redux-devtools-extension";
 const reducers = combineReducers({
   isUserAuth: reducer,
   isSidebarOpen: sidebarReducer,
-  issues:issuesFormReducer,
+  issues: issuesFormReducer,
   isModalFormOpen: modalFormReducer,
-  activeIssues : issuesReducer,
+  activeIssues: issuesReducer,
   inputSearch: searchReducer,
   activeIssue: activeIssueReducer,
   isCardActive: activeCardReducer,
-  isFetching:fetchReducer,
-  graphValues:graphReducer
+  isFetching: fetchReducer,
+  graphValues: graphReducer,
 });
 const composeEnhancer = composeWithDevTools || compose;
 

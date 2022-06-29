@@ -14,15 +14,16 @@ export const FooterContent = styled.p`
 
   @media only screen and (min-width: 700px) {
     font-size: 1.4rem;
-    line-height: 3.5rem;
-    margin-top: 6rem;
+    line-height: 2rem;
+    margin-top: 3rem;
   }
   @media only screen and (min-height: 950px) and (min-width: 1025px) {
-    line-height: 3.5rem;
+    line-height: 1rem;
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 2.5rem;
+    height: 2rem;
+    box-sizing: border-box;
   }
 `;
 

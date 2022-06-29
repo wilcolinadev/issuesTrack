@@ -3,7 +3,7 @@ import { ModalText, ModalLink } from "../../../Modal/ModalStyles";
 import { IssueForm, ModalBox } from "./ModalFormStyles";
 import { useSelector, useDispatch } from "react-redux";
 import { RootStateOrAny } from "react-redux";
-import { getDatabase, set, ref } from "firebase/database";
+import { getDatabase, set, ref, onChildAdded } from "firebase/database";
 import {
   validateName,
   validateEmail,
@@ -12,8 +12,10 @@ import {
 import * as ActionCreators from "../../../../state/actions/actionCreators";
 import { bindActionCreators } from "redux";
 import { v4 as uuidv4 } from "uuid";
+import { updateGraphValues } from "../../../../state/actions/actionCreators";
 
 const ModalForm = () => {
+  const db = getDatabase();
   const isModalOpen = useSelector(
     (state: RootStateOrAny) => state.isModalFormOpen
   );
@@ -22,26 +24,28 @@ const ModalForm = () => {
   );
 
   const user = useSelector((state: RootStateOrAny) => state.isUserAuth);
-  const isModalFormOpen = useSelector((state :RootStateOrAny)=>state.isModalFormOpen);
+  const isModalFormOpen = useSelector(
+    (state: RootStateOrAny) => state.isModalFormOpen
+  );
   const dispatch = useDispatch();
   const [isFormValid, setIsFormValid] = useState(false);
-  const { addIssue,toggleModalForm } = bindActionCreators(ActionCreators, dispatch);
+  const { addIssue, toggleModalForm, fetchIssues } = bindActionCreators(
+    ActionCreators,
+    dispatch
+  );
 
   let myuuid = uuidv4();
   const storeIssue = (userRecord) => {
-    const db = getDatabase();
-    console.log(db)
     return set(ref(db, `issues/${user.user.uid}/${myuuid}`), {
       id: userRecord.id,
       name: userRecord.name,
       email: userRecord.email,
       phone: userRecord.phone,
       description: userRecord.description,
-      date:userRecord.date,
-      active:userRecord.active,
-      uid:myuuid
+      date: userRecord.date,
+      active: userRecord.active,
+      uid: myuuid,
     });
-
   };
 
   const handleForm = async (event) => {
@@ -55,16 +59,27 @@ const ModalForm = () => {
     const description = formElements.description.value;
     const d = new Date().toDateString();
     const active = true;
-    const userRecord = { id, name, email, phone, description, date:d, active, uid:myuuid};
-
-    if (validateEmail(email) && validateName(name) && validatePhone(phone)) {
-      setIsFormValid(true);
-      addIssue(activeIssues, userRecord);
-      console.log(userRecord)
-      await storeIssue(userRecord);
-      event.target.reset();
-      setIsFormValid(false);
-      toggleModalForm(isModalFormOpen);
+    const userRecord = {
+      id,
+      name,
+      email,
+      phone,
+      description,
+      date: d,
+      active,
+      uid: myuuid,
+    };
+    try {
+      if (validateEmail(email) && validateName(name) && validatePhone(phone)) {
+        setIsFormValid(true);
+        await storeIssue(userRecord);
+        fetchIssues();
+        event.target.reset();
+        setIsFormValid(false);
+        toggleModalForm(isModalFormOpen);
+      }
+    } catch (e) {
+      console.log(e);
     }
   };
   return (

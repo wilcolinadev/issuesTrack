@@ -15,6 +15,7 @@ export const FormBox = styled.div`
 
   input,
   button {
+   
     color: #aaaaaa;
     padding: 0;
     margin: 0;
@@ -25,7 +26,7 @@ export const FormBox = styled.div`
 
   form {
     height: auto;
-    width: 100%;
+    width: 95%;
     padding: 0.7rem;
     background-color: #e2e2df;
     border-radius: 10px;

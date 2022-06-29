@@ -3,9 +3,9 @@ import styled from "styled-components";
 export interface ModalProps {
   active?: boolean;
   message?: string;
-  fontColor?:string;
+  fontColor?: string;
   colorB?: string;
-  hover?:string;
+  hover?: string;
 }
 
 export const ModalBox = styled.div`
@@ -19,7 +19,7 @@ export const ModalBox = styled.div`
   box-sizing: border-box;
   transition: all 0.5s ease-in-out;
   left: 50%;
-  margin-bottom: .3rem;
+  margin-bottom: 0.3rem;
   margin-top: ${(props: ModalProps) => (!props.active ? "0" : "40vh")};
   transform: ${(props: ModalProps) =>
     !props.active ? "translateY(-100%)" : "translate(0)"};
@@ -38,12 +38,13 @@ export const ModalText = styled.h3`
 
 export const ModalLink = styled.button`
   text-align: center;
-  color: ${(props:ModalProps) => props.fontColor ? props.fontColor : '#000'};
+  color: ${(props: ModalProps) => (props.fontColor ? props.fontColor : "#000")};
   padding: 0.5rem;
   font-family: "Quicksand", sans-serif;
   border: none;
   font-size: 0.8rem;
-  background-color: ${(props:ModalProps) => props.colorB ? props.colorB : '#ccc'};
+  background-color: ${(props: ModalProps) =>
+    props.colorB ? props.colorB : "#ccc"};
   font-weight: bolder;
   filter: drop-shadow(1px 1px 1px #ffffff);
   width: 100%;
@@ -52,7 +53,7 @@ export const ModalLink = styled.button`
   &:hover {
     background-color: #ffca20;
     transition: 0.4s ease-in-out;
-    color:  ${(props:ModalProps) => props.hover ? props.hover : '#000'};;
+    color: ${(props: ModalProps) => (props.hover ? props.hover : "#000")};
   }
 
   @media only screen and (min-width: 700px) {

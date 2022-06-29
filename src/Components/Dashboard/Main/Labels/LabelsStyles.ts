@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Box = styled.div`
   ul {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     list-style: none;
@@ -18,6 +18,12 @@ export const Box = styled.div`
     color: #000;
     text-transform: uppercase;
   }
+  @media only screen and (min-width: 700px) {
+
+    ul{
+      grid-template-columns: repeat(6, 1fr);
+    }
+  }
 `;
 
 export const LiName = styled.li`
@@ -28,4 +34,30 @@ export const LiName = styled.li`
 
 export const LiId = styled.li`
   width: 10%;
+  display: none;
+  @media only screen and (min-width: 700px) {
+    display: block;
+  }
+`;
+
+export const LiDescription = styled.li`
+  display: none;
+  @media only screen and (min-width: 700px) {
+    display: block;
+  }
+`;
+
+export const LiPhone = styled.li`
+  display: none;
+  @media only screen and (min-width: 700px) {
+    display: block;
+  }
+`;
+
+
+export const LiEmail = styled.li`
+  display: none;
+  @media only screen and (min-width: 700px) {
+    display: block;
+  }
 `;

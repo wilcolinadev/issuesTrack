@@ -19,7 +19,7 @@ const Sidebar: React.FC<SidebarProps> = (props: SidebarProps) => {
   const isSidebarOpen = useSelector(
     (state: RootStateOrAny) => state.isSidebarOpen
   );
-  const activeGroup = useSelector((state:RootStateOrAny)=>state.issues)
+  const activeGroup = useSelector((state: RootStateOrAny) => state.issues);
   const dispatch = useDispatch();
   const { showGlobalIssues, showUserIssues } = bindActionCreators(
     ActionCreators,
@@ -31,17 +31,16 @@ const Sidebar: React.FC<SidebarProps> = (props: SidebarProps) => {
     return slicedName[0];
   };
 
-
-
-
   return (
-    <MainBox isSidebarOpen={isSidebarOpen} >
-      <Box >
+    <MainBox isSidebarOpen={isSidebarOpen}>
+      <Box>
         <span>Hi, {sliceName(props.username)}!</span>
 
         <div>
-          <Button onClick={showUserIssues}  active={activeGroup === 'user' && true}>
-
+          <Button
+            onClick={showUserIssues}
+            active={activeGroup === "user" && true}
+          >
             <i>
               {" "}
               <IoPersonOutline />{" "}
@@ -50,15 +49,15 @@ const Sidebar: React.FC<SidebarProps> = (props: SidebarProps) => {
           </Button>
         </div>
         <div>
-          <div>
-            <Button onClick={showGlobalIssues} active={activeGroup === 'global' && true}>
-              <i>
-                {" "}
-                <IoPeopleOutline />{" "}
-              </i>
-              Global issues
-            </Button>
-          </div>
+          {/*<div>*/}
+          {/*  <Button onClick={showGlobalIssues} active={activeGroup === 'global' && true}>*/}
+          {/*    <i>*/}
+          {/*      {" "}*/}
+          {/*      <IoPeopleOutline />{" "}*/}
+          {/*    </i>*/}
+          {/*    Global issues*/}
+          {/*  </Button>*/}
+          {/*</div>*/}
           <Button onClick={props.logUserOut}>
             <i>
               {" "}

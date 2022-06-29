@@ -1,31 +1,30 @@
 import React from "react";
-import { Box, LiName, LiStatus } from "./RecordsStyles";
-import {useDispatch, useSelector} from "react-redux";
-import {bindActionCreators} from "redux";
-import {RootStateOrAny} from "react-redux"
-import * as ActionCreators from "../../../../state/actions/actionCreators"
+import { Box, LiName, LiStatus,LiDescription, LiPhone, LiEmail } from "./RecordsStyles";
+import { useDispatch, useSelector } from "react-redux";
+import { bindActionCreators } from "redux";
+import { RootStateOrAny } from "react-redux";
+import * as ActionCreators from "../../../../state/actions/actionCreators";
+
 interface issuesProps {
   id: string;
   name: string;
   email: string;
   phone: string;
   description: string;
-  date:string
-  active?:boolean
-  uid:string
+  date: string;
+  active?: boolean;
+  uid: string;
 }
 
 const Record: React.FC<issuesProps> = (props) => {
   const { id, name, email, phone, description, date, active, uid } = props;
 
   const dispatch = useDispatch();
-  const isCardActive = useSelector((state:RootStateOrAny)=>state.isCardActive)
-  const {setActiveIssue} = bindActionCreators(ActionCreators, dispatch);
-  const {toggleActiveCard} = bindActionCreators(ActionCreators,dispatch);
-  const shortName = () => {
-    const splittedName = name.split(" ");
-    return `${splittedName[0]} ${splittedName[1].slice(0, 1)}`;
-  };
+  const isCardActive = useSelector(
+    (state: RootStateOrAny) => state.isCardActive
+  );
+  const { setActiveIssue } = bindActionCreators(ActionCreators, dispatch);
+  const { toggleActiveCard } = bindActionCreators(ActionCreators, dispatch);
 
   const formatPhone = () => {
     const phoneCode = phone.slice(0, 3);
@@ -34,6 +33,12 @@ const Record: React.FC<issuesProps> = (props) => {
     return `${phoneCode}-${phoneOne}-${phoneTwo}`;
   };
 
+  const formatName = ()=>{
+    const namedArray = name.split(" ");
+    return `${namedArray[0]}  ${namedArray[1].slice(0,1)}`;
+
+  }
+
   const handleDescription = () => {
     if (description.length > 20) {
       return "Click to see...";
@@ -41,26 +46,31 @@ const Record: React.FC<issuesProps> = (props) => {
       return description;
     }
   };
-  const handleCard =()=>{
-    setActiveIssue({ id, name, email, phone:formatPhone(), description, date, active, uid });
-    if(!isCardActive){
+  const handleCard = () => {
+    setActiveIssue({
+      id,
+      name,
+      email,
+      phone: formatPhone(),
+      description,
+      date,
+      active,
+      uid,
+    });
+    if (!isCardActive) {
       toggleActiveCard();
     }
+  };
 
-  }
-  
   return (
-    <Box
-      onClick={()=>handleCard()}
-    >
-
+    <Box onClick={() => handleCard()}>
       <ul>
-        <LiName> {name}</LiName>
+        <LiName> {formatName()}</LiName>
         <li>#{id} </li>
-        <li>{email} </li>
-        <li>{formatPhone()}</li>
-        <li>{handleDescription()}</li>
-        <LiStatus active={!active}>{active ?'Closed':'Active'}</LiStatus>
+        <LiEmail>{email} </LiEmail>
+        <LiPhone>{formatPhone()}</LiPhone>
+        <LiDescription>{handleDescription()}</LiDescription>
+        <LiStatus active={!active}>{active ? "Closed" : "Active"}</LiStatus>
       </ul>
     </Box>
   );

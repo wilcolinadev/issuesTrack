@@ -12,7 +12,6 @@ export const HeaderTitle = styled.h1`
 
   @media only screen and (min-width: 700px) {
     width: 80%;
-
     padding: 1rem;
     font-size: 4rem;
     line-height: 5rem;
