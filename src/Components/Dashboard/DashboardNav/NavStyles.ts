@@ -31,7 +31,7 @@ export const UserName = styled.p`
   display: none;
   font-size: 1.3rem;
   color: #fff;
-  @media only screen and (min-width: 700px) {
+  @media only screen and (min-width: 1000px) {
     display: block;
   }
 `;

@@ -21,8 +21,7 @@ const DashboardChart: React.FC = () => {
         chartType="PieChart"
         data={data}
         options={options}
-        width={"auto"}
-        height={"200px"}
+        style={{width:'auto',height:'300px'}}
       />
     </ChartBox>
   );

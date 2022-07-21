@@ -26,14 +26,18 @@ export const ModalBox = styled.div`
 
   @media only screen and (min-width: 700px) {
     width: 600px;
-    margin-left: -300px;
+    left: 50%;
+    margin: auto 0;
   }
 `;
 
-export const ModalText = styled.h3`
+export const ModalText = styled.h4`
   text-align: center;
-  margin-bottom: 1rem;
-  font-size: 1.6rem;
+  margin-bottom: .5rem;
+  font-size: 1.4rem;
+  @media only screen and (min-width: 850px) {
+    font-size: 2rem;
+  }
 `;
 
 export const ModalLink = styled.button`

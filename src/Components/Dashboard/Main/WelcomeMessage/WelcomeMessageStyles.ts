@@ -16,7 +16,15 @@ export const Box = styled.div`
     font-weight: lighter;
     margin-bottom: 0.5rem;
   }
-  @media only screen and (min-width: 850px) {
+  @media only screen and (min-width: 700px) {
+    h1{
+      font-size: 2.5rem;
+    }
+    p{
+      font-size: 1.6rem;
+    }
+  }
+  @media only screen and (min-width: 1000px) {
    h1{
      font-size: 3rem;
    }

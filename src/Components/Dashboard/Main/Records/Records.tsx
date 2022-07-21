@@ -60,7 +60,6 @@ const Records: React.FC = () => {
       const db = getDatabase();
       const issuesRef = await ref(db, "issues/" + activeUser.user.uid);
       let userIssues = await get(issuesRef);
-      console.log(userIssues);
       try {
         destructureObject(userIssues.val());
       } catch (e) {
@@ -84,6 +83,7 @@ const Records: React.FC = () => {
           {filteredIssues.map((issue) => {
             return (
               <Record
+                  key={issue.uid}
                 id={issue.id}
                 name={issue.name}
                 email={issue.email}

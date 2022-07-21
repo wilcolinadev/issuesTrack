@@ -31,6 +31,11 @@ export const Box = styled.div`
   @media only screen and (min-width: 700px) {
     
     ul{
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+  @media only screen and (min-width: 1000px) {
+    ul{
       grid-template-columns: repeat(6, 1fr);
     }
   }
@@ -56,10 +61,12 @@ export const LiStatus = styled.li`
   text-align: center;
   padding: 0.2rem;
   @media only screen and (min-width: 700px) {
-
-    width: 30%;
+    width: 40%;
     padding: 0.3rem;
     border-radius: 20px;
+  }
+  @media only screen and (min-width: 1000px) {
+    width: 35%;
   }
 `;
 
@@ -81,7 +88,7 @@ export const LiPhone = styled.li`
 
 export const LiEmail = styled.li`
   display: none;
-  @media only screen and (min-width: 700px) {
+  @media only screen and (min-width: 1000px) {
     display: block;
   }
 `;

@@ -9,6 +9,7 @@ const Hamburger: React.FC = () => {
       <Burger
         open={isHamburgerActive}
         onClick={() => setIsHamburgerActive(!isHamburgerActive)}
+        media={'700px'}
       >
         <div />
         <div />

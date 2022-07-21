@@ -1,12 +1,13 @@
 import styled from "styled-components";
 
 export const DashboardWrapper = styled.div`
+  overflow-y: auto;
   width: 100%;
   background-color: #fff;
 `;
 
 export const DashboardDivider = styled.div`
-  @media only screen and (min-width: 700px) {
+  @media only screen and (min-width: 1000px) {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: 1fr;

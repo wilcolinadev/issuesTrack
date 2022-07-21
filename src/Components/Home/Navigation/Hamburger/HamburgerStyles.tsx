@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export interface BurgerController {
   open: boolean;
+  media?:string
 }
 
 export const Burger = styled.button`
@@ -55,10 +56,8 @@ export const Burger = styled.button`
       props.open ? "rotate(-45deg)" : "rotate(0)"};
   }
 
-  @media only screen and (min-width: 700px) and (max-width: 1024px) {
+  @media only screen and (min-width: ${(props: BurgerController) => props.media}) {
     display: none;
   }
-  @media only screen and (min-width: 1025px) {
-    display: none;
-  }
+ 
 `;

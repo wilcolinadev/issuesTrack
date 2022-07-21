@@ -78,7 +78,7 @@ const Card: React.FC = () => {
           onChange={(e) => setNewSelection(e.currentTarget.value)}
         >
           <option value="Active">Active</option>
-          <option value="Closed" selected>
+          <option value="Closed" >
             Closed
           </option>
         </select>

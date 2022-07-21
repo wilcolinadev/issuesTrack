@@ -21,6 +21,11 @@ export const Box = styled.div`
   @media only screen and (min-width: 700px) {
 
     ul{
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+  @media only screen and (min-width: 1000px) {
+    ul{
       grid-template-columns: repeat(6, 1fr);
     }
   }
@@ -57,7 +62,7 @@ export const LiPhone = styled.li`
 
 export const LiEmail = styled.li`
   display: none;
-  @media only screen and (min-width: 700px) {
+  @media only screen and (min-width: 1000px) {
     display: block;
   }
 `;

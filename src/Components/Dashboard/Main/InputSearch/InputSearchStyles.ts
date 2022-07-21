@@ -52,11 +52,23 @@ export const FormBox = styled.div`
     height: auto;
     cursor: pointer;
     font-size: 1.5rem;
-    left: 10px;
+    left: 5px;
     top: 5px;
   }
 
-  @media only screen and (min-width: 850px) {
+  @media only screen and (min-width: 700px) {
+    button {
+      font-size: 2rem;
+      left: 60px;
+    }
+
+    form {
+      margin: 0 0.4rem;
+      width: 98%;
+    }
+  }
+
+  @media only screen and (min-width: 1000px) {
     button {
       font-size: 2rem;
       left: 20px;
