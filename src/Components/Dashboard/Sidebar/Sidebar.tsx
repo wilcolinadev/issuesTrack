@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, FooterBox, MainBox, Button } from "./SidebarStyles";
+import { Box, FooterBox, MainBox, Button, Label } from "./SidebarStyles";
 import {
   IoLogOutOutline,
   IoPersonOutline,
@@ -58,6 +58,9 @@ const Sidebar: React.FC<SidebarProps> = (props: SidebarProps) => {
               <IoPeopleOutline />{" "}
             </i>
             Global issues
+            <Label>
+              Read only
+            </Label>
           </Button>
         </div>
 

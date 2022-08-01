@@ -15,8 +15,11 @@ const Records: React.FC = () => {
   const activeIssues = useSelector(
     (state: RootStateOrAny) => state.activeIssues
   );
+  const global = useSelector(
+      (state:RootStateOrAny) => state.issues
+  )
   const [remoteIssues, setRemoteIssues] = useState<object[] | never[]>([]);
-  const [globalIssues, setGlobalIssues] = useState<object[] | never>(globalI);
+  const [globalIssues, setGlobalIssues] = useState<object[] | never[]>(globalI);
   const activeUser = useSelector((state: RootStateOrAny) => state.isUserAuth);
   const issuesInput = useSelector((state: RootStateOrAny) => state.inputSearch);
   const isFetching = useSelector((state: RootStateOrAny) => state.isFetching);
@@ -45,7 +48,13 @@ const Records: React.FC = () => {
 
     updateGraphValues({ activeIssues, closedIssues });
   };
-  const combineArray = [...remoteIssues, ...activeIssues];
+ let combineArray = [...remoteIssues, ...activeIssues];
+
+  if (global === 'global'){
+     combineArray = [...globalIssues, ...activeIssues];
+  }
+
+
   //Sorting Array by name
   combineArray.sort((a, b) => a.name.localeCompare(b.name));
 

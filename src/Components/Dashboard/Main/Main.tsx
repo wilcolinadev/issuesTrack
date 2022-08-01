@@ -45,7 +45,8 @@ const Main: React.FC<MainProps> = (props) => {
       </InnerBox>
 
       <RecordsBox>
-        <h3>Issues</h3>
+        <h3>Issues </h3>
+
         <Labels />
         <Records />
       </RecordsBox>

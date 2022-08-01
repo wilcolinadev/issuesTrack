@@ -3,7 +3,12 @@ import styled from "styled-components";
 interface PropsButton {
   active?: boolean;
 }
-
+export const Label = styled.p`
+  color: #f40808;
+  font-size: .6rem;
+  font-weight: bold;
+  text-align: left;
+`
 export const Box = styled.div`
   h3 {
     color: #e9ac30;

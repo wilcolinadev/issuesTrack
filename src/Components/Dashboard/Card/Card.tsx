@@ -13,6 +13,7 @@ const Card: React.FC = () => {
   const isCardActive = useSelector(
     (state: RootStateOrAny) => state.isCardActive
   );
+  const global = useSelector((state:RootStateOrAny)=>state.issues)
   const user = useSelector((state: RootStateOrAny) => state.isUserAuth);
   const dispatch = useDispatch();
   const { toggleActiveCard, fetchIssues } = bindActionCreators(
@@ -50,6 +51,10 @@ const Card: React.FC = () => {
     }
   };
 
+  const disableInput = ()=>{
+     return (global === "global");
+  }
+
   return (
     <ModalBox active={isCardActive}>
       <div>
@@ -77,11 +82,13 @@ const Card: React.FC = () => {
           name="selection"
           onChange={(e) => setNewSelection(e.currentTarget.value)}
         >
-          <option value="Active">Active</option>
-          <option value="Closed">Closed</option>
-        </select>
-
+          <option value="Active" disabled={disableInput()} >Active</option>
+          <option value="Closed" disabled={disableInput()}>Closed</option>
+        </select >
+          {
+            (global==='user') && (
         <div>
+
           <ModalLink
             onClick={(e) => updateIssue(e)}
             colorB={"#ccc"}
@@ -98,7 +105,7 @@ const Card: React.FC = () => {
           >
             Remove Issue
           </ModalLink>
-        </div>
+        </div> )}
       </form>
     </ModalBox>
   );
