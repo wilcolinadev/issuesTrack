@@ -3,6 +3,7 @@ import { Box, FooterBox, MainBox, Button } from "./SidebarStyles";
 import {
   IoLogOutOutline,
   IoPersonOutline,
+  IoPeopleOutline,
 } from "react-icons/io5";
 import { useSelector, useDispatch } from "react-redux";
 import * as ActionCreators from "../../../state/actions/actionCreators";
@@ -20,7 +21,7 @@ const Sidebar: React.FC<SidebarProps> = (props: SidebarProps) => {
   );
   const activeGroup = useSelector((state: RootStateOrAny) => state.issues);
   const dispatch = useDispatch();
-  const { showUserIssues } = bindActionCreators(
+  const { showUserIssues, showGlobalIssues } = bindActionCreators(
     ActionCreators,
     dispatch
   );
@@ -34,7 +35,6 @@ const Sidebar: React.FC<SidebarProps> = (props: SidebarProps) => {
     <MainBox isSidebarOpen={isSidebarOpen}>
       <Box>
         <span>Hi, {sliceName(props.username)}!</span>
-
         <div>
           <Button
             onClick={showUserIssues}
@@ -47,8 +47,21 @@ const Sidebar: React.FC<SidebarProps> = (props: SidebarProps) => {
             My issues
           </Button>
         </div>
-        <div>
 
+        <div>
+          <Button
+            onClick={showGlobalIssues}
+            active={activeGroup === "global" && true}
+          >
+            <i>
+              {" "}
+              <IoPeopleOutline />{" "}
+            </i>
+            Global issues
+          </Button>
+        </div>
+
+        <div>
           <Button onClick={props.logUserOut}>
             <i>
               {" "}

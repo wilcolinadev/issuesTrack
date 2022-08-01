@@ -18,7 +18,11 @@ const DashboardNav: React.FC<DashboardProps> = (props) => {
   return (
     <Nav>
       <NavigationElement>IssuesTrack</NavigationElement>
-      <Burger open={isSidebarOpen} onClick={() => toggleSidebar(isSidebarOpen)} media={'1000px'}>
+      <Burger
+        open={isSidebarOpen}
+        onClick={() => toggleSidebar(isSidebarOpen)}
+        media={"1000px"}
+      >
         <div />
         <div />
         <div />

@@ -3,7 +3,7 @@ import { ModalText, ModalLink } from "../../../Modal/ModalStyles";
 import { IssueForm, ModalBox } from "./ModalFormStyles";
 import { useSelector, useDispatch } from "react-redux";
 import { RootStateOrAny } from "react-redux";
-import { getDatabase, set, ref, onChildAdded } from "firebase/database";
+import { getDatabase, set, ref } from "firebase/database";
 import {
   validateName,
   validateEmail,
@@ -12,7 +12,6 @@ import {
 import * as ActionCreators from "../../../../state/actions/actionCreators";
 import { bindActionCreators } from "redux";
 import { v4 as uuidv4 } from "uuid";
-import { updateGraphValues } from "../../../../state/actions/actionCreators";
 
 const ModalForm = () => {
   const db = getDatabase();
@@ -29,7 +28,7 @@ const ModalForm = () => {
   );
   const dispatch = useDispatch();
   const [isFormValid, setIsFormValid] = useState(false);
-  const { addIssue, toggleModalForm, fetchIssues } = bindActionCreators(
+  const { toggleModalForm, fetchIssues } = bindActionCreators(
     ActionCreators,
     dispatch
   );

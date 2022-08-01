@@ -4,10 +4,10 @@ import Record from "./Record";
 import { getDatabase, ref, get } from "firebase/database";
 import { bindActionCreators } from "redux";
 import * as ActionCreators from "../../../../state/actions/actionCreators";
-
+import useGlobalIssues from "../../../../hooks/useGlobalIssues";
 const Records: React.FC = () => {
   const dispatch = useDispatch();
-
+  const globalI = useGlobalIssues();
   const { updateGraphValues, cleanIssues } = bindActionCreators(
     ActionCreators,
     dispatch
@@ -16,10 +16,11 @@ const Records: React.FC = () => {
     (state: RootStateOrAny) => state.activeIssues
   );
   const [remoteIssues, setRemoteIssues] = useState<object[] | never[]>([]);
-
+  const [globalIssues, setGlobalIssues] = useState<object[] | never>(globalI);
   const activeUser = useSelector((state: RootStateOrAny) => state.isUserAuth);
   const issuesInput = useSelector((state: RootStateOrAny) => state.inputSearch);
   const isFetching = useSelector((state: RootStateOrAny) => state.isFetching);
+
   const destructureObject = (object: object) => {
     let newArray: Array<object> = [];
     Object.values(object).forEach((issue: object) => {
@@ -28,6 +29,9 @@ const Records: React.FC = () => {
 
     setRemoteIssues(newArray);
   };
+
+
+
   const countRecords = (issues) => {
     let activeIssues = 0;
     let closedIssues = 0;
@@ -83,7 +87,7 @@ const Records: React.FC = () => {
           {filteredIssues.map((issue) => {
             return (
               <Record
-                  key={issue.uid}
+                key={issue.uid}
                 id={issue.id}
                 name={issue.name}
                 email={issue.email}

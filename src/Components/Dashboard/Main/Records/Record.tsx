@@ -1,5 +1,12 @@
 import React from "react";
-import { Box, LiName, LiStatus,LiDescription, LiPhone, LiEmail } from "./RecordsStyles";
+import {
+  Box,
+  LiName,
+  LiStatus,
+  LiDescription,
+  LiPhone,
+  LiEmail,
+} from "./RecordsStyles";
 import { useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
 import { RootStateOrAny } from "react-redux";
@@ -33,11 +40,10 @@ const Record: React.FC<issuesProps> = (props) => {
     return `${phoneCode}-${phoneOne}-${phoneTwo}`;
   };
 
-  const formatName = ()=>{
+  const formatName = () => {
     const namedArray = name.split(" ");
-    return `${namedArray[0]}  ${namedArray[1].slice(0,1)}`;
-
-  }
+    return `${namedArray[0]}  ${namedArray[1].slice(0, 1)}`;
+  };
 
   const handleDescription = () => {
     if (description.length > 20) {

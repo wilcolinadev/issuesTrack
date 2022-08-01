@@ -19,13 +19,12 @@ export const Box = styled.div`
     text-transform: uppercase;
   }
   @media only screen and (min-width: 700px) {
-
-    ul{
+    ul {
       grid-template-columns: repeat(5, 1fr);
     }
   }
   @media only screen and (min-width: 1000px) {
-    ul{
+    ul {
       grid-template-columns: repeat(6, 1fr);
     }
   }
@@ -58,7 +57,6 @@ export const LiPhone = styled.li`
     display: block;
   }
 `;
-
 
 export const LiEmail = styled.li`
   display: none;

@@ -5,8 +5,6 @@ interface PropsButton {
 }
 
 export const Box = styled.div`
-  position: sticky;
-  top: 50px;
   h3 {
     color: #e9ac30;
     margin-bottom: 0.5rem;
@@ -19,13 +17,13 @@ export const Box = styled.div`
     font-size: 1.5rem;
     font-weight: bold;
     padding: 1rem;
-    
   }
 
   @media only screen and (min-width: 1000px) {
+    position: sticky;
+    top: 50px;
     span {
       display: none;
-     
     }
   }
 
@@ -91,8 +89,7 @@ export const MainBox = styled.div`
   transform: ${(props: MainBoxProps) =>
     props.isSidebarOpen ? "translateX(0)" : "translateX(-120%)"};
   height: 100%;
-  
-  
+
   @media only screen and (min-width: 1000px) {
     display: flex;
     width: 100%;

@@ -12,7 +12,7 @@ export const ModalBox = styled.div`
   transition: all 0.5s ease-in-out;
   left: 50%;
   right: 0;
-  
+
   margin-right: auto;
   width: 300px;
   margin-top: 15vh;
@@ -23,7 +23,6 @@ export const ModalBox = styled.div`
     width: 600px;
     margin-left: -300px;
     left: 50%;
-    
   }
 `;
 

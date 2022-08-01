@@ -17,18 +17,18 @@ export const Box = styled.div`
     margin-bottom: 0.5rem;
   }
   @media only screen and (min-width: 700px) {
-    h1{
+    h1 {
       font-size: 2.5rem;
     }
-    p{
+    p {
       font-size: 1.6rem;
     }
   }
   @media only screen and (min-width: 1000px) {
-   h1{
-     font-size: 3rem;
-   }
-    p{
+    h1 {
+      font-size: 3rem;
+    }
+    p {
       font-size: 1.3rem;
     }
   }

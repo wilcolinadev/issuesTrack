@@ -25,15 +25,15 @@ export const ModalBox = styled.div`
     !props.active ? "translateY(-100%)" : "translate(0)"};
 
   @media only screen and (min-width: 700px) {
-    width: 600px;
+    margin-left: -250px;
+    width: 500px;
     left: 50%;
-    margin: auto 0;
   }
 `;
 
 export const ModalText = styled.h4`
   text-align: center;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
   font-size: 1.4rem;
   @media only screen and (min-width: 850px) {
     font-size: 2rem;
@@ -54,6 +54,7 @@ export const ModalLink = styled.button`
   width: 100%;
   text-decoration: none;
   cursor: pointer;
+
   &:hover {
     background-color: #ffca20;
     transition: 0.4s ease-in-out;
