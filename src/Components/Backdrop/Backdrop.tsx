@@ -5,8 +5,9 @@ export const Backdrop = styled.div`
   height: 100%;
   position: fixed;
   z-index: 100;
-
+ 
   top: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /
   transition: all 0.3s ease-out;
 `;

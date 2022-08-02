@@ -4,7 +4,7 @@ const initialState = {};
 
 interface Action {
   type: string;
-  payload: object
+  payload: object;
 }
 
 const reducer = (state = initialState, action: Action) => {

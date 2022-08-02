@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../../../Firebase/firebase";
-// import { getDatabase, set, ref } from "firebase/database";
+import useLocalStorage from "../../../hooks/useLocalStorage";
+
 import Modal from "../../Modal/Modal";
 import { Backdrop } from "../../Backdrop/Backdrop";
-import {inputValidation, passwordVerification} from "../validation";
+import { inputValidation, passwordVerification } from "../validation";
 import {
   AuthCard,
   AuthDescription,
@@ -28,6 +29,7 @@ import { Link } from "react-router-dom";
 import Spinner from "../../Spinner/Spinner";
 
 const SignUp: React.FC = () => {
+  useLocalStorage();
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -37,8 +39,6 @@ const SignUp: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
-
-
 
   const registerUser = (event) => {
     event.preventDefault();
@@ -71,7 +71,10 @@ const SignUp: React.FC = () => {
   // };
 
   useEffect(() => {
-    if (inputValidation(firstName, lastName,email) && passwordVerification(password, passwordValidation)) {
+    if (
+      inputValidation(firstName, lastName, email) &&
+      passwordVerification(password, passwordValidation)
+    ) {
       setIsFormValidated(true);
     } else {
       setIsFormValidated(false);

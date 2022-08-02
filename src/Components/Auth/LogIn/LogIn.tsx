@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { auth } from "../../../Firebase/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import Spinner from "../../Spinner/Spinner";
-import { useNavigate } from "react-router-dom";
+import useLocalStorage from "../../../hooks/useLocalStorage";
 import {
   AuthCard,
   AuthDescription,
@@ -21,23 +21,15 @@ import {
 import { Link } from "react-router-dom";
 import Modal from "../../Modal/Modal";
 import { Backdrop } from "../../Backdrop/Backdrop";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as actionCreators from "../../../state/actions/actionCreators";
-import { RootStateOrAny } from "react-redux";
-import { useLocation } from "react-router";
-import { isEmpty } from "../../objectValidation";
 import { validateEmail } from "../validation";
 
 const Login: React.FC = () => {
-  //Bringing the redux state
-  const userState = useSelector((state: RootStateOrAny) => state.isUserAuth);
   //Bringing the Actions
   const dispatch = useDispatch();
-  const { logUserIn, logUserOut } = bindActionCreators(
-    actionCreators,
-    dispatch
-  );
+  const { logUserIn } = bindActionCreators(actionCreators, dispatch);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isFormValidated, setIsFormValidated] = useState(false);
@@ -45,19 +37,16 @@ const Login: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
 
-  const navigate = useNavigate();
-  const location = useLocation();
-
   const passwordVerification = (): boolean | void => {
     if (password.length > 6) {
       return true;
     }
   };
-
-  const redirectUser = () => {
-    navigate("/dashboard");
+  const sendStorageData = (data) => {
+    const userData = JSON.stringify(data);
+    localStorage.setItem("user", userData);
   };
-
+  useLocalStorage();
   useEffect(() => {
     if (validateEmail(email) && passwordVerification()) {
       setIsFormValidated(true);
@@ -66,19 +55,13 @@ const Login: React.FC = () => {
     }
   }, [email, password]);
 
-  useEffect(() => {
-    if (!isEmpty(userState)) {
-      redirectUser();
-    }
-  }, [userState, location]);
-
   const authUser = (event) => {
     event.preventDefault();
     setIsLoading(true);
     signInWithEmailAndPassword(auth, email, password)
       .then((signedUser) => {
+        sendStorageData(signedUser);
         logUserIn(signedUser);
-        console.log(signedUser);
       })
       .catch((err) => {
         console.log(err);

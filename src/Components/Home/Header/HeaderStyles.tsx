@@ -1,37 +1,27 @@
 import styled from "styled-components";
 
 export const HeaderTitle = styled.h1`
-  font-size: 2.6rem;
+  font-size: 2rem;
   color: #fff;
   font-family: "Roboto Condensed", sans-serif;
   padding: 1rem;
   margin-left: 1rem;
   word-spacing: 2px;
-  line-height: 3rem;
+  line-height: 2.5rem;
   margin-top: 0.5rem;
-
-  @media only screen and (min-width: 390px) {
-    font-size: 2.8rem;
-    line-height: 3.5rem;
-    margin-top: 0.8rem;
-  }
 
   @media only screen and (min-width: 700px) {
     width: 80%;
-    margin-left: 1rem;
-    padding: 2rem;
+    padding: 1rem;
     font-size: 4rem;
     line-height: 5rem;
-    margin-top: 1rem;
   }
 
   @media only screen and (min-width: 1025px) {
     width: 100%;
-    margin-left: 1rem;
-    padding: 2rem;
-    font-size: 5rem;
-    line-height: 6rem;
-    margin-top: 0;
+    padding: 1rem;
+    font-size: 3.5rem;
+    line-height: 4.4rem;
   }
 `;
 
@@ -58,7 +48,7 @@ export const GridWrapper = styled.div`
     grid-template-rows: 1fr;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
-    margin-top: 7rem;
+    margin-top: 3rem;
   }
 
   @media only screen and (min-height: 1000px) and (min-width: 1025px) {
