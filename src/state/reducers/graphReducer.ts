@@ -1,8 +1,14 @@
 import * as ActionTypes from "../actions/actionTypes";
 
 const initialState = {
-  active: 0,
-  closed: 0,
+  user: {
+    active: 0,
+    closed: 0,
+  },
+  global: {
+    active: 0,
+    closed: 0,
+  },
 };
 
 interface Action {

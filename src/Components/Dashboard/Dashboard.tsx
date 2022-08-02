@@ -29,6 +29,7 @@ const Dashboard: React.FC = () => {
   const dispatch = useDispatch();
   const { toggleModalForm } = bindActionCreators(ActionCreators, dispatch);
   const { logUserOut } = bindActionCreators(actionCreators, dispatch);
+
   useEffect(() => {
     if (isEmpty(userState)) {
       navigate("/login");

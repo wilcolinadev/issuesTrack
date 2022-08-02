@@ -19,7 +19,7 @@ const Records: React.FC = () => {
       (state:RootStateOrAny) => state.issues
   )
   const [remoteIssues, setRemoteIssues] = useState<object[] | never[]>([]);
-  const [globalIssues, setGlobalIssues] = useState<object[] | never[]>(globalI);
+  const [globalIssues] = useState<object[] | never[]>(globalI);
   const activeUser = useSelector((state: RootStateOrAny) => state.isUserAuth);
   const issuesInput = useSelector((state: RootStateOrAny) => state.inputSearch);
   const isFetching = useSelector((state: RootStateOrAny) => state.isFetching);
@@ -35,19 +35,32 @@ const Records: React.FC = () => {
 
 
 
-  const countRecords = (issues) => {
-    let activeIssues = 0;
-    let closedIssues = 0;
-    issues.forEach((issue) => {
+  const countRecords = (issues,globalIssues) => {
+
+      let closedIssuesUser = 0;
+      let activeIssuesUser = 0;
+      let closedIssuesGlobal = 0;
+      let activeIssuesGlobal = 0;
+
+      issues.forEach((issue) => {
       if (!issue.active) {
-        activeIssues++;
+        activeIssuesUser++;
       } else {
-        closedIssues++;
+          closedIssuesUser++;
       }
     });
 
-    updateGraphValues({ activeIssues, closedIssues });
+      globalIssues.forEach((issue) => {
+          if (!issue.active) {
+              activeIssuesGlobal++;
+          } else {
+              closedIssuesGlobal++;
+          }
+      });
+
+    updateGraphValues({ activeIssuesUser, closedIssuesUser, activeIssuesGlobal, closedIssuesGlobal });
   };
+
  let combineArray = [...remoteIssues, ...activeIssues];
 
   if (global === 'global'){
@@ -86,8 +99,8 @@ const Records: React.FC = () => {
   }, [isFetching]);
 
   useEffect(() => {
-    countRecords(remoteIssues);
-  }, [remoteIssues]);
+    countRecords(remoteIssues, globalIssues);
+  }, [remoteIssues,globalIssues]);
 
   const returnValues = () => {
     if (filteredIssues.length > 0) {

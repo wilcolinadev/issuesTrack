@@ -5,11 +5,22 @@ import { RootStateOrAny, useSelector } from "react-redux";
 
 const DashboardChart: React.FC = () => {
   const graphValues = useSelector((state: RootStateOrAny) => state.graphValues);
-  const data = [
-    ["Problems", "stats"],
-    ["Active", graphValues.active],
-    ["Closed", graphValues.closed],
-  ];
+  const global = useSelector((state: RootStateOrAny) => state.issues);
+
+  let data;
+  if (global === "user") {
+    data = [
+      ["Problems", "stats"],
+      ["Active", graphValues.user.active],
+      ["Closed", graphValues.user.closed],
+    ];
+  } else {
+    data = [
+      ["Problems", "stats"],
+      ["Active", graphValues.global.active],
+      ["Closed", graphValues.global.closed],
+    ];
+  }
 
   const options = {
     title: "",
