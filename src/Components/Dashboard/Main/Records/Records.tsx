@@ -32,36 +32,6 @@ const Records: React.FC = () => {
     setRemoteIssues(newArray);
   };
 
-  const countRecords = (issues, globalIssues) => {
-    let closedIssuesUser = 0;
-    let activeIssuesUser = 0;
-    let closedIssuesGlobal = 0;
-    let activeIssuesGlobal = 0;
-
-    issues.forEach((issue) => {
-      if (!issue.active) {
-        activeIssuesUser++;
-      } else {
-        closedIssuesUser++;
-      }
-    });
-
-    globalIssues.forEach((issue) => {
-      if (!issue.active) {
-        activeIssuesGlobal++;
-      } else {
-        closedIssuesGlobal++;
-      }
-    });
-
-    updateGraphValues({
-      activeIssuesUser,
-      closedIssuesUser,
-      activeIssuesGlobal,
-      closedIssuesGlobal,
-    });
-  };
-
   let combineArray = [...remoteIssues, ...activeIssues];
 
   if (global === "global") {
@@ -96,9 +66,39 @@ const Records: React.FC = () => {
     getRecords();
     cleanIssues();
     setRemoteIssues([]);
-  }, [isFetching]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isFetching,activeUser.user.uid]);
 
   useEffect(() => {
+    const countRecords = (issues, globalIssues) => {
+      let closedIssuesUser = 0;
+      let activeIssuesUser = 0;
+      let closedIssuesGlobal = 0;
+      let activeIssuesGlobal = 0;
+
+      issues.forEach((issue) => {
+        if (!issue.active) {
+          activeIssuesUser++;
+        } else {
+          closedIssuesUser++;
+        }
+      });
+
+      globalIssues.forEach((issue) => {
+        if (!issue.active) {
+          activeIssuesGlobal++;
+        } else {
+          closedIssuesGlobal++;
+        }
+      });
+
+      updateGraphValues({
+        activeIssuesUser,
+        closedIssuesUser,
+        activeIssuesGlobal,
+        closedIssuesGlobal,
+      });
+    };
     countRecords(remoteIssues, globalIssues);
   }, [remoteIssues, globalIssues]);
 

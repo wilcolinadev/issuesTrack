@@ -13,7 +13,6 @@ import ModalForm from "./ModalForm/ModalForm";
 import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as ActionCreators from "../../../state/actions/actionCreators";
-import { toggleModalForm } from "../../../state/actions/actionCreators";
 import Labels from "./Labels/Labels";
 import Records from "./Records/Records";
 

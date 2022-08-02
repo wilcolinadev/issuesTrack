@@ -33,6 +33,7 @@ const useLocalStorage = () => {
     if (!isEmpty(userState)) {
       redirectUser();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userState]);
 };
 export default useLocalStorage;
