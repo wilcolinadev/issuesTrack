@@ -20,20 +20,21 @@ const useGlobalIssues = () => {
     setGlobalIssues(globalIssuesA);
   };
 
-  const getRecords = async () => {
-    const db = getDatabase();
-    const issuesRef = await ref(db, "issues/");
-    let userIssues = await get(issuesRef);
-    try {
-      destructureObject(userIssues.val());
-    } catch (e) {
-      console.log("Empty remote Issues");
-    }
-  };
+
 
   useEffect(() => {
+    const getRecords = async () => {
+      const db = getDatabase();
+      const issuesRef = await ref(db, "issues/");
+      let userIssues = await get(issuesRef);
+      try {
+        destructureObject(userIssues.val());
+      } catch (e) {
+        console.log("Empty remote Issues");
+      }
+    };
     getRecords();
-  }, [getRecords]);
+  }, []);
   return globalIssues;
 };
 

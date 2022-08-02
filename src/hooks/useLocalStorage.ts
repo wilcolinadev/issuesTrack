@@ -14,23 +14,25 @@ const useLocalStorage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const redirectUser = () => {
-    navigate("/dashboard");
-  };
+
   const { logUserIn } = bindActionCreators(actionCreators, dispatch);
   //Get store data if we have any and replace the userData with the local storage
-  const getStorageData = () => {
-    const userData: string = localStorage.getItem("user") || "";
-    if (!isEmpty(userData)) {
-      logUserIn(JSON.parse(userData));
-    }
-  };
+
   // Redirect to the dashboard if our user data has been populated
   useEffect(() => {
+    const redirectUser = () => {
+      navigate("/dashboard");
+    };
+    const getStorageData = () => {
+      const userData: string = localStorage.getItem("user") || "";
+      if (!isEmpty(userData)) {
+        logUserIn(JSON.parse(userData));
+      }
+    };
     getStorageData();
     if (!isEmpty(userState)) {
       redirectUser();
     }
-  }, [userState, getStorageData, redirectUser]);
+  }, [userState]);
 };
 export default useLocalStorage;

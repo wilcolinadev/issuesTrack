@@ -37,23 +37,24 @@ const Login: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
 
-  const passwordVerification = (): boolean | void => {
-    if (password.length > 6) {
-      return true;
-    }
-  };
+
   const sendStorageData = (data) => {
     const userData = JSON.stringify(data);
     localStorage.setItem("user", userData);
   };
   useLocalStorage();
   useEffect(() => {
+    const passwordVerification = (): boolean | void => {
+      if (password.length > 6) {
+        return true;
+      }
+    };
     if (validateEmail(email) && passwordVerification()) {
       setIsFormValidated(true);
     } else {
       setIsFormValidated(false);
     }
-  }, [email, password, passwordVerification]);
+  }, [email, password]);
 
   const authUser = (event) => {
     event.preventDefault();
