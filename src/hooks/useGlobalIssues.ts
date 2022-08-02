@@ -30,7 +30,7 @@ const useGlobalIssues = () => {
       }
     };
     getRecords();
-  }, []);
+  }, [globalIssues]);
   return globalIssues;
 };
 

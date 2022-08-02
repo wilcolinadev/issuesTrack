@@ -41,14 +41,11 @@ const Records: React.FC = () => {
   //Sorting Array by name
   combineArray.sort((a, b) => a.name.localeCompare(b.name));
 
-  let filteredIssues = useMemo(
-    () =>
-      combineArray.filter((issue) => {
+  let filteredIssues = combineArray.filter((issue) => {
         //Checking if the name includes the value inputted by the user and returning an array with those values
         return issue.name.toLowerCase().includes(issuesInput.toLowerCase());
-      }),
-    [issuesInput, combineArray]
-  );
+      });
+
 
   useEffect(() => {
     //Getting Database Issues
@@ -100,6 +97,7 @@ const Records: React.FC = () => {
       });
     };
     countRecords(remoteIssues, globalIssues);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [remoteIssues, globalIssues]);
 
   const returnValues = () => {
