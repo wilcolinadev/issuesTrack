@@ -33,11 +33,7 @@ export const Box = styled.div`
       grid-template-columns: repeat(5, 1fr);
     }
   }
-  @media only screen and (min-width: 1000px) {
-    ul {
-      grid-template-columns: repeat(6, 1fr);
-    }
-  }
+
 `;
 
 export const LiName = styled.li`

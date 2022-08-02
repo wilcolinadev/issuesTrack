@@ -14,7 +14,6 @@ const Labels: React.FC = () => {
       <ul>
         <LiName>Name</LiName>
         <li> ID</li>
-        <LiEmail>Email</LiEmail>
         <LiPhone>Phone Number</LiPhone>
         <LiDescription>Description</LiDescription>
         <li>status</li>

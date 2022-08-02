@@ -4,7 +4,7 @@ interface PropsButton {
   active?: boolean;
 }
 export const Label = styled.p`
-  color: #f40808;
+  color: #f3f3bd;
   font-size: .6rem;
   font-weight: bold;
   text-align: left;
@@ -27,6 +27,7 @@ export const Box = styled.div`
   @media only screen and (min-width: 1000px) {
     position: sticky;
     top: 50px;
+    
     span {
       display: none;
     }

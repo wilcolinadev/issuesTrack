@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, FooterBox, MainBox, Button, Label } from "./SidebarStyles";
+import useWindowDimensions from "../../../hooks/useWindowDimensions";
 import {
   IoLogOutOutline,
   IoPersonOutline,
@@ -16,12 +17,15 @@ interface SidebarProps {
 }
 
 const Sidebar: React.FC<SidebarProps> = (props: SidebarProps) => {
+
+  const dimensions = useWindowDimensions();
+  console.log(dimensions);
   const isSidebarOpen = useSelector(
     (state: RootStateOrAny) => state.isSidebarOpen
   );
   const activeGroup = useSelector((state: RootStateOrAny) => state.issues);
   const dispatch = useDispatch();
-  const { showUserIssues, showGlobalIssues } = bindActionCreators(
+  const { showUserIssues, showGlobalIssues, toggleSidebar } = bindActionCreators(
     ActionCreators,
     dispatch
   );
@@ -31,13 +35,25 @@ const Sidebar: React.FC<SidebarProps> = (props: SidebarProps) => {
     return slicedName[0];
   };
 
+  const updateUI = (state)=>{
+    if (state === 'global'){
+      showGlobalIssues();
+    }else {
+      showUserIssues();
+    }
+    if(dimensions.width <= 1000){
+      toggleSidebar(isSidebarOpen);
+    }
+
+  };
+
   return (
     <MainBox isSidebarOpen={isSidebarOpen}>
       <Box>
         <span>Hi, {sliceName(props.username)}!</span>
         <div>
           <Button
-            onClick={showUserIssues}
+            onClick={updateUI}
             active={activeGroup === "user" && true}
           >
             <i>
@@ -50,7 +66,7 @@ const Sidebar: React.FC<SidebarProps> = (props: SidebarProps) => {
 
         <div>
           <Button
-            onClick={showGlobalIssues}
+            onClick={()=>updateUI('global')}
             active={activeGroup === "global" && true}
           >
             <i>

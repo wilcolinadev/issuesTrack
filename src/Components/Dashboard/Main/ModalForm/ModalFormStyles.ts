@@ -5,7 +5,7 @@ export const ModalBox = styled.div`
   position: fixed;
   z-index: 5000;
   background-color: #fff;
-  margin-left: -130px;
+  margin-left: -150px;
   box-shadow: 0 2px 10px #b9b6b6, 0 0 0 2px #ffffffeb;
   padding: 1.5em;
   box-sizing: border-box;

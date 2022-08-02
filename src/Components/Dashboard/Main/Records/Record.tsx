@@ -73,7 +73,6 @@ const Record: React.FC<issuesProps> = (props) => {
       <ul>
         <LiName> {formatName()}</LiName>
         <li>#{id} </li>
-        <LiEmail>{email} </LiEmail>
         <LiPhone>{formatPhone()}</LiPhone>
         <LiDescription>{handleDescription()}</LiDescription>
         <LiStatus active={!active}>{active ? "Closed" : "Active"}</LiStatus>

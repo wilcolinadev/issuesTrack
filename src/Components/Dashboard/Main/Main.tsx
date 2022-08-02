@@ -35,13 +35,12 @@ const Main: React.FC<MainProps> = (props) => {
         <InnerBoxText>
           <WelcomeMessage username={props.username} />
           <AddButton onClick={() => toggleModalForm(isModalFormOpen)}>
-            Register Issue
+            Register Issue!
           </AddButton>
           <InputSearch />
         </InnerBoxText>
-        <div>
-          <DashboardChart />
-        </div>
+
+        <DashboardChart />
       </InnerBox>
 
       <RecordsBox>

@@ -10,7 +10,7 @@ export const ModalBox = styled.div`
   box-sizing: border-box;
   transition: all 0.5s ease-in-out;
   margin-top: 15vh;
-  border-radius: 20px;
+ 
   left: 0;
   right: 0;
   margin-left: auto;
