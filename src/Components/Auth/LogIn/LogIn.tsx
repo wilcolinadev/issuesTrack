@@ -53,7 +53,7 @@ const Login: React.FC = () => {
     } else {
       setIsFormValidated(false);
     }
-  }, [email, password]);
+  }, [email, password, passwordVerification]);
 
   const authUser = (event) => {
     event.preventDefault();

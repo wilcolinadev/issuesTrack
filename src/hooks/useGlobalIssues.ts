@@ -33,7 +33,7 @@ const useGlobalIssues = () => {
 
   useEffect(() => {
     getRecords();
-  }, []);
+  }, [getRecords]);
   return globalIssues;
 };
 

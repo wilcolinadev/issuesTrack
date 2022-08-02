@@ -33,7 +33,7 @@ const Dashboard: React.FC = () => {
     if (isEmpty(userState)) {
       navigate("/login");
     }
-  }, [userState, location]);
+  }, [userState, location,navigate]);
 
   const logOut = () => {
     localStorage.removeItem("user");

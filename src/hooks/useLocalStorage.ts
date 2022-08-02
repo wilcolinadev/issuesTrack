@@ -31,6 +31,6 @@ const useLocalStorage = () => {
     if (!isEmpty(userState)) {
       redirectUser();
     }
-  }, [userState]);
+  }, [userState, getStorageData, redirectUser]);
 };
 export default useLocalStorage;

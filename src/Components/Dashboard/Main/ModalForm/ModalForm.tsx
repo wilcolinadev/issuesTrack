@@ -17,9 +17,7 @@ const ModalForm = () => {
   const isModalOpen = useSelector(
     (state: RootStateOrAny) => state.isModalFormOpen
   );
-  const activeIssues = useSelector(
-    (state: RootStateOrAny) => state.activeIssues
-  );
+
 
   const user = useSelector((state: RootStateOrAny) => state.isUserAuth);
   const isModalFormOpen = useSelector(
