@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const DashboardWrapper = styled.div`
-  
   width: 100%;
   background-color: #fff;
 `;
@@ -15,5 +14,5 @@ export const DashboardDivider = styled.div`
     grid-row-gap: 0px;
   }
 
-    height: 100vh;
+  height: 100vh;
 `;

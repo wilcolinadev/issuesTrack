@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "./Button/Button";
 import headerImage from "../../../assets/headerImage.svg";
-import { HeaderImage, HeaderTitle, GridWrapper } from "./HeaderStyles";
+import { GridWrapper, HeaderImage, HeaderTitle } from "./HeaderStyles";
 import AppDescription from "./AppDescription/AppDescription";
 
 const Header: React.FC = () => (

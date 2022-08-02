@@ -110,15 +110,14 @@ export const updateGraphValues = (newValues) => {
     dispatch({
       type: ActionTypes.UPDATE_GRAPH_VALUES,
       payload: {
-        user:{
+        user: {
           active: newValues.activeIssuesUser,
           closed: newValues.closedIssuesUser,
         },
-        global:{
+        global: {
           active: newValues.activeIssuesGlobal,
           closed: newValues.closedIssuesGlobal,
         },
-
       },
     });
   };

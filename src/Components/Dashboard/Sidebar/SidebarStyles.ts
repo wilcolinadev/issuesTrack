@@ -3,12 +3,13 @@ import styled from "styled-components";
 interface PropsButton {
   active?: boolean;
 }
+
 export const Label = styled.p`
   color: #f3f3bd;
-  font-size: .6rem;
+  font-size: 0.6rem;
   font-weight: bold;
   text-align: left;
-`
+`;
 export const Box = styled.div`
   h3 {
     color: #e9ac30;
@@ -27,7 +28,7 @@ export const Box = styled.div`
   @media only screen and (min-width: 1000px) {
     position: sticky;
     top: 50px;
-    
+
     span {
       display: none;
     }

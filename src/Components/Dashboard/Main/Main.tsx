@@ -1,9 +1,9 @@
 import React from "react";
 import {
+  AddButton,
   Box,
   InnerBox,
   InnerBoxText,
-  AddButton,
   RecordsBox,
 } from "./MainStyles";
 import WelcomeMessage from "./WelcomeMessage/WelcomeMessage";

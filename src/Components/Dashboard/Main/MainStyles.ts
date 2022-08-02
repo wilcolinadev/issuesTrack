@@ -31,8 +31,6 @@ export const InnerBox = styled.div`
 
 export const InnerBoxText = styled.div`
   padding-top: 20px;
- 
- 
 `;
 
 export const AddButton = styled.button`
@@ -46,7 +44,7 @@ export const AddButton = styled.button`
   border-radius: 5px;
   font-weight: 400;
   box-shadow: 0 1px 7px #b9b6b6, 0 0 0 2px #ffffffeb;
-  
+
   background-color: transparent;
   color: #000;
 

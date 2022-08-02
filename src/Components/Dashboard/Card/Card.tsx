@@ -1,19 +1,18 @@
 import React, { useState } from "react";
-import { ModalBox, Label } from "./CardStyles";
-import { useSelector, useDispatch } from "react-redux";
-import { RootStateOrAny } from "react-redux";
+import { Label, ModalBox } from "./CardStyles";
+import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as ActionCreators from "../../../state/actions/actionCreators";
 import { ModalLink } from "../../Modal/ModalStyles";
 import { IoCloseSharp } from "react-icons/io5";
-import { getDatabase, ref, set, update, remove } from "firebase/database";
+import { getDatabase, ref, remove, update } from "firebase/database";
 
 const Card: React.FC = () => {
   const activeIssue = useSelector((state: RootStateOrAny) => state.activeIssue);
   const isCardActive = useSelector(
     (state: RootStateOrAny) => state.isCardActive
   );
-  const global = useSelector((state:RootStateOrAny)=>state.issues)
+  const global = useSelector((state: RootStateOrAny) => state.issues);
   const user = useSelector((state: RootStateOrAny) => state.isUserAuth);
   const dispatch = useDispatch();
   const { toggleActiveCard, fetchIssues } = bindActionCreators(
@@ -51,9 +50,9 @@ const Card: React.FC = () => {
     }
   };
 
-  const disableInput = ()=>{
-     return (global === "global");
-  }
+  const disableInput = () => {
+    return global === "global";
+  };
 
   return (
     <ModalBox active={isCardActive}>
@@ -82,30 +81,33 @@ const Card: React.FC = () => {
           name="selection"
           onChange={(e) => setNewSelection(e.currentTarget.value)}
         >
-          <option value="Active" disabled={disableInput()} >Active</option>
-          <option value="Closed" disabled={disableInput()}>Closed</option>
-        </select >
-          {
-            (global==='user') && (
-        <div>
-
-          <ModalLink
-            onClick={(e) => updateIssue(e)}
-            colorB={"#ccc"}
-            fontColor={"#000"}
-            type="submit"
-          >
-            Update
-          </ModalLink>
-          <ModalLink
-            onClick={(e) => removeIssue(e)}
-            colorB={"#d40c0c"}
-            fontColor={"#fff"}
-            hover={"#000"}
-          >
-            Remove Issue
-          </ModalLink>
-        </div> )}
+          <option value="Active" disabled={disableInput()}>
+            Active
+          </option>
+          <option value="Closed" disabled={disableInput()}>
+            Closed
+          </option>
+        </select>
+        {global === "user" && (
+          <div>
+            <ModalLink
+              onClick={(e) => updateIssue(e)}
+              colorB={"#ccc"}
+              fontColor={"#000"}
+              type="submit"
+            >
+              Update
+            </ModalLink>
+            <ModalLink
+              onClick={(e) => removeIssue(e)}
+              colorB={"#d40c0c"}
+              fontColor={"#fff"}
+              hover={"#000"}
+            >
+              Remove Issue
+            </ModalLink>
+          </div>
+        )}
       </form>
     </ModalBox>
   );

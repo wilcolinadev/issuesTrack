@@ -1,15 +1,7 @@
 import React from "react";
-import {
-  Box,
-  LiName,
-  LiStatus,
-  LiDescription,
-  LiPhone,
-  LiEmail,
-} from "./RecordsStyles";
-import { useDispatch, useSelector } from "react-redux";
+import { Box, LiDescription, LiName, LiPhone, LiStatus } from "./RecordsStyles";
+import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
-import { RootStateOrAny } from "react-redux";
 import * as ActionCreators from "../../../../state/actions/actionCreators";
 
 interface issuesProps {

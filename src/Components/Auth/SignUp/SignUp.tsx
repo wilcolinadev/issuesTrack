@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../../../Firebase/firebase";
 import useLocalStorage from "../../../hooks/useLocalStorage";
@@ -7,22 +7,22 @@ import Modal from "../../Modal/Modal";
 import { Backdrop } from "../../Backdrop/Backdrop";
 import { inputValidation, passwordVerification } from "../validation";
 import {
+  AuthButton,
   AuthCard,
   AuthDescription,
   AuthWrapper,
-  WelcomeMessage,
-  FNameInput,
   EmailInput,
-  LNameInput,
-  PasswordInput,
-  Form,
-  MessageWrapper,
-  GridCentered,
-  NameWrapper,
+  FNameInput,
   FooterLink,
-  AuthButton,
+  Form,
+  GridCentered,
   LinkDescription,
   LinkWrapper,
+  LNameInput,
+  MessageWrapper,
+  NameWrapper,
+  PasswordInput,
+  WelcomeMessage,
 } from "../AuthStyles";
 
 import { Link } from "react-router-dom";

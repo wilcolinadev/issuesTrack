@@ -1,5 +1,5 @@
 import React from "react";
-import { ModalBox, ModalProps, ModalText, ModalLink } from "./ModalStyles";
+import { ModalBox, ModalLink, ModalProps, ModalText } from "./ModalStyles";
 import { Link } from "react-router-dom";
 
 const Modal: React.FC<ModalProps> = ({ active, message }) => (

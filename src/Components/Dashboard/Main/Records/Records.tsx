@@ -1,10 +1,11 @@
-import React, { useEffect, useState, useMemo } from "react";
-import { RootStateOrAny, useSelector, useDispatch } from "react-redux";
+import React, { useEffect, useMemo, useState } from "react";
+import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
 import Record from "./Record";
-import { getDatabase, ref, get } from "firebase/database";
+import { get, getDatabase, ref } from "firebase/database";
 import { bindActionCreators } from "redux";
 import * as ActionCreators from "../../../../state/actions/actionCreators";
 import useGlobalIssues from "../../../../hooks/useGlobalIssues";
+
 const Records: React.FC = () => {
   const dispatch = useDispatch();
   const globalI = useGlobalIssues();
@@ -15,9 +16,7 @@ const Records: React.FC = () => {
   const activeIssues = useSelector(
     (state: RootStateOrAny) => state.activeIssues
   );
-  const global = useSelector(
-      (state:RootStateOrAny) => state.issues
-  )
+  const global = useSelector((state: RootStateOrAny) => state.issues);
   const [remoteIssues, setRemoteIssues] = useState<object[] | never[]>([]);
   const [globalIssues] = useState<object[] | never[]>(globalI);
   const activeUser = useSelector((state: RootStateOrAny) => state.isUserAuth);
@@ -33,40 +32,41 @@ const Records: React.FC = () => {
     setRemoteIssues(newArray);
   };
 
+  const countRecords = (issues, globalIssues) => {
+    let closedIssuesUser = 0;
+    let activeIssuesUser = 0;
+    let closedIssuesGlobal = 0;
+    let activeIssuesGlobal = 0;
 
-
-  const countRecords = (issues,globalIssues) => {
-
-      let closedIssuesUser = 0;
-      let activeIssuesUser = 0;
-      let closedIssuesGlobal = 0;
-      let activeIssuesGlobal = 0;
-
-      issues.forEach((issue) => {
+    issues.forEach((issue) => {
       if (!issue.active) {
         activeIssuesUser++;
       } else {
-          closedIssuesUser++;
+        closedIssuesUser++;
       }
     });
 
-      globalIssues.forEach((issue) => {
-          if (!issue.active) {
-              activeIssuesGlobal++;
-          } else {
-              closedIssuesGlobal++;
-          }
-      });
+    globalIssues.forEach((issue) => {
+      if (!issue.active) {
+        activeIssuesGlobal++;
+      } else {
+        closedIssuesGlobal++;
+      }
+    });
 
-    updateGraphValues({ activeIssuesUser, closedIssuesUser, activeIssuesGlobal, closedIssuesGlobal });
+    updateGraphValues({
+      activeIssuesUser,
+      closedIssuesUser,
+      activeIssuesGlobal,
+      closedIssuesGlobal,
+    });
   };
 
- let combineArray = [...remoteIssues, ...activeIssues];
+  let combineArray = [...remoteIssues, ...activeIssues];
 
-  if (global === 'global'){
-     combineArray = [...globalIssues, ...activeIssues];
+  if (global === "global") {
+    combineArray = [...globalIssues, ...activeIssues];
   }
-
 
   //Sorting Array by name
   combineArray.sort((a, b) => a.name.localeCompare(b.name));
@@ -100,7 +100,7 @@ const Records: React.FC = () => {
 
   useEffect(() => {
     countRecords(remoteIssues, globalIssues);
-  }, [remoteIssues,globalIssues]);
+  }, [remoteIssues, globalIssues]);
 
   const returnValues = () => {
     if (filteredIssues.length > 0) {

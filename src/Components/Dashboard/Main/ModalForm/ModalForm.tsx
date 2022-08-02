@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import { ModalText, ModalLink } from "../../../Modal/ModalStyles";
+import { ModalLink, ModalText } from "../../../Modal/ModalStyles";
 import { IssueForm, ModalBox } from "./ModalFormStyles";
-import { useSelector, useDispatch } from "react-redux";
-import { RootStateOrAny } from "react-redux";
-import { getDatabase, set, ref } from "firebase/database";
+import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
+import { getDatabase, ref, set } from "firebase/database";
 import {
-  validateName,
   validateEmail,
+  validateName,
   validatePhone,
 } from "../../../Auth/validation";
 import * as ActionCreators from "../../../../state/actions/actionCreators";

@@ -23,7 +23,6 @@ export const Box = styled.div`
       grid-template-columns: repeat(5, 1fr);
     }
   }
- 
 `;
 
 export const LiName = styled.li`

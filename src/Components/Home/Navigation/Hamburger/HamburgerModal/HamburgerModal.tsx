@@ -1,9 +1,15 @@
 import React from "react";
-import { Image, ModalDiv, ModalWrapper } from "./HModalStyles";
+import {
+
+  LoginIcon,
+  ModalDiv,
+  ModalLink,
+  ModalWrapper,
+  SignUpIcon,
+} from "./HModalStyles";
 import { BurgerController } from "../HamburgerStyles";
 import { Link } from "react-router-dom";
-import { ModalLink, LoginIcon, SignUpIcon } from "./HModalStyles";
-import logo from "../../../../../assets/ITlogo.png";
+
 
 const HamburgerModal: React.FC<BurgerController> = ({ open }) => {
   return (
@@ -28,9 +34,7 @@ const HamburgerModal: React.FC<BurgerController> = ({ open }) => {
         </ModalDiv>
       </ModalDiv>
 
-      <ModalLink>
-        <Image src={logo} alt={"Issues Track Logo"} />
-      </ModalLink>
+
     </ModalWrapper>
   );
 };

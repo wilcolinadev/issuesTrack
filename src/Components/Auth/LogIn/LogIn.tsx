@@ -4,19 +4,19 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import Spinner from "../../Spinner/Spinner";
 import useLocalStorage from "../../../hooks/useLocalStorage";
 import {
+  AuthButton,
   AuthCard,
   AuthDescription,
   AuthWrapper,
-  WelcomeMessage,
   EmailInput,
-  PasswordInput,
-  Form,
-  MessageWrapper,
-  GridCentered,
   FooterLink,
-  AuthButton,
+  Form,
+  GridCentered,
   LinkDescription,
   LinkWrapper,
+  MessageWrapper,
+  PasswordInput,
+  WelcomeMessage,
 } from "../AuthStyles";
 import { Link } from "react-router-dom";
 import Modal from "../../Modal/Modal";

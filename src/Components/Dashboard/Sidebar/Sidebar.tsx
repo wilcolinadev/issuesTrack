@@ -1,14 +1,13 @@
 import React from "react";
-import { Box, FooterBox, MainBox, Button, Label } from "./SidebarStyles";
+import { Box, Button, FooterBox, Label, MainBox } from "./SidebarStyles";
 import useWindowDimensions from "../../../hooks/useWindowDimensions";
 import {
   IoLogOutOutline,
-  IoPersonOutline,
   IoPeopleOutline,
+  IoPersonOutline,
 } from "react-icons/io5";
-import { useSelector, useDispatch } from "react-redux";
+import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
 import * as ActionCreators from "../../../state/actions/actionCreators";
-import { RootStateOrAny } from "react-redux";
 import { bindActionCreators } from "redux";
 
 interface SidebarProps {
@@ -17,34 +16,30 @@ interface SidebarProps {
 }
 
 const Sidebar: React.FC<SidebarProps> = (props: SidebarProps) => {
-
   const dimensions = useWindowDimensions();
-  console.log(dimensions);
+
   const isSidebarOpen = useSelector(
     (state: RootStateOrAny) => state.isSidebarOpen
   );
   const activeGroup = useSelector((state: RootStateOrAny) => state.issues);
   const dispatch = useDispatch();
-  const { showUserIssues, showGlobalIssues, toggleSidebar } = bindActionCreators(
-    ActionCreators,
-    dispatch
-  );
+  const { showUserIssues, showGlobalIssues, toggleSidebar } =
+    bindActionCreators(ActionCreators, dispatch);
 
   const sliceName = (name) => {
     const slicedName = name.split(" ");
     return slicedName[0];
   };
 
-  const updateUI = (state)=>{
-    if (state === 'global'){
+  const updateUI = (state) => {
+    if (state === "global") {
       showGlobalIssues();
-    }else {
+    } else {
       showUserIssues();
     }
-    if(dimensions.width <= 1000){
+    if (dimensions.width <= 1000) {
       toggleSidebar(isSidebarOpen);
     }
-
   };
 
   return (
@@ -52,10 +47,7 @@ const Sidebar: React.FC<SidebarProps> = (props: SidebarProps) => {
       <Box>
         <span>Hi, {sliceName(props.username)}!</span>
         <div>
-          <Button
-            onClick={updateUI}
-            active={activeGroup === "user" && true}
-          >
+          <Button onClick={updateUI} active={activeGroup === "user" && true}>
             <i>
               {" "}
               <IoPersonOutline />{" "}
@@ -66,7 +58,7 @@ const Sidebar: React.FC<SidebarProps> = (props: SidebarProps) => {
 
         <div>
           <Button
-            onClick={()=>updateUI('global')}
+            onClick={() => updateUI("global")}
             active={activeGroup === "global" && true}
           >
             <i>
@@ -74,9 +66,7 @@ const Sidebar: React.FC<SidebarProps> = (props: SidebarProps) => {
               <IoPeopleOutline />{" "}
             </i>
             Global issues
-            <Label>
-              Read only
-            </Label>
+            <Label>Read only</Label>
           </Button>
         </div>
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { FooterContent, FooterBox } from "./FooterStyle";
+import { FooterBox, FooterContent } from "./FooterStyle";
 
 const Footer: React.FC = () => (
   <FooterBox>
