@@ -1,6 +1,5 @@
 import React from "react";
 import { Route, Routes } from "react-router";
-import Home from "./Components/Home/Home";
 import SignUp from "./Components/Auth/SignUp/SignUp";
 import Login from "./Components/Auth/LogIn/LogIn";
 import Dashboard from "./Components/Dashboard/Dashboard";
@@ -11,7 +10,7 @@ function App() {
     <React.Fragment>
       <GlobalStyles />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/dashboard" element={<Dashboard />} />
