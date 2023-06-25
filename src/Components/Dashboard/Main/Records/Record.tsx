@@ -32,10 +32,11 @@ const Record: React.FC<issuesProps> = (props) => {
     return `${phoneCode}-${phoneOne}-${phoneTwo}`;
   };
 
-  const formatName = () => {
-    const namedArray = name.split(" ");
-    return `${namedArray[0]}  ${namedArray[1].slice(0, 1)}`;
-  };
+  // const formatName = () => {
+  //   if (name.split(" ).includes() )
+  //   const namedArray = name.split(" ");
+  //   return `${namedArray[0]}  ${namedArray[1].slice(0, 1)}`;
+  // };
 
   const handleDescription = () => {
     if (description.length > 20) {
@@ -63,7 +64,7 @@ const Record: React.FC<issuesProps> = (props) => {
   return (
     <Box onClick={() => handleCard()}>
       <ul>
-        <LiName> {formatName()}</LiName>
+        <LiName> {name}</LiName>
         <li>#{id} </li>
         <LiPhone>{formatPhone()}</LiPhone>
         <LiDescription>{handleDescription()}</LiDescription>
